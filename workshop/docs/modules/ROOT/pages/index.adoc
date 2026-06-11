@@ -1,0 +1,10 @@
+= CAICU {deliverable} with {productname-long}
+:page-layout: home
+:!sectids:
+
+[id='introduction']
+[.text-center.strong]
+== Introduction
+
+[role="_abstract"]
+Welcome to the CAI Cinematic Universe (CAICU) GenAI tutorial!
