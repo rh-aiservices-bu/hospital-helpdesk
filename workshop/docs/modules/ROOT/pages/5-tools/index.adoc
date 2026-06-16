@@ -1,0 +1,6 @@
+= Tools
+
+[role="_abstract"]
+// Guide to using tools with GenAI models.
+
+Run setup script for a booking tool that gets added to the AI Assets

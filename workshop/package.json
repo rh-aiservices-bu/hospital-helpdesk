@@ -1,6 +1,6 @@
 {
-  "name": "caicu-workshop",
-  "description": "CAI Cinematic Universe - GenAI Tutorial",
+  "name": "hospital-helpdesk-workshop",
+  "description": "Hospital Helpdesk - GenAI Tutorial",
   "homepage": "https://rh-aiservices-bu.github.io/caicu",
   "dependencies": {
     "@antora/cli": "^3.1.4",

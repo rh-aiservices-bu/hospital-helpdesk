@@ -1,0 +1,8 @@
+= Create a Project
+
+[role="_abstract"]
+// Instructions for creating a data science project.
+
+Start by creating an AI Project, we will use this AI Project to create a bunch of assets, such as workbenches, deployed models, etc.
+
+Name the project something good, like `Hospital Helpdesk`

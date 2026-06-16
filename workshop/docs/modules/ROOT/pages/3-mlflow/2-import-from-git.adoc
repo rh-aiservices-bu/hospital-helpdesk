@@ -1,0 +1,6 @@
+= Import from Git
+
+[role="_abstract"]
+// Instructions for importing notebooks from a Git repository.
+
+Import guide from Fraud Detection

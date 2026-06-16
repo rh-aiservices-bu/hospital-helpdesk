@@ -1,0 +1,4 @@
+= AI Pipelines
+
+[role="_abstract"]
+// Introduction to GenAI pipelines.

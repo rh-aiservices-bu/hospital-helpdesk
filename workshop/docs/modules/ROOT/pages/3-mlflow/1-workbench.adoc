@@ -1,0 +1,6 @@
+= Create a Workbench
+
+[role="_abstract"]
+// Instructions for creating a workbench.
+
+Let's create a workbench to 

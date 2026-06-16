@@ -1,0 +1,6 @@
+= RAG Ingestion Pipelines
+
+[role="_abstract"]
+// Guide to building RAG ingestion pipelines.
+
+A pipeline that ingests into the existing vector store (which will be the one that's used by the UI)

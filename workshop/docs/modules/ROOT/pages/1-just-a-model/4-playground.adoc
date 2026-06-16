@@ -1,0 +1,10 @@
+= Playground
+
+[role="_abstract"]
+// Guide to using the playground.
+
+Go to Playground and create a new playground with the model, set max tokens to 1000
+
+Go to the Prompt tab and Load prompt
+
+Try just saying Hi to the model

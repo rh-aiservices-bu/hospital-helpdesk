@@ -1,0 +1,9 @@
+= RAG in the Playground
+
+[role="_abstract"]
+// Guide to using Retrieval-Augmented Generation in the playground.
+
+Download these documents locally and then upload them to RAG:
+
+
+

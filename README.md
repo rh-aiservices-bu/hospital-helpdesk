@@ -1,3 +1,3 @@
-# caicu
+# hospital-helpdesk
 
-CAICU (CAI Cinematic Universe) - A GenAI Tutorial
+Hospital Helpdesk - A GenAI Tutorial

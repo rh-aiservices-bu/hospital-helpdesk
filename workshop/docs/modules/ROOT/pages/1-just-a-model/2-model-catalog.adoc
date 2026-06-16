@@ -1,0 +1,14 @@
+= Deploy from Model Catalog
+
+[role="_abstract"]
+// Instructions for deploying a model from the model catalog.
+
+Go to the Model Catalog, search for `TinyLlama-1.1B-Chat-v1.0` click on it and deploy it with:
+
+- Into the project you just created
+- vLLM CPU (x86) ServingRuntime for KServe
+- AI Assets enabled
+- Env var: VLLM_CPU_KVCACHE_SPACE: 4
+- Custom parameter --max-model-len=2000
+
+View the model in AI Assets

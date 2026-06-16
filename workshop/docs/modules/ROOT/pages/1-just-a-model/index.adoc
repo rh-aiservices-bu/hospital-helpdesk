@@ -1,0 +1,6 @@
+= Just a Model
+
+[role="_abstract"]
+// Introduction to working with a model directly.
+
+We will start with just deploying a single model and using that to ask questions about movies in general

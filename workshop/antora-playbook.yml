@@ -1,9 +1,10 @@
 site:
-  title: CAICU Workshop
-  start_page: caicu-workshop::index.adoc
+  title: Hospital Helpdesk Workshop
+  start_page: hospital-helpdesk-workshop::index.adoc
 content:
   sources:
     - url: ./..
+      branches: HEAD
       start_path: workshop/docs
 asciidoc:
   attributes:

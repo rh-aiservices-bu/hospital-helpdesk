@@ -1,5 +1,5 @@
-name: caicu-workshop
-title: CAICU Workshop
+name: hospital-helpdesk-workshop
+title: Hospital Helpdesk Workshop
 version: master
 nav:
   - modules/ROOT/nav.adoc

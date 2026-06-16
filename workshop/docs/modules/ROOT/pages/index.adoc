@@ -1,4 +1,4 @@
-= CAICU {deliverable} with {productname-long}
+= GenAI {deliverable} with {productname-long}
 :page-layout: home
 :!sectids:
 
@@ -6,5 +6,5 @@
 [.text-center.strong]
 == Introduction
 
-[role="_abstract"]
-Welcome to the CAI Cinematic Universe (CAICU) GenAI tutorial!
+[.text-center.strong]
+=== Welcome to the Hospital Helpdesk GenAI tutorial!
