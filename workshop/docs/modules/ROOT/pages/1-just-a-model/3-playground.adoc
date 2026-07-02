@@ -1,0 +1,18 @@
+= Playground
+
+[role="_abstract"]
+// Guide to using the playground.
+
+Now that you have a model deploy, you probably want to use it and make sure that it works.
+
+In {productname-short} there is a *Playground* which allows you to send messages to the model among other things, great for not only making sure that the model works, but to see how it works and how it responds to different messages.
+
+=== Procedure
+
+Go to Playground and create a new playground with the model, set max tokens to 1000
+
+Try just saying Hi to the model
+
+=== Verification
+
+Your model should have responded something (hopefully polite) back. Try sending a few more messages
