@@ -1,0 +1,64 @@
+= Playground to Code
+
+[role="_abstract"]
+
+Now that the Workbench is set up, we can finally move our Playground functionallity to code. 
+
+=== Prerequisites
+
+- A Workbench is set up, as described in xref:2-move-to-code/1-workbench.adoc[2.1. Create a Workbench].
+- The Playground is set up and tested, as described in xref:1-just-a-model/3-playground.adoc[1.3. Playground]
+
+=== Procedure
+
+. Go to the Playground by navigating to the {productname-short} dashboard and then Gen AI studio -> Playground in the left menu.
+
+. Make sure to select the correct project (Hospital Helpdesk) in the top.
+
+. Click the Prompt tab and then *Load prompt*.
++
+image::2-move-to-code/load-prompt.png[Load prompt button]
+
+. Select *ai-hospital-helpdesk* by clicking on it and then click *Load in Playground*.
++
+image::2-move-to-code/load-prompt-modal.png[Load prompt modal]
+
+. There is a button in the top right called *View code* that we want to press, but we need to enter a message first, so let's use the same as we used before. Send this message in the chat: +
+`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
+
+. We can now click the *View code button*.
++
+image::2-move-to-code/view-code.png[View code]
+
+. Then copy the full code, you can use the copy button in the top left of the modal for that.
++
+image::2-move-to-code/copy-code.png[Copy code]
+
+. Close the modal and go back to your workbench. +
+If you closed the tab then it's through Projects in the left menu, select your project, and click on your Workbench link inside the project page.
+
+. Create a new notebook by right clicking in the file browser and clicking *New Notebook*. If a modal shows up asking you to select kernel, just press *Select*.
++
+image::2-move-to-code/new-notebook.png[Create a new notebook]
+
+. In the top cell, enter the following command and run: +
+`!pip install llama-stack-client`
+
+. Create a second cell and past the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Adjust this variable to be: +
+*`LLAMA_STACK_URL = "http://lsd-genai-playground-service.hospital-helpdesk.svc.cluster.local:8321"`* +
+Then run the cell. +
+*Note:* this code does not handle streaming so the response may take a few minutes.
+
+
+=== Verification
+
+After the cell has finished running you should see an answer similar to that you got in the Playground. +
+From here on, we can start modifying the code and adapt it into any AI application we are building.
+
+Make sure to also save your notebook, press Ctrl+S and give it a good name like `request-model` when prompted in the modal.
+
+image::2-move-to-code/rename-and-save.png[Save the notebook]
+
+=== Next step
+
+With a code environment set up and working connection to our model, we can connect it to MLflow to track the requests we do: xref:3-mlflow/index.adoc[Connect to MLflow]

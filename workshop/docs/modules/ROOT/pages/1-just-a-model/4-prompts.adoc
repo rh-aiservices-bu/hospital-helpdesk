@@ -15,8 +15,7 @@ We will take a look at both here.
 
 === Prerequisites
 
-- You have set up the Playground
-- The model is responding well
+- The Playground is set up and tested, as described in xref:1-just-a-model/3-playground.adoc[1.3. Playground]
 
 === Procedure
 
