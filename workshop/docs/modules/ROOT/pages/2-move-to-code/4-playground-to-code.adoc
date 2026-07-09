@@ -44,10 +44,18 @@ image::2-move-to-code/new-notebook.png[Create a new notebook]
 . In the top cell, enter the following command and run: +
 `!pip install llama-stack-client`
 
-. Create a second cell and past the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Adjust this variable to be: +
-*`LLAMA_STACK_URL = "http://lsd-genai-playground-service.hospital-helpdesk.svc.cluster.local:8321"`* +
-Then run the cell. +
-*Note:* this code does not handle streaming so the response may take a few minutes.
+. Create a second cell and past the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Adjust this variable to be: 
++
+```
+LLAMA_STACK_URL = "http://lsd-genai-playground-service.hospital-helpdesk.svc.cluster.local:8321"
+```
++
+image::2-move-to-code/set-llama-stack-url.png[Notebook Output]
+
+. Now you can run the cell and see what output you get. +
+*Note:* this code does not stream so the response may take a few minutes.
++
+image::2-move-to-code/notebook-output.png[Notebook Output]
 
 
 === Verification
