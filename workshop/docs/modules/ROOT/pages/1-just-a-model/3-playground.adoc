@@ -9,10 +9,22 @@ In {productname-short} there is a *Playground* which allows you to send messages
 
 === Procedure
 
-Go to Playground and create a new playground with the model, set max tokens to 1000
+. Enter the playground through GenAIStudio in {productname-short} and then Playground, make sure to select your project (Hospital Helpdesk)
 
-Try just saying Hi to the model
+. Click *Create Playground*, select our deployed model, and set *Max Tokens* to 1000, and then press Create
++
+image::1-just-a-model/create-playground.png[Create Playground]
+
+. After a couple of minutes, you will have the playground ready to use. 
 
 === Verification
 
-Your model should have responded something (hopefully polite) back. Try sending a few more messages
+Try writing a few things to it (you can start with a simple Hi) and see how the model behaves. If everything is set up correctly you will get a (hopefully polite) answer back.
+
+Do note that we are using a model running on CPU here, so it might not be the fastest at answering.
+
+image::1-just-a-model/playground-response.png[Playground Response]
+
+=== Next step
+
+xref:1-just-a-model/4-prompts.adoc[Modify the models behaviour with prompts]

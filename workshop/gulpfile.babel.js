@@ -26,7 +26,7 @@ function watchGlobs() {
   return dirs;
 }
 
-const siteWatch = () => watch(watchGlobs(), series(build, reload));
+const siteWatch = () => watch(watchGlobs(), { usePolling: true, interval: 1000 }, series(build, reload));
 
 const removeSite = done => remove("build", done);
 const removeCache = done => remove(".cache", done);
