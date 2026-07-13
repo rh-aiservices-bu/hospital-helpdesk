@@ -1,0 +1,48 @@
+= Set up Tracing with MLflow
+
+[role="_abstract"]
+// Guide to sending model requests and tracking them with MLflow.
+
+MLflow tracing allows us to collect inputs and responses to the model, as well as any intermediate steps added (as we will see late). +
+This gives us a history of what the user interactions have been, and how the model responded to them, giving us valuable data for better test and improve our prompts, to make the model behave as closely to what we want as possible. +
+In this section, we will send some requests to the model with MLflow tracing enabled, and see how they are collected.
+
+=== Prerequisites
+
+- A model has been deployed as described in xref:1-just-a-model/2-model-catalog.adoc[1.2. Deploy from Model Catalog]
+- A workbench has been set up as described in xref:2-move-to-code/1-workbench.adoc[2.1. Create a workbench]
+
+=== Procedure
+
+. Go back to the workbench (through your AI Project if you have closed it) and open up the notebook called `1_mlfow_request.ipynb`. This notebook will guide you through how to set up a connection with MLflow and enable tracing so that the requests in that notebook also get collected to MLflow. After you are done, come back here and we will look at the MLflow UI.
++
+*Note:* You need to enable tracing in all applications you want to see a trace, in this case we do it from within our Python code.
+
+. After the notebook has finished running, go back to the OpenShift AI dashboard and go to *Develop & train* in the left menu and then *Experiments (MLflow)*
+
+. Make sure you are in the right project, and you should see an experiment called *hospital-helpdesk*, click on that
++
+image::3-observability-tracing/click-experiment.png[Click on the experiment]
+
+. You will now see an overview of your MLflow tracked requests inside of this experiment. Feel free to browse it. We are more interrested in the specific traces though, so let's navigate to the *Traces* section in the left menu.
++
+image::3-observability-tracing/experiment-overview.png[Experiment Overview]
+
+. Here is a list of your traces from the requests you just made in the notebook. You should have 5 in total. Click on the top one to get more details.
++
+image::3-observability-tracing/traces.png[Traces]
+
+. Inside of a trace you get a variety of information, such as the system prompt, the input, the output, and any metadata. +
+You also have a *Details & Timeline* tab at the top to get a detailed view of how long each step of the trace took, which is very useful when we have more complicated flows like with Agents. +
++
+image::3-observability-tracing/trace-info.png[Trace info]
+
+. If you click on *Show Assessment* you can also add *Feedback* and *Expectations* to the trace. +
+You can then add this trace to a dataset by clicking *Add to dataset* and use the dataset to evaluate other models or system prompts to see if it behaves according to your *Expectations*. +
+This makes for an easy way to dynamically build up an eval dataset from your traces.
++
+image::3-observability-tracing/show-assessment.png[Show Assessment]
+
+=== Next step
+
+Now that we have a way to get more details about our requests, let's start implementing some more advanced workflows, starting with xref:4-rag/index.adoc[4. RAG]

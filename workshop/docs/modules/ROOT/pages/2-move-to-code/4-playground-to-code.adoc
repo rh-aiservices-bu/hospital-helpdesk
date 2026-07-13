@@ -69,4 +69,4 @@ image::2-move-to-code/rename-and-save.png[Save the notebook]
 
 === Next step
 
-With a code environment set up and working connection to our model, we can connect it to MLflow to track the requests we do: xref:3-mlflow/index.adoc[Connect to MLflow]
+With a code environment set up and working connection to our model, we can look at how the system behaves using xref:3-observability-tracing/index.adoc[Observability & Tracing]
