@@ -3,6 +3,46 @@
 [role="_abstract"]
 // Guide to using Retrieval-Augmented Generation in the playground.
 
-Download these documents locally and then upload them to RAG:
+RAG (Retrieval Augmented Generation) is the technique of slicing large documents into small parts, and then giving the LLM some of those small slices together with the normal prompt so it can use the information from those slices when it gives an answer. +
+Which small slices are use is chosen semantically, typically the texts that are semantically closest to our question to the LLM. +
+This will let us use the LLM to answer specific questions like: +
+`An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
+
+Before we move into building our own RAG behaviour, we can try out RAG with our model inside of the Playground. +
+This makes it easy to upload documents and see what kind of replies we get with our system prompt.
+
+=== Prerequisites
+
+- The playground has been created according to xref:1-just-a-model/3-playground.adoc[1.3 Using the Playground] 
+
+=== Procedure
+
+. Download the following file, it contains a bunch of information about our hospitals: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/raw/refs/heads/main/pavilion_regulations.md[pavilion_regulations.md]
+
+. Navigate to the Playground by going through GenAIStudio -> Playground, and make sure you select your project (Hospital Helpdesk).
+
+. Click on the **Knowledge** tab and turn it on by pressing the RAG toggle.
++
+image::4-rag/enable-rag.png[Enable RAG]
+
+. Press **Upload** under Add files and select the pavilion_regulations.pdf you just downloaded.
+
+. Keep default values as is and press Upload.
++
+image::4-rag/upload-settings.png[Upload Settings]
+
+== Verification
+
+. You will likely see it go to 50% and then you have to wait for a while. If it's taking too long then refresh the page and see that the file is listed. Don't forget to turn on the RAG toggle again if you do this.
++
+image::4-rag/pdf.uploaded.png[PDF Uploaded]
+
+. Now ask this question in the playground chat: +
+`An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
+
+. 
 
 
+Since the Playground is not yet connected to MLflow, we won't see traces from here, but in the next section where we implement this in code we will be able to see it.
+
+=== Next step

@@ -1,0 +1,6 @@
+= Tie it all togehter
+
+[role="_abstract"]
+// Introduction to an AI application
+
+Introduce mattermost and point to the quickstart
