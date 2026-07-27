@@ -55,8 +55,8 @@ image::2-move-to-code/jupyter-file-browser-2.png[Jupyter file browser - fraud-de
 
 === Next step
 
-xref:2-move-to-code/3-notebooks.adoc[Basic notebook introduction]
+xref:2-move-to-code/4-notebooks.adoc[Basic notebook introduction]
 
 or
 
-xref:2-move-to-code/4-playground-to-code.adoc[Moving from the Playground into code]
+xref:2-move-to-code/5-run-playground-code.adoc[Moving from the Playground into code]

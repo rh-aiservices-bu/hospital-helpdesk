@@ -6,4 +6,4 @@
 GenAI models are undeterministic systems, making any insight into how they behave in different scenarios all the more valuable. +
 To that end, we will here look into Observability & Tracing, using RHOAI out-of-the-box model dashboards and MLflow tracing to see how the model behaves.
 
-Start with looking at RHOAI model dashboards: 
+Start with looking at RHOAI model dashboards: xref:3-observability-tracing/1-model-observability.adoc[3.1 Model Observability]

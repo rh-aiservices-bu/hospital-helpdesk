@@ -61,4 +61,4 @@ You can use different kernels, with different languages or versions, to run in y
 
 === Next step
 
-xref:2-move-to-code/4-playground-to-code.adoc[Playground to Code]
+xref:2-move-to-code/5-run-playground-code.adoc[Playground to Code]

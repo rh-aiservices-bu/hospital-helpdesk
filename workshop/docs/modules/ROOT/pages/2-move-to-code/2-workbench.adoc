@@ -43,4 +43,4 @@ image::2-move-to-code/ds-project-workbench-list-edit.png[Workbench list edit, 35
 
 === Next step
 
-xref:2-move-to-code/2-jupyter.adoc[Importing the {deliverable} files into the JupyterLab environment]
+xref:2-move-to-code/3-jupyter.adoc[Importing the {deliverable} files into the JupyterLab environment]

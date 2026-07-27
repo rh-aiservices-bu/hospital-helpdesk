@@ -1,4 +1,4 @@
-= Playground to Code
+= Run the Playground Code
 
 [role="_abstract"]
 
@@ -6,10 +6,14 @@ Now that the Workbench is set up, we can finally move our Playground functionall
 
 === Prerequisites
 
-- A Workbench is set up, as described in xref:2-move-to-code/1-workbench.adoc[2.1. Create a Workbench].
-- The Playground is set up and tested, as described in xref:1-just-a-model/3-playground.adoc[1.3. Playground]
+- The Playground code has been exported as described in xref:2-move-to-code/1-playground-to-code.adoc[2.1. Playground to Code].
+- A Workbench is set up, as described in xref:2-move-to-code/2-workbench.adoc[2.2. Create a Workbench].
 
 === Procedure
+
+==== **Get the code from the playground**
+
+If you lost the code from xref:2-move-to-code/1-playground-to-code.adoc[2.1. Playground to Code] then you can take these steps to get it back, otherwise skip to the next section [INSERT LINK HERE].
 
 . Go to the Playground by navigating to the {productname-short} dashboard and then Gen AI studio -> Playground in the left menu.
 
@@ -30,11 +34,13 @@ image::2-move-to-code/load-prompt-modal.png[Load prompt modal]
 +
 image::2-move-to-code/view-code.png[View code]
 
-. Then copy the full code, you can use the copy button in the top left of the modal for that.
+. Then copy the full code, you can use the copy button in the top left of the modal.
 +
 image::2-move-to-code/copy-code.png[Copy code]
 
-. Close the modal and go back to your workbench. +
+==== **Use the code in a workbench**
+
+. Go to your workbench. +
 If you closed the tab then it's through Projects in the left menu, select your project, and click on your Workbench link inside the project page.
 
 . Create a new notebook by right clicking in the file browser and clicking *New Notebook*. If a modal shows up asking you to select kernel, just press *Select*.

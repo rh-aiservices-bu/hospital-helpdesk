@@ -10,7 +10,7 @@ In this section, we will send some requests to the model with MLflow tracing ena
 === Prerequisites
 
 - A model has been deployed as described in xref:1-just-a-model/2-model-catalog.adoc[1.2. Deploy from Model Catalog]
-- A workbench has been set up as described in xref:2-move-to-code/1-workbench.adoc[2.1. Create a workbench]
+- A workbench has been set up as described in xref:2-move-to-code/2-workbench.adoc[2.2. Create a workbench]
 
 === Procedure
 
