@@ -18,6 +18,8 @@ In this section, we will send some requests to the model with MLflow tracing ena
 +
 *Note:* You need to enable tracing in all applications you want to see a trace, in this case we do it from within our Python code.
 
+=== Verification
+
 . After the notebook has finished running, go back to the OpenShift AI dashboard and go to *Develop & train* in the left menu and then *Experiments (MLflow)*
 
 . Make sure you are in the right project, and you should see an experiment called *hospital-helpdesk*, click on that
