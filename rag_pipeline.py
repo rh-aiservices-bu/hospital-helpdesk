@@ -44,7 +44,7 @@ VECTOR_STORE_NAME = ""
 # PIPELINE COMPONENTS
 # ─────────────────────────────────────────────────────────────────
 
-@dsl.component(packages_to_install=["llama-stack-client>=0.2", "fire"])
+@dsl.component(base_image="python:3.12", packages_to_install=["llama-stack-client>=0.7", "fire", "requests"])
 def create_vector_store(
     llama_stack_url: str,
     vector_store_name: str,
@@ -57,14 +57,13 @@ def create_vector_store(
 
     if use_existing:
         stores = client.vector_stores.list()
-        if not stores.data:
-            raise ValueError(
-                "No existing vector stores found. "
-                "Set VECTOR_STORE_NAME to a name to create one."
-            )
-        existing = stores.data[0]
-        print(f"Reusing existing vector store '{existing.name}' with ID: {existing.id}")
-        return existing.id
+        if stores.data:
+            existing = stores.data[0]
+            print(f"Reusing existing vector store '{existing.name}' with ID: {existing.id}")
+            return existing.id
+        # No existing stores — fall through and create one with a default name
+        vector_store_name = "hospital-helpdesk"
+        print(f"No existing vector stores found. Creating '{vector_store_name}'...")
 
     vector_store = client.vector_stores.create(
         name=vector_store_name,
@@ -74,7 +73,7 @@ def create_vector_store(
     return vector_store.id
 
 
-@dsl.component(packages_to_install=["llama-stack-client>=0.2", "boto3>=1.26"])
+@dsl.component(base_image="python:3.12", packages_to_install=["llama-stack-client>=0.7", "fire", "requests", "boto3>=1.26"])
 def upload_and_index_documents(
     llama_stack_url: str,
     vector_store_id: str,
@@ -107,8 +106,12 @@ def upload_and_index_documents(
     for obj in objects:
         s3_key = obj["Key"]
         file_name = os.path.basename(s3_key)
-        suffix = os.path.splitext(file_name)[1]
+        suffix = os.path.splitext(file_name)[1].lower()
         content_type = mimetypes.guess_type(file_name)[0] or "application/octet-stream"
+
+        if suffix != ".pdf":
+            print(f"Skipping '{file_name}' — only PDF files are indexed.")
+            continue
 
         # Download from S3
         with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
@@ -164,7 +167,8 @@ def rag_ingestion_pipeline(
         vector_store_name=vector_store_name,
         use_existing=use_existing,
     )
-    upload_and_index_documents(
+    create_vs_task.set_caching_options(False)
+    upload_task = upload_and_index_documents(
         llama_stack_url=llama_stack_url,
         vector_store_id=create_vs_task.output,
         s3_endpoint=s3_endpoint,
@@ -172,6 +176,7 @@ def rag_ingestion_pipeline(
         s3_access_key=s3_access_key,
         s3_secret_key=s3_secret_key,
     )
+    upload_task.set_caching_options(False)
 
 
 # ─────────────────────────────────────────────────────────────────

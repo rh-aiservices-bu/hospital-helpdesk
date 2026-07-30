@@ -12,15 +12,24 @@ Just like before, we can use the Playground View Code button to get a headstart,
 
 === Procedure
 
-. Start by navigating to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk)
+. Start by navigating to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk).
 
 . Inside the workbench, open up the notebook `2_rag.ipynb` and run through the content, after you are done come back here.
 
 === Verification
 
-. In the end of the notebook you should have seen how we get answers based on the documents we uploaded before. However, we can also check the traces in MLflow to see the full retrieval process.
+. In the end of the notebook you should get answer that look something like this:
++
+image::5-rag/code-rag-answers.png[Code RAG Answers]
 
-. 
+. However, we now also have MLflow traces you can inspect. Navigate to MLflow, through {productname-short} -> Develop & Train -> Experiments (MLflow), and look at the latest trace. You can now see that the model is doing tool calls to get the information we uploaded before.
++
+image::5-rag/mlflow-rag-trace.png[MLflow RAG Trace]
+
+. You can now also make use of the timeline to see how long each tool request took.
++
+image::5-rag/rag-trace-span.png[RAG Trace Span]
 
 === Next step
 
+Now that you have built a RAG application, let's look at some more generic tools and how to use them in an agentic workflow in xref:6-tools/index.adoc[6. Tools]

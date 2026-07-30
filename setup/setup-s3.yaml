@@ -433,7 +433,7 @@ spec:
                                 aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"))
 
               files = {
-                "pavilion_regulations.pdf": "https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/pavilion_regulations.pdf",
+                "it_facilities_guide.pdf": "https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/it_facilities_guide.pdf",
               }
 
               for key, url in files.items():

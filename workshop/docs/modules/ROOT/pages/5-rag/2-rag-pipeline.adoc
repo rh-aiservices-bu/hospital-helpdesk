@@ -20,16 +20,31 @@ We will start here with the injestion part, which we will shape in the form of a
 
 . Inside the workbench you should see a file called `rag_pipeline.py`, this the a pipeline code built with kubeflow pipeline's python SDK. +
 Open it to take a look at how the pipeline is set up. +
-This pipeline contains the step needed to chunk and injest some new documents into our RAG database, specifically these documents: 
+This pipeline contains the step needed to chunk and injest a new document into our RAG database, specifically this document: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank]
 
-. After you have looked through it, run the code to compile and run the pipeline by pressing the little play button in the top menu
+. After you have looked through it, run the code to compile and execute the pipeline by pressing the little play button in the top menu.
 + 
 image::5-rag/run-pipeline.png[Run Pipeline]
 
 === Verification
 
-. Now that the pipeline is running
+. If everything went well you should have seen this output:
++
+image::5-rag/console-output.png[Console Output]
+
+. You can now go and look at the pipeline to see how it runs. +
+Nagivate to the {productname-short} dashboard and then select *Develop & train* -> *Pipelines* -> *Runs* in the left menu. Then click at the run that appears
++
+image::5-rag/pipeline-run.png[Pipeline Run]
+
+. You can now track how the pipeline runs, after some minutes both steps should turn green. You can also click on the steps to get more information.
++
+image::5-rag/running-pipeline.png[Running Pipeline]
+
+. If you didn't specify the vector store name (VECTOR_STORE_NAME) inside the pipeline before you ran it, and if you completed xref:5-rag/3-rag-in-code.adoc[5.2. RAG in the Playground] you should also see your new file appear in the playground and you can ask questions about it, for example `I forgot my password and am locked out of my account. How do I reset it?`
++
+image::5-rag/file-in-playground.png[File in Playground]
 
 === Next step
 
-Now that we have the data injested, let's create RAG programatically and add in tracing in xref:5-rag/3-rag-in-code.adoc[RAG in Code]
+Now that we have the data injested, let's create RAG programatically and add in tracing in xref:5-rag/3-rag-in-code.adoc[RAG in Code].
