@@ -1,0 +1,9 @@
+= Move to Code
+
+[role="_abstract"]
+// Introduction to moving from the playground into code.
+So far we have been using the UI Playground to interact with our model, and as good as that is for testing, that won't get us any AI applications if we just stay in the playground. +
+So what we will do is move what we currently have into code, specifically a Notebook, to see how we can interact with it from there. +
+Luckily for us, the Playground has easy instructions for how to move our current setup into code.
+
+Start by extracting the code from the Playground in xref:3-move-to-code/1-playground-to-code.adoc[3.1. Playground to Code]

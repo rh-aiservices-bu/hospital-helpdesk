@@ -1,0 +1,20 @@
+:_module-type: PROCEDURE
+
+[id='storing-data-with-connections']
+= Data Connections
+
+[role="_abstract"]
+A Data Connection is a resource that has the configuration parameters needed to connect to a data source or data sink, such as an AWS S3 object storage bucket. You can connect them to workbenches or pipelines to easier access the data source.
+
+For this {deliverable}, you run a provided script that creates the following local S4 storage bucket for you:
+
+* *Pipelines Artifacts* - Use this bucket as storage for your pipeline artifacts. When you create a pipeline server, you need a pipeline artifacts bucket. For this {deliverable}, create this bucket to separate it from the first storage bucket for clarity.
+
+NOTE: Although you can use one storage bucket for both storing models, data and for storing pipeline artifacts, in this {deliverable} we only need to store artifacts. +
+Take a look at the link:https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html[Fraud Detection^] {deliverable} for an example where connections are also used to store models.
+
+The provided script also creates a connection to the storage bucket.
+
+To run the script that installs local S4 storage bucket and creates a connection to it, follow the steps in xref:1-setup/3-scripted-storage.adoc[Running a script to install local object storage buckets and create connections].
+
+NOTE: If you want to use your own S3-compatible object storage bucket (instead of using the provided script), follow the steps in xref:1-setup/4-manual-storage.adoc[Creating connections to your own S3-compatible object storage].

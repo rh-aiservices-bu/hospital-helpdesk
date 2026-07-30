@@ -1,0 +1,12 @@
+[id='ai-pipelines']
+= (Optional) AI Pipelines
+
+[role="_abstract"]
+This section is optional. If you do not intend to use Kubeflow Pipelines, you can skip ahead to xref:2-just-a-model/index.adoc[2. Just a Model].
+
+AI Pipelines let you schedule and automate the execution of notebooks and Python code without having to manually run them in a workbench. In this {deliverable}, you will use a pipeline to ingest documents into a vector store for RAG.
+
+To set up pipelines you need to:
+
+. Set up a *Data Connection* that gives the pipeline server an S3 bucket to store its artifacts — see xref:1-setup/2-data-connections.adoc[1.2.1. Data Connections].
+. Configure the *Pipeline Server* itself — see xref:1-setup/5-enable-pipelines.adoc[1.2.2. Enable Pipelines].

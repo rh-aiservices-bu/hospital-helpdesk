@@ -1,0 +1,70 @@
+:_module-type: PROCEDURE
+
+[id='creating-connections-to-storage']
+= (Optional) Creating connections to your own S3-compatible object storage
+
+NOTE: Skip this procedure if you completed the steps in xref:1-setup/3-scripted-storage.adoc[Running a script to install local object storage buckets and create connections].
+
+If you have existing S3-compatible storage buckets that you want to use for this {deliverable}, you must create a connection to one storage bucket for saving your data and models. If you want to complete the pipelines section of this {deliverable}, create another connection to a different storage bucket for saving pipeline artifacts.
+
+When you create a connection to storage in a production-ready project, follow these security guidelines:
+
+* Store credentials in secrets rather than plaintext.
+* Use least-privilege access policies for S3 buckets.
+* Rotate access keys periodically.
+
+.Prerequisites
+
+To create connections to your existing S3-compatible storage buckets, you need the following credential information for the storage buckets:
+
+* Endpoint URL
+* Access key
+* Secret key
+* Region
+* Bucket name
+
+If you do not have this information, contact your storage administrator.
+
+.Procedure
+
+. Create a connection for saving your data and models:
+
+.. In the {productname-short} dashboard, navigate to the page for your project.
+
+. Create a connection for saving pipeline artifacts:
+
+.. Click *Add connection*.
+
+.. Complete the form and name your connection *Pipeline Artifacts*.
++
+image::1-setup/ds-project-pipeline-artifacts-form.png[Add pipeline artifacts form, 500]
+
+.. Click *Create*.
+
+
+.Verification
+
+In the *Connections* tab for the project, check to see that your connections are listed.
+
+image::1-setup/ds-project-connections.png[List of project connections, 500]
+
+
+[IMPORTANT]
+====
+If your cluster uses self-signed certificates, your {productname-short} administrator might need to provide a certificate authority (CA) to securely connect to the S3 object storage, as described in link:https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/latest/html/installing_and_uninstalling_openshift_ai_self-managed/working-with-certificates_certs#accessing-s3-compatible-object-storage-with-self-signed-certificates_certs[Accessing S3-compatible object storage with self-signed certificates^] (Self-Managed).
+====
+// or link:https://docs.redhat.com/en/documentation/red_hat_openshift_ai_cloud_service/1/html/installing_and_uninstalling_openshift_ai_cloud_service/working-with-certificates_certs#accessing-s3-compatible-object-storage-with-self-signed-certificates_certs[Accessing S3-compatible object storage with self-signed certificates^] (Cloud Service).
+
+.Next steps
+
+* Decide whether you want to complete the pipelines section of this {deliverable}. With OpenShift AI pipelines, you can automate the execution of your notebooks and Python code. You can run long training jobs or retrain your models on a schedule without having to manually run them in a notebook.
++
+If you want to complete the pipelines section of this {deliverable}, go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
+
+* Decide whether you want to complete the _Distributing training jobs with the Training Operator_ section of this {deliverable}. In that section, you implement a distributed training job by using Kueue for managing job resources.
+//+
+//NOTE: The _Distributing training jobs with the Training Operator_ section of this {deliverable} is not supported if you are using the {org-name} Developer Sandbox.
++
+
+
+* Otherwise, skip to xref:3-move-to-code/2-workbench.adoc[Creating a workbench].

@@ -1,0 +1,141 @@
+:_module-type: PROCEDURE
+
+[id='running-a-script-to-install-storage']
+= Running a script to install local object storage buckets and create connections
+
+[role="_abstract"]
+If you do not have your own S3-compatible storage or if you want to use a disposable local "Super Simple Storage Service" (S4) instance instead, run a script (provided in the following procedure) that automatically completes these tasks:
+
+* Creates an S4 instance in your project.
+* Creates two storage buckets in that S4 instance.
+* Generates a random user id and password for your S4 instance.
+* Creates two connections in your project, one for each bucket and both using the same credentials.
+* Installs required network policies for service mesh functionality.
+
+IMPORTANT: The S4-based Object Storage that the script creates is *not* meant for production usage.
+
+NOTE: If you want to connect to your own storage, see xref:1-setup/4-manual-storage.adoc[Creating connections to your own S3-compatible object storage].
+
+.Prerequisites
+
+* You must know the OpenShift resource name for your project so that you run the provided script in the correct project. To get the project's resource name:
++
+In the {productname-short} dashboard, select *Projects* and then click the *?* icon next to the project name. A text box opens with information about the project, including its resource name:
++
+image::1-setup/ds-project-list-resource-hover.png[Project list resource name, 400]
+
+
+[NOTE]
+====
+The following procedure describes how to run the script from the OpenShift console. If you are knowledgeable in OpenShift and can access the cluster from the command line, instead of following the steps in this procedure, you can use the following command to run the script:
+
+----
+oc apply -n <your-project-name> -f https://github.com/rh-aiservices-bu/fraud-detection/raw/main/setup/setup-s3-job.yaml
+----
+====
+
+.Procedure
+
+. In the {productname-short} dashboard, click the application launcher icon and then select the *OpenShift Console* option.
++
+image::1-setup/ds-project-ocp-link.png[OpenShift Console Link, 600]
+
+. In the OpenShift console, click *+* in the top navigation bar, and then click *Import YAML*.
++
+image::1-setup/ocp-console-add-icon.png[Add resources Icon]
+
+. Click the down arrow next to the project name, and then select your project from the list of projects. If needed, type the name of your project in the *Select project* search field.
++
+image::1-setup/ocp-console-select-project.png[Select a project, 200]
+
+. Verify that you selected the correct project.
++
+image::1-setup/ocp-console-project-selected.png[Selected project, 200]
+
+. Copy the following code and paste it into the *Import YAML* editor.
++
+NOTE: This code is the contents of the `setup-s3-job.yaml` file. It applies the `setup-s3-no-sa.yaml` file.
++
+[.lines_space]
+[.console-input]
+[source, yaml]
+----
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: demo-setup
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: demo-setup-edit
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+subjects:
+  - kind: ServiceAccount
+    name: demo-setup
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-s3-storage
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+        - args:
+            - -ec
+            - |-
+              echo -n 'Setting up S4 instance and connections'
+              oc apply -f https://github.com/rh-aiservices-bu/fraud-detection/raw/main/setup/setup-s3-no-sa.yaml
+          command:
+            - /bin/bash
+          image: image-registry.openshift-image-registry.svc:5000/openshift/tools:latest
+          imagePullPolicy: IfNotPresent
+          name: create-s3-storage
+      restartPolicy: Never
+      serviceAccount: demo-setup
+      serviceAccountName: demo-setup
+----
+
+. Click *Create*.
+
+.Verification
+
+. In the OpenShift console, there is a "Resources successfully created" message and a list of the following resources:
++
+* `demo-setup`
+* `demo-setup-edit`
+* `create-s3-storage`
+
+.  In the {productname-short} dashboard:
+
+.. Select *Projects* and then click the name of your project, *Fraud detection*.
+.. Click *Connections*. There are two connections listed: `My Storage` and `Pipeline Artifacts`.
++
+image::1-setup/ds-project-connections.png[Connections for Fraud Detection]
+
+
+[IMPORTANT]
+====
+If your cluster uses self-signed certificates, your {productname-short} administrator might need to configure a certificate authority (CA) to securely connect to the S3 object storage, as described in link:https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/latest/html/installing_and_uninstalling_openshift_ai_self-managed/working-with-certificates_certs#accessing-s3-compatible-object-storage-with-self-signed-certificates_certs[Accessing S3-compatible object storage with self-signed certificates^] (Self-Managed).
+====
+// or link:https://docs.redhat.com/en/documentation/red_hat_openshift_ai_cloud_service/1/html/installing_and_uninstalling_openshift_ai_cloud_service/working-with-certificates_certs#accessing-s3-compatible-object-storage-with-self-signed-certificates_certs[Accessing S3-compatible object storage with self-signed certificates^] (Cloud Service).
+
+.Next steps
+
+* Decide whether you want to complete the pipelines section of this {deliverable}. With OpenShift AI pipelines, you can automate the execution of your notebooks and Python code. You can run long training jobs or retrain your models on a schedule without having to manually run them in a notebook.
++
+If you want to complete the pipelines section of this {deliverable}, go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
+
+* Decide whether you want to complete the _Distributing training jobs with the Training Operator_ section of this {deliverable}. In that section, you implement a distributed training job by using Kueue for managing job resources.
+//+
+//NOTE: The _Distributing training jobs with the Training Operator_ section of this {deliverable} is not supported if you are using the {org-name} Developer Sandbox.
++
+
+
+* Otherwise, skip to xref:3-move-to-code/2-workbench.adoc[Creating a workbench].

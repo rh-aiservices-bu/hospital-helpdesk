@@ -1,0 +1,35 @@
+= RAG Ingestion Pipelines
+
+[role="_abstract"]
+// Guide to building RAG ingestion pipelines.
+
+Now that you have used RAG from the Playground, we can move over to using code once again. +
+This time there are two parts two it, one part for injesting the documents, and one for using the documents when querying the model. +
+We will start here with the injestion part, which we will shape in the form of a pipeline.
+
+=== Prerequisites
+
+- Have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench]
+- Set up the playground as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground]
+
+=== Procedure
+
+. First, we need to set up a pipeline server that we can schedule our pipelines with. 
+
+. Navigating to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk)
+
+. Inside the workbench you should see a file called `rag_pipeline.py`, this the a pipeline code built with kubeflow pipeline's python SDK. +
+Open it to take a look at how the pipeline is set up. +
+This pipeline contains the step needed to chunk and injest some new documents into our RAG database, specifically these documents: 
+
+. After you have looked through it, run the code to compile and run the pipeline by pressing the little play button in the top menu
++ 
+image::5-rag/run-pipeline.png[Run Pipeline]
+
+=== Verification
+
+. Now that the pipeline is running
+
+=== Next step
+
+Now that we have the data injested, let's create RAG programatically and add in tracing in xref:5-rag/3-rag-in-code.adoc[RAG in Code]

@@ -1,0 +1,26 @@
+= RAG in Code
+
+[role="_abstract"]
+// Guide to building RAG ingestion pipelines.
+
+Just like before, we can use the Playground View Code button to get a headstart, but this time we have prepared a notebook so that we don't need to go and copy paste from the Playground.
+
+=== Prerequisites
+
+- Have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench]
+- Injested RAG data through either xref:5-rag/2-rag-pipeline.adoc[5.2. RAG Ingestion Pipelines] or xref:5-rag/2-rag-pipeline.adoc[5.1. RAG in the Playground]
+
+=== Procedure
+
+. Start by navigating to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk)
+
+. Inside the workbench, open up the notebook `2_rag.ipynb` and run through the content, after you are done come back here.
+
+=== Verification
+
+. In the end of the notebook you should have seen how we get answers based on the documents we uploaded before. However, we can also check the traces in MLflow to see the full retrieval process.
+
+. 
+
+=== Next step
+

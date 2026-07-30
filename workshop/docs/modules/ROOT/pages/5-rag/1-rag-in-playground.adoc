@@ -1,0 +1,52 @@
+= RAG in the Playground
+
+[role="_abstract"]
+// Guide to using Retrieval-Augmented Generation in the playground.
+
+RAG (Retrieval Augmented Generation) is the technique of slicing large documents into small parts, and then giving the LLM some of those small slices together with the normal prompt so it can use the information from those slices when it gives an answer. +
+Which small slices are use is chosen semantically, typically the texts that are semantically closest to our question to the LLM. +
+This will let us use the LLM to answer specific questions like: +
+`An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
+
+Before we move into building our own RAG behaviour, we can try out RAG with our model inside of the Playground. +
+This makes it easy to upload documents and see what kind of replies we get with our system prompt.
+
+=== Prerequisites
+
+- The playground has been created according to xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground] 
+
+=== Procedure
+
+. Download the following file, it contains information about our hospital's standard operating procedures: link:{attachmentsdir}/pavilion_regulations.pdf[pavilion_regulations.pdf]
+
+. Navigate to the Playground by going through GenAIStudio -> Playground, and make sure you select your project (Hospital Helpdesk).
+
+. Click on the **Knowledge** tab and turn it on by pressing the RAG toggle.
++
+image::5-rag/enable-rag.png[Enable RAG]
+
+. Press **Upload** under Add files and select the pavilion_regulations.md you just downloaded.
+
+. Keep default values as is and press Upload.
++
+image::5-rag/upload-settings.png[Upload Settings]
+
+=== Verification
+
+. You will likely see it go to 50% and then you have to wait for a couple of minutes while it processes the file, after it's done it should look something like this. 
++
+image::5-rag/pdf.uploaded.png[PDF Uploaded]
+
+. Before testing RAG, first toggle off RAG so we can see how it behaves without it. Ask this question with RAG both off and on: +
+`An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
+
+. Did you see a difference? With RAG toggled on you should see an answer similar to this: +
+`For an immediate replacement unit, contact the Central Supply department at extension 4450. They will dispatch a ready-for-use unit to your floor. Do NOT contact Biomedical Engineering for an immediate replacement; their role is repair, not immediate dispatch.`
+
+. Feel free to ask a few more questions, like what our hospital is called. When you are done testing the RAG you can move on to the next section.
+
+Since the Playground is not yet connected to MLflow, we won't see traces from here, but in the next section where we implement this in code we will be able to see it.
+
+=== Next step
+
+Now that we have tested RAG, let's implement it programmatically, starting with xref:5-rag/2-rag-pipeline.adoc[RAG Ingestion Pipelines]
