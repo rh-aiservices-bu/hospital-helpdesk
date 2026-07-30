@@ -13,7 +13,7 @@ After the pipeline completes, note the vector store ID printed in the run logs.
 You will need it in the next step: 2_rag.ipynb
 
 Prerequisites:
-  - The 'data' S3 bucket must exist and contain your documents (e.g. pavilion_regulations.pdf).
+  - The 'data' S3 bucket must exist and contain your documents (e.g. oak_hospital_regulations.pdf).
     Apply setup/setup-s3.yaml to create the bucket and upload the files automatically.
   - The 'data-connection-data' Secret must exist in your namespace (also created by the setup job).
     In your workbench, attach it as a data connection so the AWS_* env vars are available.

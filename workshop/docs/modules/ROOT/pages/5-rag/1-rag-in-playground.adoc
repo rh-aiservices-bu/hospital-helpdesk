@@ -17,7 +17,7 @@ This makes it easy to upload documents and see what kind of replies we get with 
 
 === Procedure
 
-. Download the following file, it contains information about our hospital's standard operating procedures: link:{attachmentsdir}/pavilion_regulations.pdf[pavilion_regulations.pdf]
+. Download the following file, it contains information about our hospital's standard operating procedures: link:{attachmentsdir}/oak_hospital_regulations.pdf[oak_hospital_regulations.pdf]
 
 . Navigate to the Playground by going through GenAIStudio -> Playground, and make sure you select your project (Hospital Helpdesk).
 
@@ -25,7 +25,7 @@ This makes it easy to upload documents and see what kind of replies we get with 
 +
 image::5-rag/enable-rag.png[Enable RAG]
 
-. Press **Upload** under Add files and select the pavilion_regulations.md you just downloaded.
+. Press **Upload** under Add files and select the oak_hospital_regulations.pdf you just downloaded.
 
 . Keep default values as is and press Upload.
 +
