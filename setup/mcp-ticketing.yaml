@@ -1,20 +1,3 @@
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: demo-setup
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: demo-setup-edit
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: edit
-subjects:
-  - kind: ServiceAccount
-    name: demo-setup
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -86,7 +69,7 @@ spec:
 ---
 # Patch the llama-stack-config ConfigMap to register the MCP connector,
 # then roll the Playground so it picks up the change.
-# Requires the demo-setup ServiceAccount (created in setup-s3.yaml) with edit role.
+# Requires the demo-setup ServiceAccount with edit role (created by the bootstrap job).
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -112,47 +95,32 @@ spec:
               fi
 
               echo "Patching llama-stack-config..."
-              python3 - << 'PYEOF'
-import subprocess, json, sys
 
-r = subprocess.run(
-    ['oc', 'get', 'configmap', 'llama-stack-config',
-     '-o', 'jsonpath={.data.config\\.yaml}'],
-    capture_output=True, text=True
-)
-if r.returncode != 0 or not r.stdout.strip():
-    print("llama-stack-config not found or empty — skipping")
-    sys.exit(0)
+              # Write current config to a temp file
+              oc get configmap llama-stack-config \
+                -o jsonpath='{.data.config\.yaml}' > /tmp/config.yaml
 
-cfg = r.stdout
+              # Add connectors to the apis list if missing
+              if ! grep -q '^\- connectors' /tmp/config.yaml; then
+                sed -i 's/^apis:/apis:\n- connectors/' /tmp/config.yaml
+              fi
 
-# Add 'connectors' to the apis list (after the opening 'apis:' line)
-if '- connectors' not in cfg:
-    cfg = cfg.replace('apis:\n', 'apis:\n- connectors\n', 1)
+              # Insert the connectors block before server: if missing
+              if ! grep -q '^connectors:' /tmp/config.yaml; then
+                awk '/^server:/{
+                  print "connectors:"
+                  print "- connector_id: mcp::ticketing"
+                  print "  connector_type: mcp"
+                  print "  url: http://mcp-ticketing.hospital-helpdesk.svc.cluster.local:8080/mcp"
+                  print "  server_label: Hospital IT Ticketing"
+                }1' /tmp/config.yaml > /tmp/config_new.yaml
+                mv /tmp/config_new.yaml /tmp/config.yaml
+              fi
 
-# Insert connectors section before 'server:'
-connector_block = (
-    "connectors:\n"
-    "- connector_id: mcp::ticketing\n"
-    "  connector_type: mcp\n"
-    "  url: http://mcp-ticketing.hospital-helpdesk.svc.cluster.local:8080/mcp\n"
-    "  server_label: Hospital IT Ticketing\n"
-)
-if 'connectors:' not in cfg:
-    cfg = cfg.replace('server:\n  port: 8321',
-                      connector_block + 'server:\n  port: 8321', 1)
-
-patch = json.dumps({'data': {'config.yaml': cfg}})
-r2 = subprocess.run(
-    ['oc', 'patch', 'configmap', 'llama-stack-config',
-     '--type=merge', '-p', patch],
-    capture_output=True, text=True
-)
-if r2.returncode != 0:
-    print("Patch failed:", r2.stderr)
-    sys.exit(1)
-print("ConfigMap patched successfully")
-PYEOF
+              # Patch the ConfigMap (python3 used only for safe JSON encoding of the file)
+              oc patch configmap llama-stack-config --type=merge \
+                -p "$(python3 -c "import json; print(json.dumps({'data': {'config.yaml': open('/tmp/config.yaml').read()}}))")"
+              echo "ConfigMap patched successfully"
 
               echo "Rolling out lsd-genai-playground..."
               oc rollout restart deployment/lsd-genai-playground
