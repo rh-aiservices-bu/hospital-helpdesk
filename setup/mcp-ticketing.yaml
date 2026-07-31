@@ -1,0 +1,87 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcp-ticketing
+  namespace: hospital-helpdesk
+  labels:
+    app: mcp-ticketing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mcp-ticketing
+  template:
+    metadata:
+      labels:
+        app: mcp-ticketing
+    spec:
+      containers:
+        - name: mcp-ticketing
+          image: quay.io/rlundber/hospital-helpdesk-mcp-ticketing:0.1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: HOST
+              value: "0.0.0.0"
+            - name: PORT
+              value: "8080"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+          readinessProbe:
+            httpGet:
+              path: /sse
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mcp-ticketing
+  namespace: hospital-helpdesk
+  labels:
+    app: mcp-ticketing
+spec:
+  selector:
+    app: mcp-ticketing
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mcp-ticketing
+  namespace: hospital-helpdesk
+  labels:
+    app: mcp-ticketing
+spec:
+  to:
+    kind: Service
+    name: mcp-ticketing
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mcp-server-hospital-ticketing
+  namespace: redhat-ods-applications
+  labels:
+    opendatahub.io/mcp-server: "true"
+data:
+  hospital-ticketing: |
+    {
+      "name": "hospital-ticketing",
+      "url": "http://mcp-ticketing.hospital-helpdesk.svc.cluster.local:8080/sse",
+      "description": "Oak City General Hospital IT helpdesk ticketing system. Use this to create, view, and update support tickets."
+    }
