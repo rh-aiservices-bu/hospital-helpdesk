@@ -1,0 +1,104 @@
+= Deploy an MCP Server
+
+[role="_abstract"]
+// Guide to deploying the hospital ticketing MCP server on OpenShift.
+
+Before we can use tools in code, we need a tool to use. +
+In this section we deploy a small **MCP (Model Context Protocol) server** that simulates the IT ticketing system for Oak City General Hospital. +
+It exposes four tools the model can call: `create_ticket`, `get_ticket`, `list_tickets`, and `update_ticket`. +
+The server is already pre-seeded with a handful of open tickets we will be able to explore.
+
+After the server is running, a setup job automatically registers it as a connector in the Llama Stack Playground so the model can call its tools directly from the chat interface.
+
+=== Procedure
+
+[NOTE]
+====
+If you are comfortable with the OpenShift CLI, you can deploy the MCP server with a single command instead of following the steps below:
+
+[source,bash]
+----
+oc apply -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/mcp-ticketing.yaml
+----
+
+Otherwise, follow the steps below.
+====
+
+. In the {productname-short} dashboard, click the application launcher icon and then select the *OpenShift Console* option.
++
+image::6-tools-agents/ds-project-ocp-link.png[OpenShift Console Link, 600]
+
+. In the OpenShift console, click *+* in the top navigation bar, and then click *Import YAML*.
++
+image::6-tools-agents/ocp-console-add-icon.png[Add resources Icon]
+
+. Click the down arrow next to the project name and select *hospital-helpdesk* from the list.
++
+image::6-tools-agents/ocp-console-select-project.png[Select a project, 200]
+
+. Copy the following code and paste it into the *Import YAML* editor:
++
+[.lines_space]
+[.console-input]
+[source,yaml]
+----
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: demo-setup
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: demo-setup-edit
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+subjects:
+  - kind: ServiceAccount
+    name: demo-setup
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: deploy-mcp-ticketing
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+        - args:
+            - -ec
+            - |-
+              echo -n 'Deploying MCP ticketing server'
+              oc apply -f https://github.com/rh-aiservices-bu/hospital-helpdesk/raw/main/setup/mcp-ticketing-no-sa.yaml
+          command:
+            - /bin/bash
+          image: image-registry.openshift-image-registry.svc:5000/openshift/tools:latest
+          imagePullPolicy: IfNotPresent
+          name: deploy-mcp-ticketing
+      restartPolicy: Never
+      serviceAccount: demo-setup
+      serviceAccountName: demo-setup
+----
+
+. Click *Create*.
+
+=== Verification
+
+. In the OpenShift console there should be a "Resources successfully created" message listing:
++
+* `demo-setup` (ServiceAccount)
+* `demo-setup-edit` (RoleBinding)
+* `deploy-mcp-ticketing` (Job)
++
+[NOTE]
+====
+If you already completed the storage setup in xref:1-setup/3-scripted-storage.adoc[1.2.1. Data Connections], `demo-setup` and `demo-setup-edit` may already exist and you may see an error for those resources. This is fine, the `deploy-mcp-ticketing` Job will still run correctly.
+====
+
+=== Next step
+
+Now that the server is running and registered, let's use it from code in xref:6-tools-agents/2-tools-in-code.adoc[6.2. Agentic Workflow].

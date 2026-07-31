@@ -6,11 +6,11 @@
 [role="_abstract"]
 Configure a pipeline server in your project so that you can submit and schedule Kubeflow Pipelines runs.
 
-.Prerequisites
+=== Prerequisites
 
 * You have set up a Data Connection with a *Pipeline Artifacts* bucket, as described in xref:1-setup/2-data-connections.adoc[1.2.1. Data Connections].
 
-.Procedure
+=== Procedure
 
 . In the {productname-short} dashboard, navigate to your project page and click the *Pipelines* tab.
 
@@ -41,7 +41,7 @@ If you have waited more than 5 minutes and the pipeline server configuration doe
 +
 You can also ask your {productname-short} administrator to verify that they applied self-signed certificates on your cluster as described in link:https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/latest/html/installing_and_uninstalling_openshift_ai_self-managed/working-with-certificates_certs[Working with certificates] (Self-Managed).
 
-.Verification
+=== Verification
 
 . Navigate to the *Pipelines* tab for the project.
 . Next to *Import pipeline*, click the action menu (&#8942;) and then select *Manage pipeline server configuration*.
@@ -50,6 +50,6 @@ image::1-setup/ds-project-pipeline-server-view.png[Manage pipeline server config
 +
 An information box opens and displays the object storage connection information for the pipeline server.
 
-.Next step
+=== Next step
 
 xref:2-just-a-model/index.adoc[2. Just a Model]

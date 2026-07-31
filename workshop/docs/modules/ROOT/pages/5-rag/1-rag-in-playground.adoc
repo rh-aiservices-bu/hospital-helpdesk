@@ -17,7 +17,7 @@ This makes it easy to upload documents and see what kind of replies we get with 
 
 === Procedure
 
-. Download the following file, it contains information about our hospital's standard operating procedures: link:{attachmentsdir}/oak_hospital_regulations.pdf[oak_hospital_regulations.pdf]
+. Download the following file, it contains information about our hospital's standard operating procedures: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/oak_hospital_regulations.pdf[oak_hospital_regulations.pdf,window=_blank]
 
 . Navigate to the Playground by going through GenAIStudio -> Playground, and make sure you select your project (Hospital Helpdesk).
 

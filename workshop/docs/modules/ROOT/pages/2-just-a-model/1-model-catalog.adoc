@@ -43,7 +43,7 @@ Without Accelerator::
 +
 --
 NOTE: If you don't have an accelerator, your performance will depend heavily on the type of CPU you have and how much resources you can give the model. In some cases the response time will be too slow to be usable, in which case consider choosing a smaller model such as **Qwen2.5-1.5B-quantized.w8a8**. +
-However, beware that a smaller model may not be viable for later chapters like xref:5-rag/1-rag-in-playground.adoc[5.1 RAG in the Playground] or the entire xref:6-tools/index.adoc[6. Tools] section.
+However, beware that a smaller model may not be viable for later chapters like xref:5-rag/1-rag-in-playground.adoc[5.1 RAG in the Playground] or the entire xref:6-tools-agents/index.adoc[6. Tools & Agents] section.
 
 . Select your Project (Hospital Helpdesk).
 . Click on **Customize resource request and limits** and make sure you have at least 10 Cores CPU and 16GiB Memory.

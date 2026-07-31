@@ -50,7 +50,7 @@ image::3-move-to-code/jupyter-file-browser.png[Jupyter file browser, 300]
 
 . You should be able to see all files related to the {deliverable}.
 +
-image::3-move-to-code/jupyter-file-browser-2.png[Jupyter file browser - fraud-detection, 300]
+image::3-move-to-code/jupyter-file-browser-2.png[Jupyter file browser]
 
 
 === Next step

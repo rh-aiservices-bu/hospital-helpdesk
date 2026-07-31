@@ -23,5 +23,7 @@
 ** xref:5-rag/1-rag-in-playground.adoc[5.1. RAG in the Playground]
 ** xref:5-rag/2-rag-pipeline.adoc[5.2. RAG Ingestion Pipelines]
 ** xref:5-rag/3-rag-in-code.adoc[5.3. RAG in Code]
-* xref:6-tools/index.adoc[6. Tools]
+* xref:6-tools-agents/index.adoc[6. Tools & Agents]
+** xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy an MCP Server]
+** xref:6-tools-agents/2-tools-in-code.adoc[6.2. Agentic Workflow]
 * xref:7-tie-it-all-together/index.adoc[7. Tie it all together]

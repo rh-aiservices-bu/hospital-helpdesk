@@ -8,7 +8,7 @@ A workbench is an instance of your development and experimentation environment. 
 
 === Procedure
 
-. Navigate to the project detail page for the project that you created in xref::2-just-a-model/1-projects.adoc[Create a Project].
+. Navigate to the project detail page for the project that you created in xref::1-setup/1-projects.adoc[Create a Project].
 
 . Click the *Workbenches* tab, and then click the *Create workbench* button.
 +

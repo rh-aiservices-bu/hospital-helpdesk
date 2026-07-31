@@ -1,9 +1,0 @@
-= Tools
-
-[role="_abstract"]
-// Guide to using tools with GenAI models.
-
-Fake ticketing tool
-
-You might have noticed in the RAG section, but we have actually already used tools. More specifically, a tool called `file_search` which lets us search our uploaded chunks, so in practice we were doing agentic RAG rather than standard RAG. +
-In this section we will look at deploying another tool and using it together with an agentic framework.

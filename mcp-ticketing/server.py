@@ -13,7 +13,7 @@ import uuid
 from datetime import datetime
 from typing import Optional
 
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 
 # ---------------------------------------------------------------------------
 # Pre-seeded data
@@ -252,4 +252,4 @@ def update_ticket(
 if __name__ == "__main__":
     host = os.getenv("HOST", "0.0.0.0")
     port = int(os.getenv("PORT", "8080"))
-    mcp.run(transport="sse", host=host, port=port)
+    mcp.run(transport="streamable-http", host=host, port=port)

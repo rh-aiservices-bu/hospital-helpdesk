@@ -32,4 +32,4 @@ image::5-rag/rag-trace-span.png[RAG Trace Span]
 
 === Next step
 
-Now that you have built a RAG application, let's look at some more generic tools and how to use them in an agentic workflow in xref:6-tools/index.adoc[6. Tools]
+Now that you have built a RAG application, let's look at some more generic tools and how to use them in an agentic workflow in xref:6-tools-agents/index.adoc[6. Tools & Agents]
