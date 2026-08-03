@@ -10,7 +10,7 @@ The JupyterLab environment is web-based, but all operations run on {productname-
 
 === Prerequisites
 
-You created a workbench, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
+- You created a workbench, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
 
 === Procedure
 

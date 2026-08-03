@@ -18,6 +18,7 @@
 * xref:4-observability-tracing/index.adoc[4. Observability & Tracing]
 ** xref:4-observability-tracing/1-model-observability.adoc[4.1. Model Observability]
 ** xref:4-observability-tracing/2-mlflow-tracing.adoc[4.2. MLflow Tracing]
+** xref:4-observability-tracing/3-evaluate.adoc[4.3. Evaluate your model]
 * xref:5-rag/index.adoc[5. RAG]
 ** xref:5-rag/1-rag-in-playground.adoc[5.1. RAG in the Playground]
 ** xref:5-rag/2-rag-pipeline.adoc[5.2. RAG Ingestion Pipelines]

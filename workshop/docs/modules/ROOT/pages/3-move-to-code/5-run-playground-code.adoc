@@ -11,10 +11,9 @@ Now that the Workbench is set up, we can finally move our Playground functionali
 
 === Procedure
 
-==== Get the code from the playground
-
-If you lost the code from xref:3-move-to-code/1-playground-to-code.adoc[3.1. Playground to Code] then you can take these steps to get it back, otherwise skip to xref:3-move-to-code/5-run-playground-code.adoc#use-the-code-in-a-workbench[Use the code in a workbench].
-
+.Lost the code from step 3.1 Playground to Code? Click here to see how to get it again
+[%collapsible]
+====
 . Go to the Playground by navigating to the {productname-short} dashboard and then Gen AI studio -> Playground in the left menu.
 
 . Make sure to select the correct project (Hospital Helpdesk) in the top.
@@ -37,13 +36,9 @@ image::3-move-to-code/view-code.png[View code]
 . Then copy the full code, you can use the copy button in the top left of the modal.
 +
 image::3-move-to-code/copy-code.png[Copy code]
+====
 
-==== Use the code in a workbench
-
-. Go to your workbench. +
-If you closed the tab then it's through Projects in the left menu, select your project, and click on your Workbench link inside the project page.
-
-. Create a new notebook by right clicking in the file browser and clicking *New Notebook*. If a modal shows up asking you to select kernel, just press *Select*.
+. Go to your workbench and create a new notebook by right clicking in the file browser and clicking *New Notebook*. If a modal shows up asking you to select kernel, just press *Select*.
 +
 image::3-move-to-code/new-notebook.png[Create a new notebook]
 
@@ -52,14 +47,16 @@ image::3-move-to-code/new-notebook.png[Create a new notebook]
 
 . Create a second cell and paste the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Adjust this variable to be: 
 +
-```
+[.console-input]
+[source,python]
+----
 LLAMA_STACK_URL = "http://lsd-genai-playground-service.hospital-helpdesk.svc.cluster.local:8321"
-```
+----
 +
 image::3-move-to-code/set-llama-stack-url.png[Notebook Output]
 
 . Now you can run the cell and see what output you get. +
-*Note:* this code does not stream so the response may take a few minutes.
+*Note:* this code does not stream so the response may take a few minutes if you are running on CPU.
 +
 image::3-move-to-code/notebook-output.png[Notebook Output]
 
@@ -67,7 +64,7 @@ image::3-move-to-code/notebook-output.png[Notebook Output]
 === Verification
 
 After the cell has finished running you should see an answer similar to that you got in the Playground. +
-From here on, we can start modifying the code and adapt it into any AI application we are building.
+From here on, you could start modifying the code and integrate it into an AI application.
 
 Make sure to also save your notebook, press Ctrl+S and give it a good name like `request-model` when prompted in the modal.
 

@@ -11,7 +11,7 @@ Before moving away from the playground, let's make sure to extract the code so w
 === Procedure
 
 . There is a button in the top right called *View code*, click that. +
-If the button is grayed out you need to send a message to the chat, if so you can for example send:
+If the button is grayed out, you need to send a message to the chat. You can just send this if so: +
 `A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
 +
 image::3-move-to-code/view-code.png[View code]

@@ -14,7 +14,7 @@ A workbench is an instance of your development and experimentation environment. 
 +
 image::3-move-to-code/ds-project-create-workbench.png[Create workbench button, 800]
 
-. Enter the name and description.
+. Enter the name and optionally a description.
 +
 image::3-move-to-code/create-workbench-form-name-desc.png[Workbench name and description, 600]
 +
@@ -27,6 +27,10 @@ image::3-move-to-code/create-workbench-form-name-desc.png[Workbench name and des
 .. For the image version, leave it at *3.4*.
 +
 image::3-move-to-code/create-workbench-form-image.png[Workbench image, 600]
+
+. If you are going to create a RAG injestion pipeline, also attach the "Data" *Data Connection* by clicking *Attach existing connections* and select *Data* in the dropdown.
++
+image::3-move-to-code/add-data-connection.png[Add Data Connection]
 
 . Leave the rest as is and click *Create workbench*.
 

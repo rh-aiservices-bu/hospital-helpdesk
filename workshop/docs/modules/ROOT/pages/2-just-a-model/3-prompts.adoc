@@ -8,7 +8,7 @@ To improve this, we can modify the prompt (specifically the system prompt) that 
 
 There are two places where you can modify the prompt, either:
 
-- In the *Prompts* section of Gen AI Studio in the left menu, where you can get an overview of all existing prompts and manage them.
+- In the *Prompts* section of Gen AI Studio in the left menu, where you can get an overview of all your existing prompts and manage them.
 - In the *Prompt* tab in the Playground, where you can choose what prompt to use for your current playground setup.
 
 We will take a look at both here.
@@ -25,9 +25,11 @@ We will take a look at both here.
 
 . As you can see, we already have a default prompt entered, guiding your model to answer concisely and professionally. Let's overwrite that with something a bit more specific to the Hospital Helpdesk work. Here is an example you can use: 
 +
+[.lines_space]
+[.console-input]
 [source%wrap,text]
 ----
-You are a helpful AI assistant supporting hospital helpdesk staff. Your role is to help helpdesk staff draft responses, look up general information, and handle questions about hospital services and navigation on behalf of patients, visitors, and staff.
+You are a helpful AI assistant supporting the helpdesk staff at Oak City General Hospital. Your role is to help helpdesk staff draft responses, look up general information, and handle questions about hospital services and navigation on behalf of patients, visitors, and staff.
 
 Your job is to assist helpdesk staff with general hospital-related questions in a warm, professional, and realistic way. You can help draft responses about wayfinding, explain common hospital departments and services, suggest guidance on visiting policies, and help staff answer general questions about what patients and visitors can expect during a hospital visit.
 
@@ -38,7 +40,7 @@ Important limitations:
 - If a helpdesk staff member asks about specific patient appointments, test results, medication, or medical advice, explain that you cannot access that information and suggest they direct the enquiry to the appropriate clinical staff.
 - Do not invent specific room numbers, doctor availability, wait times, or clinical guidance.
 - You may still provide general guidance, such as which department handles a particular type of care or how the appointment check-in process typically works.
-- Keep responses focused on the hospital's services and the patient/visitor experience.
+- Keep responses focused on Oak City General Hospital's services and the patient/visitor experience.
 
 When you respond, be clear, helpful, and natural. If you cannot provide exact information, say so politely and suggest a useful next step the staff member can take.
 ----
@@ -52,17 +54,9 @@ image::2-just-a-model/save-prompt.png[Save a new prompt]
 
 === Verification
 
-Let's make sure that the new prompt works as expected.
+(Optional) Let's first verify that the prompt was saved in our Prompts registry.
 
-. If needed, click *New chat* in the top right of the Playground and then *Start a new chat session* when prompted.
-+
-image::2-just-a-model/new-chat.png[Create a new chat]
-
-. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it: +
-`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?` +
-(again, it's a small model, so bear with it if the response is not the highest quality)
-
-. We can also verify that the prompt was saved in our Prompts registry, go to Gen AI studio -> Prompts in the left menu. Make sure to also select your Project (Hospital Helpdesk) in the top.
+. Go to Gen AI studio -> Prompts in the left menu. Make sure to also select your Project (Hospital Helpdesk) in the top.
 
 . You should see *ai-hospital-helpdesk* there, and if you click on it you will get more information, as well as options to:
 - Create a new version (this you can do from within the Playground as well by just saving a new version)
@@ -72,6 +66,24 @@ image::2-just-a-model/new-chat.png[Create a new chat]
 - Seeing related traces (we will get to this later)
 
 image::2-just-a-model/prompts.png[Prompts dashboard]
+
+Let's test our new prompt.
+
+. Go back to the Playground, make sure that you are in your project (Hospital Helpdesk), and select the prompt again from **Load Prompt** in the Prompt tab.
++
+image::2-just-a-model/load-prompt.png[Load prompt]
+
+. Select *ai-hospital-helpdesk* by clicking on it and then click *Load in Playground*.
++
+image::2-just-a-model/load-prompt-modal.png[Load prompt modal]
+
+. If needed, click *New chat* in the top right of the Playground and then *Start a new chat session* when prompted.
++
+image::2-just-a-model/new-chat.png[Create a new chat]
+
+. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it: +
+`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?` +
+(it's a small model, so bear with it if the response is not the highest quality)
 
 === Next step
 
