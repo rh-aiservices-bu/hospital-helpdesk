@@ -13,7 +13,7 @@ We will deploy a TinyLlama-1.1B model, it's small enough so it can run on CPU, m
 
 . Search for **TinyLlama-1.1B-Chat-v1.0** in the searchbar and click on the tile that appears.
 +
-image::2-just-a-model/tinyllama-model-tile.png[Model Tile for Tinyllama]
+image::2-just-a-model/model-tile.png[Model Tile for Tinyllama]
 +
 After you have clicked on the tile, you can see the **Model Card** for the TinyLlama model. This contains information such as how it's built, what license it has, and how to use it.
 

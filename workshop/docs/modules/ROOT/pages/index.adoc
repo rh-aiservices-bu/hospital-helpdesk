@@ -9,5 +9,5 @@
 === Welcome to the Hospital Helpdesk GenAI tutorial!
 
 In this tutorial, you are creating an AI assistant for a Hospital Helpdesk in Oak City General Hospital. +
-This assistant will assist the helpdesk in finding processes faster, filinging tickets, and answering regular questions. +
+It will assist the helpdesk in finding processes faster, filinging tickets, and answering regular questions. +
 As you go through the tutorial, you will get examples of how to interact with the AI, enable different GenAI workflows, and set up GenAI observability, in {productname-long}.
