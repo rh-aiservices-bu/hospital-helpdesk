@@ -5,7 +5,8 @@
 
 Now that you have a model deployed, you probably want to use it and make sure that it works.
 
-In {productname-short} there is a *Playground* which allows you to send messages to the model among other things, great for not only making sure that the model works, but to see how it works and how it responds to different messages.
+In {productname-short} there is a *Playground* which allows you to send messages to the model. +
+This is great for not only making sure that the model works, but to see how it responds to different messages.
 
 === Procedure
 
@@ -21,21 +22,72 @@ image::2-just-a-model/create-playground.png[Create Playground]
 
 Try writing a few things to it (you can start with a simple Hi) and see how the model behaves. If everything is set up correctly you will get a (hopefully polite) answer back.
 
-Do note that we are using a model running on CPU here, so it might not be the fastest at answering.
+image::2-just-a-model/playground-response.png[Playground Response]
 
-[TIP]
+.Running on CPU and getting timeouts? Click here to see how to increase the timeout limits
+[%collapsible]
 ====
-*Running on CPU?* Responses can take a minute or more. There are two timeouts in the stack that both need to be increased. To increase them to 10 minutes, open the *OpenShift web terminal* and run:
+Responses can take longer than the default 30-second timeout allows. There are two timeouts in the stack that both need to be increased. You can do this in two ways:
+
+*Option 1 — OpenShift CLI (web terminal or local):*
 
 [source,bash]
 ----
-curl -sO https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/increase-timeouts.sh && bash increase-timeouts.sh
+oc apply -n hospital-helpdesk -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/increase-timeouts-job.yaml
 ----
 
-After the script completes, the model has up to 10 minutes to respond without timing out.
-====
+*Option 2 — OpenShift console (Import YAML):*
 
-image::2-just-a-model/playground-response.png[Playground Response]
+In the OpenShift console, click *+* in the top navigation bar, select the *hospital-helpdesk* project, and paste the following:
+
+[.lines_space]
+[.console-input]
+[source,yaml]
+----
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: demo-setup
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: demo-setup-edit
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: edit
+subjects:
+  - kind: ServiceAccount
+    name: demo-setup
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: increase-timeouts-through-oc
+spec:
+  selector: {}
+  template:
+    spec:
+      containers:
+        - args:
+            - -ec
+            - |-
+              echo -n 'Setting up S4 instance and connections'
+              oc apply -f https://github.com/rh-aiservices-bu/hospital-helpdesk/raw/main/setup/increase-timeouts-job.yaml
+          command:
+            - /bin/bash
+          image: image-registry.openshift-image-registry.svc:5000/openshift/tools:latest
+          imagePullPolicy: IfNotPresent
+          name: increase-timeouts-through-oc
+      restartPolicy: Never
+      serviceAccount: demo-setup
+      serviceAccountName: demo-setup
+----
+
+After the job completes, the model has up to 10 minutes to respond without timing out.
+====
 
 === Next step
 

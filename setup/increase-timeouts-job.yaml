@@ -1,0 +1,42 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: increase-timeouts
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      serviceAccountName: demo-setup
+      containers:
+        - name: increase-timeouts
+          image: image-registry.openshift-image-registry.svc:5000/openshift/tools:latest
+          imagePullPolicy: IfNotPresent
+          command:
+            - /bin/bash
+            - -ec
+            - |
+              NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
+
+              echo "==> Increasing InferenceService predictor timeout to 700s..."
+              IS_NAME=$(oc get inferenceservice -n "$NAMESPACE" -o jsonpath='{.items[0].metadata.name}')
+              oc patch inferenceservice -n "$NAMESPACE" "$IS_NAME" \
+                --type=json \
+                -p '[{"op":"replace","path":"/spec/predictor/timeout","value":700}]'
+              echo "    Done (InferenceService: $IS_NAME)"
+
+              echo "==> Increasing Llama Stack read timeout to 600s..."
+              oc get configmap llama-stack-config -n "$NAMESPACE" \
+                -o jsonpath='{.data.config\.yaml}' > /tmp/config.yaml
+              sed -i 's/read: [0-9]*/read: 600/' /tmp/config.yaml
+              oc patch configmap llama-stack-config -n "$NAMESPACE" --type=merge \
+                -p "$(python3 -c "import json; print(json.dumps({'data': {'config.yaml': open('/tmp/config.yaml').read()}}))")"
+              echo "    Done"
+
+              echo "==> Restarting Llama Stack to apply new timeout..."
+              oc rollout restart deployment/lsd-genai-playground -n "$NAMESPACE"
+              oc rollout status deployment/lsd-genai-playground -n "$NAMESPACE" --timeout=180s
+              echo "    Done"
+
+              echo ""
+              echo "Timeouts updated. The model now has up to 10 minutes to respond."
