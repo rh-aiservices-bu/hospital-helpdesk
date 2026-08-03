@@ -8,7 +8,7 @@ A workbench is an instance of your development and experimentation environment. 
 
 === Procedure
 
-. Navigate to the project detail page for the project that you created in xref::1-setup/1-projects.adoc[Create a Project].
+. Navigate to the project detail page for the project that you created in xref:1-setup/1-projects.adoc[Create a Project].
 
 . Click the *Workbenches* tab, and then click the *Create workbench* button.
 +
@@ -22,7 +22,7 @@ image::3-move-to-code/create-workbench-form-name-desc.png[Workbench name and des
 
 . For the workbench image:
 
-.. Select the image called includes *Jupyter | Data Science | CPU | Python 3.12*
+.. Select the image that includes *Jupyter | Data Science | CPU | Python 3.12*
 
 .. For the image version, leave it at *3.4*.
 +

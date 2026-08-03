@@ -4,7 +4,7 @@
 // Guide to using Retrieval-Augmented Generation in the playground.
 
 RAG (Retrieval Augmented Generation) is the technique of slicing large documents into small parts, and then giving the LLM some of those small slices together with the normal prompt so it can use the information from those slices when it gives an answer. +
-Which small slices are use is chosen semantically, typically the texts that are semantically closest to our question to the LLM. +
+Which small slices are used is chosen semantically, typically the texts that are semantically closest to our question to the LLM. +
 This will let us use the LLM to answer specific questions like: +
 `An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
 

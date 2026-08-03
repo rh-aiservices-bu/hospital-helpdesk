@@ -1,9 +1,9 @@
-= Playground to Code
+= Model Observability
 
 [role="_abstract"]
 
 {productname-short} comes with an observability dashboard out-of-the-box which we can use to see some model metrics. +
-Many more metrics are also scraped and exposed through Prompetheus, and can be used to create custom OpenShift dashboards.
+Many more metrics are also scraped and exposed through Prometheus, and can be used to create custom OpenShift dashboards.
 
 === Prerequisites
 

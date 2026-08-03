@@ -23,7 +23,7 @@ We will take a look at both here.
 - Load an existing prompt
 - Modify and save the current prompt
 
-. As you can see, we already have a default prompt entered, guiding your model to answer consice and professionally. Let's overwrite that with something a bit more specific to the Hospital Helpdesk work. Here is an example you can use: 
+. As you can see, we already have a default prompt entered, guiding your model to answer concisely and professionally. Let's overwrite that with something a bit more specific to the Hospital Helpdesk work. Here is an example you can use: 
 +
 [source%wrap,text]
 ----
@@ -75,4 +75,4 @@ image::2-just-a-model/prompts.png[Prompts dashboard]
 
 === Next step
 
-xref:3-move-to-code/index.adoc[Run the same requets, but through code]
+xref:3-move-to-code/index.adoc[Run the same requests, but through code]

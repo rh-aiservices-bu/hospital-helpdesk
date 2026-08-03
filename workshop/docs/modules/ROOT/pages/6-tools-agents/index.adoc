@@ -4,7 +4,7 @@
 // Guide to using tools and agentic frameworks with GenAI models.
 
 You have already used tools in this workshop. In the RAG section we use a tool `file_search`, and the model calling it autonomously makes it *agentic* RAG as opposed to traditional RAG. +
-When we used the `file_search` tool in RAG we used it through LlamaStack's toolcalling. This is a transaprent agentic loop that replicate what openai exposes out of the box, which is perfect for simpler agents. +
+When we used the `file_search` tool in RAG we used it through LlamaStack's toolcalling. This is a transparent agentic loop that replicates what OpenAI exposes out of the box, which is perfect for simpler agents. +
 In this chapter we introduce a second tool (an IT ticketing system) and show how to integrate it using **LangGraph**, a client-side orchestration framework.
 
 If you want to read up more on how Llamastack works with tools and when to use what framework, you can look here: link:https://developers.redhat.com/articles/2025/08/20/your-agent-your-rules-deep-dive-responses-api-llama-stack[Your agent, your rules: A deep dive into the Responses API with Llama Stack,window=_blank]

@@ -2,7 +2,7 @@
 
 [role="_abstract"]
 
-Now that the Workbench is set up, we can finally move our Playground functionallity to code. 
+Now that the Workbench is set up, we can finally move our Playground functionality to code.
 
 === Prerequisites
 
@@ -13,7 +13,7 @@ Now that the Workbench is set up, we can finally move our Playground functionall
 
 ==== **Get the code from the playground**
 
-If you lost the code from xref:3-move-to-code/1-playground-to-code.adoc[3.1. Playground to Code] then you can take these steps to get it back, otherwise skip to the next section [INSERT LINK HERE].
+If you lost the code from xref:3-move-to-code/1-playground-to-code.adoc[3.1. Playground to Code] then you can take these steps to get it back, otherwise skip to xref:3-move-to-code/5-run-playground-code.adoc#use-the-code-in-a-workbench[Use the code in a workbench].
 
 . Go to the Playground by navigating to the {productname-short} dashboard and then Gen AI studio -> Playground in the left menu.
 
@@ -50,7 +50,7 @@ image::3-move-to-code/new-notebook.png[Create a new notebook]
 . In the top cell, enter the following command and run: +
 `!pip install llama-stack-client`
 
-. Create a second cell and past the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Adjust this variable to be: 
+. Create a second cell and paste the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Adjust this variable to be: 
 +
 ```
 LLAMA_STACK_URL = "http://lsd-genai-playground-service.hospital-helpdesk.svc.cluster.local:8321"

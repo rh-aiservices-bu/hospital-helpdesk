@@ -8,7 +8,7 @@ Just like before, we can use the Playground View Code button to get a headstart,
 === Prerequisites
 
 - Have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench]
-- Injested RAG data through either xref:5-rag/2-rag-pipeline.adoc[5.2. RAG Ingestion Pipelines] or xref:5-rag/2-rag-pipeline.adoc[5.1. RAG in the Playground]
+- Ingested RAG data through either xref:5-rag/2-rag-pipeline.adoc[5.2. RAG Ingestion Pipelines] or xref:5-rag/1-rag-in-playground.adoc[5.1. RAG in the Playground]
 
 === Procedure
 

@@ -3,7 +3,7 @@
 [role="_abstract"]
 // Instructions for creating a data science project.
 
-An AI project is what contains many of the tools you will use inside of {productname-short}. You can use projects to collaborate with your teamates, and you can create things such as workbenches (IDE's), pipelines, deploy models, etc. from within your project.
+An AI project is what contains many of the tools you will use inside of {productname-short}. You can use projects to collaborate with your teammates, and you can create things such as workbenches (IDEs), pipelines, deploy models, etc. from within your project.
 
 === Prerequisites
 
@@ -33,7 +33,7 @@ image::1-setup/project-new.png[New project]
 
 * *Workbenches* are instances of your development and experimentation environment. They typically contain individual development environments (IDEs), such as JupyterLab, RStudio, and Code Server.
 
-* *Pipelines* are a structured series of processes that collect, process, analyze, and visualize data. With AI pipelines, you can automate the execution of notebooks and Python code. By using pipelines, you can automatically injest data or fine-tune your models on a schedule without having to manually run them in a workbench.
+* *Pipelines* are a structured series of processes that collect, process, analyze, and visualize data. With AI pipelines, you can automate the execution of notebooks and Python code. By using pipelines, you can automatically ingest data or fine-tune your models on a schedule without having to manually run them in a workbench.
 
 * *Deployments* for serving a model. It exposes APIs to receive data, run the data through your model, and delivers a result (for example, a poem you asked for).
 

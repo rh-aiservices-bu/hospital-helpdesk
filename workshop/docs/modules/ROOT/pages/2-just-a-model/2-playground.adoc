@@ -3,7 +3,7 @@
 [role="_abstract"]
 // Guide to using the playground.
 
-Now that you have a model deploy, you probably want to use it and make sure that it works.
+Now that you have a model deployed, you probably want to use it and make sure that it works.
 
 In {productname-short} there is a *Playground* which allows you to send messages to the model among other things, great for not only making sure that the model works, but to see how it works and how it responds to different messages.
 

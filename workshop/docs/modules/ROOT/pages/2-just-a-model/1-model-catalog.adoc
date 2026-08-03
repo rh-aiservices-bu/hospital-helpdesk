@@ -32,7 +32,7 @@ With Accelerator::
 +
 --
 . Select your Project (Hospital Helpdesk).
-. In the **Hardware profile**, select a profile that let's you deploy on an accelerator, such as a GPU.
+. In the **Hardware profile**, select a profile that lets you deploy on an accelerator, such as a GPU.
 . Click on **Customize resource request and limits** and make sure you have 1 accelerator requests and limits, and at least 2 Cores CPU and 8 GiB Memory.
 . Under **Deployment resource**, select **Manual selection** and the runtime **vLLM NVIDIA CUDA GPU LLMInferenceServiceConfig** (for Nvidia GPUs, or related for other accelerators) from the dropdown.
 +
@@ -70,7 +70,7 @@ image::2-just-a-model/review-form.png[Review Form]
 
 === Verification
 
-After deploying the model you will automaticalyl be navigated to the model deployments page. The model should get deployed after a few minutes and you will see that it's Ready in the Status column.
+After deploying the model you will automatically be navigated to the model deployments page. The model should get deployed after a few minutes and you will see that it's Ready in the Status column.
 
 image::2-just-a-model/model-ready.png[Model is Ready]
 
