@@ -23,10 +23,10 @@ image::4-observability-tracing/click-model.png[Click on the model]
 - Average response time
 - CPU utilization %
 - Memory utilization %
-
++
 image::4-observability-tracing/model-metrics.png[Request per 5 minutes metric]
 
-. If you want to see more requests, or don't see any within this time-period, you can go back to the Playground, as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground] and send a few more messages
+. If you want to see more requests or don't see any within this time-period, you can go back to the Playground as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground], and send a few more messages.
 
 === Next step
 

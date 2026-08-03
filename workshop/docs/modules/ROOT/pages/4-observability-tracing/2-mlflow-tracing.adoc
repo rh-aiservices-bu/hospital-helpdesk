@@ -3,8 +3,8 @@
 [role="_abstract"]
 // Guide to sending model requests and tracking them with MLflow.
 
-MLflow tracing allows us to collect inputs and responses to the model, as well as any intermediate steps added (as we will see later). +
-This gives us a history of what the user interactions have been, and how the model responded to them, giving us valuable data to better test and improve our prompts, making the model behave as closely to what we want as possible. +
+MLflow tracing allows us to collect inputs and responses to the model, as well as any intermediate steps added (as we will see in later chapters). +
+This gives us a history of what the user interactions have been, and how the model responded to them, giving us valuable data to better test and improve our AI systems. +
 In this section, we will send some requests to the model with MLflow tracing enabled, and see how they are collected.
 
 === Prerequisites
@@ -14,9 +14,12 @@ In this section, we will send some requests to the model with MLflow tracing ena
 
 === Procedure
 
-. Go back to the workbench (through your AI Project if you have closed it) and open up the notebook called `1_mlflow_request.ipynb`. This notebook will guide you through how to set up a connection with MLflow and enable tracing so that the requests in that notebook also get collected to MLflow. After you are done, come back here and we will look at the MLflow UI.
+. Go back to the workbench (through your AI Project if you have closed it) and open up the notebook called `1_mlflow_request.ipynb`. +
+This notebook will guide you through how to set up a connection with MLflow and enable tracing to collect information from requests being sent by that notebook.
 +
-*Note:* You need to enable tracing in all applications you want to see a trace, in this case we do it from within our Python code.
+NOTE: You need to enable tracing in all applications you want to appear in the trace, in this case we do it from within our Python code.
+
+. Go through that notebook and then come back here to look at the MLflow UI.
 
 === Verification
 
@@ -35,7 +38,7 @@ image::4-observability-tracing/experiment-overview.png[Experiment Overview]
 image::4-observability-tracing/traces.png[Traces]
 
 . Inside of a trace you get a variety of information, such as the system prompt, the input, the output, and any metadata. +
-You also have a *Details & Timeline* tab at the top to get a detailed view of how long each step of the trace took, which is very useful when we have more complicated flows like with Agents. +
+You also have a *Details & Timeline* tab at the top to get a detailed view of each step in the trace and how long each took, something that is very useful when we have more complicated flows like agentic workflows. +
 +
 image::4-observability-tracing/trace-info.png[Trace info]
 
