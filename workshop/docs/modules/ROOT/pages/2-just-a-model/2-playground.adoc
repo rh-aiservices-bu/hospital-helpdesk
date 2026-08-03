@@ -11,7 +11,7 @@ In {productname-short} there is a *Playground* which allows you to send messages
 
 . Navigate to *Gen AI Studio → Playground* in {productname-short}. Make sure to select your project (Hospital Helpdesk).
 
-. Click *Create Playground*, select our deployed model, and set *Max Tokens* to 1000, and then press Create
+. Click *Create Playground*, select our deployed model, leave *Max Tokens* empty, and then press Create
 +
 image::2-just-a-model/create-playground.png[Create Playground]
 
@@ -25,7 +25,7 @@ Do note that we are using a model running on CPU here, so it might not be the fa
 
 [TIP]
 ====
-*Running on CPU?* Responses can take a minute or more. There are two timeouts in the stack that both need to be increased. Open the *OpenShift web terminal* and run:
+*Running on CPU?* Responses can take a minute or more. There are two timeouts in the stack that both need to be increased. To increase them to 10 minutes, open the *OpenShift web terminal* and run:
 
 [source,bash]
 ----

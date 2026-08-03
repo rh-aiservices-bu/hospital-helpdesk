@@ -11,13 +11,14 @@ We will deploy a TinyLlama-1.1B model, it's small enough so it can run on CPU, m
 
 . Navigate to **AI hub** -> **Models** in the left sidebar.
 
-. Search for **TinyLlama-1.1B-Chat-v1.0** in the searchbar and click on the tile that appears.
+. Search for **Llama-3.2-3B-Instruct-quantized.w8a8** in the searchbar and click on the tile that appears. +
+We specifically use a small quantized model so it will be compatible with more hardware options.
 +
 image::2-just-a-model/model-tile.png[Model Tile for Tinyllama]
 +
-After you have clicked on the tile, you can see the **Model Card** for the TinyLlama model. This contains information such as how it's built, what license it has, and how to use it.
+After you have clicked on the tile, you can see the **Model Card** for the Llama model. This contains information such as how it's built, what license it has, and how to use it.
 
-. In the top right of the page you can see a button called Deploy, click that to start the deployment process of our model. It will take you through 3 different pages in the deployment wizard, fill in information accordingly.
+. In the top right of the page you can see a button called **Deploy model**, click that to start the deployment process of our model. It will take you through 3 different pages in the deployment wizard, fill in information accordingly.
 
 . In **Model details**, leave everything as is and checkmark **Use legacy deployment method**.
 +
@@ -33,8 +34,8 @@ With Accelerator::
 --
 . Select your Project (Hospital Helpdesk).
 . In the **Hardware profile**, select a profile that lets you deploy on an accelerator, such as a GPU.
-. Click on **Customize resource request and limits** and make sure you have 1 accelerator requests and limits, and at least 2 Cores CPU and 8 GiB Memory.
-. Under **Deployment resource**, select **Manual selection** and the runtime **vLLM NVIDIA CUDA GPU LLMInferenceServiceConfig** (for Nvidia GPUs, or related for other accelerators) from the dropdown.
+. Click on **Customize resource request and limits** and make sure you have 1 Accelerator requests and limits, and at least 2 Cores CPU and 8 GiB Memory.
+. Under **Deployment resource**, select **Manual selection** and the runtime **vLLM NVIDIA GPU ServingRuntime for KServe** (for Nvidia GPUs, or related for other accelerators) from the dropdown.
 +
 image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 --                                         
@@ -42,8 +43,9 @@ image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 Without Accelerator::
 +
 --
-NOTE: If you don't have an accelerator, your performance will depend heavily on the type of CPU you have and how much resources you can give the model. In some cases the response time will be too slow to be usable, in which case consider choosing a smaller model such as **Qwen2.5-1.5B-quantized.w8a8**. +
-However, beware that a smaller model may not be viable for later chapters like xref:5-rag/1-rag-in-playground.adoc[5.1 RAG in the Playground] or the entire xref:6-tools-agents/index.adoc[6. Tools & Agents] section.
+NOTE: If you don't have an accelerator, your performance will depend heavily on the type of CPU you have and how much resources you can give the model. +
+In some cases the response time will be too slow to be usable, in which case consider choosing a smaller model such as **Qwen2.5-1.5B-quantized.w8a8**. +
+However, beware that a smaller model may not be viable for the later chapters like xref:5-rag/1-rag-in-playground.adoc[5.1 RAG in the Playground] or the entire xref:6-tools-agents/index.adoc[6. Tools & Agents] section.
 
 . Select your Project (Hospital Helpdesk).
 . Click on **Customize resource request and limits** and make sure you have at least 10 Cores CPU and 16GiB Memory.
@@ -59,7 +61,7 @@ image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 // `--max-model-len=2000` +
 `--enable-auto-tool-choice` +
 `--tool-call-parser=llama3_json` +
-.. Checkmark **Add custom runtime environment variables** under Configuration parameters, click **Add variable**, and enter `VLLM_CPU_KVCACHE_SPACE` in the left field and `4` in the right field
+.. **(If using CPU deployment)** Checkmark **Add custom runtime environment variables** under Configuration parameters, click **Add variable**, and enter `VLLM_CPU_KVCACHE_SPACE` in the left field and `8` in the right field
 .. Leave the rest as is.
 +
 image::2-just-a-model/advanced-settings-form.png[Advanced Settings Form]

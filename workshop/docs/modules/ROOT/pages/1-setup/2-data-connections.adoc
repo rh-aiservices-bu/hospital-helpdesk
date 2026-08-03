@@ -6,12 +6,12 @@
 [role="_abstract"]
 A Data Connection is a resource that has the configuration parameters needed to connect to a data source or data sink, such as an AWS S3 object storage bucket. You can connect them to workbenches or pipelines for easier access to the data source.
 
-For this {deliverable}, you run a provided script that creates the following local S4 storage bucket for you:
+For this {deliverable}, you run a provided script that creates the following local S4 storage buckets for you:
 
-* *Pipelines Artifacts* - Use this bucket as storage for your pipeline artifacts. When you create a pipeline server, you need a pipeline artifacts bucket. For this {deliverable}, create this bucket to separate it from the first storage bucket for clarity.
+* *Pipelines Artifacts* - Use this bucket as storage for your pipeline artifacts. When you create a pipeline server, you need a pipeline artifacts bucket.
+* *Data* - This bucket contains the pdf document(s) which will be consumed by the pipeline in the RAG section.
 
-NOTE: Although you can use one storage bucket for both storing models, data and for storing pipeline artifacts, in this {deliverable} we only need to store artifacts. +
-Take a look at the link:https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html[Fraud Detection^] {deliverable} for an example where connections are also used to store models.
+NOTE: You can also use storage buckets for storing artifacts such as models, take a look at the link:https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html[Fraud Detection^] {deliverable} for such an example.
 
 The provided script also creates a connection to the storage bucket.
 

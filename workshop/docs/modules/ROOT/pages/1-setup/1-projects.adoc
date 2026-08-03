@@ -3,7 +3,8 @@
 [role="_abstract"]
 // Instructions for creating a data science project.
 
-An AI project is what contains many of the tools you will use inside of {productname-short}. You can use projects to collaborate with your teammates, and you can create things such as workbenches (IDEs), pipelines, deploy models, etc. from within your project.
+An AI project is what contains many of the tools you will use inside of {productname-short}. +
+You can use projects to collaborate with your teammates, and you can create resources such as workbenches (IDEs), pipelines, model deployments, etc. from within your project.
 
 === Prerequisites
 
@@ -17,7 +18,7 @@ An AI project is what contains many of the tools you will use inside of {product
 +
 NOTE: You can start a Jupyter notebook by clicking the *Start basic workbench* button. However, in that case, it is a one-off Jupyter notebook run in isolation.
 
-. In the *Create project* modal, enter a display name and description.
+. In the *Create project* modal, enter a name and description. Call it *Hospital Helpdesk*.
 +
 image::1-setup/new-project-form.png[New project form, 600]
 

@@ -1,14 +1,16 @@
 :_module-type: PROCEDURE
 
 [id='enabling-ai-pipelines']
-= Enable Pipelines
+= (Optional) Enable Pipelines
 
 [role="_abstract"]
-Configure a pipeline server in your project so that you can submit and schedule Kubeflow Pipelines runs.
+This section is optional. If you do not intend to use Kubeflow Pipelines, you can skip ahead to xref:2-just-a-model/index.adoc[2. Just a Model].
+
+AI Pipelines let you schedule and automate the execution of notebooks and Python code without having to manually run them in a workbench. In this {deliverable}, you will use a pipeline to ingest documents into a vector store for RAG.
 
 === Prerequisites
 
-* You have set up a Data Connection with a *Pipeline Artifacts* bucket, as described in xref:1-setup/2-data-connections.adoc[1.2.1. Data Connections].
+* You have set up a Data Connection with a *Pipeline Artifacts* bucket, as described in xref:1-setup/2-data-connections.adoc[1.2. Data Connections].
 
 === Procedure
 
@@ -52,4 +54,4 @@ An information box opens and displays the object storage connection information 
 
 === Next step
 
-xref:2-just-a-model/index.adoc[2. Just a Model]
+Now that we are all set up, we can continue to deploying and using our GenAI model in xref:2-just-a-model/index.adoc[2. Just a Model].
