@@ -9,7 +9,7 @@ In {productname-short} there is a *Playground* which allows you to send messages
 
 === Procedure
 
-. Enter the playground through GenAIStudio in {productname-short} and then Playground, make sure to select your project (Hospital Helpdesk)
+. Navigate to *Gen AI Studio → Playground* in {productname-short}. Make sure to select your project (Hospital Helpdesk).
 
 . Click *Create Playground*, select our deployed model, and set *Max Tokens* to 1000, and then press Create
 +

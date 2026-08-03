@@ -4,7 +4,7 @@
 = Data Connections
 
 [role="_abstract"]
-A Data Connection is a resource that has the configuration parameters needed to connect to a data source or data sink, such as an AWS S3 object storage bucket. You can connect them to workbenches or pipelines to easier access the data source.
+A Data Connection is a resource that has the configuration parameters needed to connect to a data source or data sink, such as an AWS S3 object storage bucket. You can connect them to workbenches or pipelines for easier access to the data source.
 
 For this {deliverable}, you run a provided script that creates the following local S4 storage bucket for you:
 

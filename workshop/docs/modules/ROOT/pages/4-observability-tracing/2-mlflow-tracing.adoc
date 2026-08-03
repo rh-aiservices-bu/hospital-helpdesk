@@ -4,7 +4,7 @@
 // Guide to sending model requests and tracking them with MLflow.
 
 MLflow tracing allows us to collect inputs and responses to the model, as well as any intermediate steps added (as we will see later). +
-This gives us a history of what the user interactions have been, and how the model responded to them, giving us valuable data for better test and improve our prompts, to make the model behave as closely to what we want as possible. +
+This gives us a history of what the user interactions have been, and how the model responded to them, giving us valuable data to better test and improve our prompts, making the model behave as closely to what we want as possible. +
 In this section, we will send some requests to the model with MLflow tracing enabled, and see how they are collected.
 
 === Prerequisites

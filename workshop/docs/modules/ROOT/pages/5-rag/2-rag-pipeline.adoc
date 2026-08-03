@@ -16,7 +16,7 @@ We will start here with the ingestion part, which we will shape in the form of a
 
 . First, we need to set up a pipeline server that we can schedule our pipelines with. 
 
-. Navigating to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk)
+. Navigate to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk)
 
 . Inside the workbench you should see a file called `rag_pipeline.py`, this is a pipeline built with the Kubeflow Pipelines Python SDK. +
 Open it to take a look at how the pipeline is set up. +

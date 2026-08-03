@@ -1,7 +1,7 @@
 = RAG in Code
 
 [role="_abstract"]
-// Guide to building RAG ingestion pipelines.
+// Guide to using RAG from code with MLflow tracing.
 
 Just like before, we can use the Playground View Code button to get a headstart, but this time we have prepared a notebook so that we don't need to go and copy paste from the Playground.
 

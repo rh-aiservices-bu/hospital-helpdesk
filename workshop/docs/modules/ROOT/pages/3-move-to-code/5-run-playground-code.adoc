@@ -11,7 +11,7 @@ Now that the Workbench is set up, we can finally move our Playground functionali
 
 === Procedure
 
-==== **Get the code from the playground**
+==== Get the code from the playground
 
 If you lost the code from xref:3-move-to-code/1-playground-to-code.adoc[3.1. Playground to Code] then you can take these steps to get it back, otherwise skip to xref:3-move-to-code/5-run-playground-code.adoc#use-the-code-in-a-workbench[Use the code in a workbench].
 
@@ -38,7 +38,7 @@ image::3-move-to-code/view-code.png[View code]
 +
 image::3-move-to-code/copy-code.png[Copy code]
 
-==== **Use the code in a workbench**
+==== Use the code in a workbench
 
 . Go to your workbench. +
 If you closed the tab then it's through Projects in the left menu, select your project, and click on your Workbench link inside the project page.

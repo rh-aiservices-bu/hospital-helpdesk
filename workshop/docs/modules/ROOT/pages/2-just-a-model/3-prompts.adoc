@@ -8,8 +8,8 @@ To improve this, we can modify the prompt (specifically the system prompt) that 
 
 There are two places where you can modify the prompt, either:
 
-- In the Prompts section of Gen AI studio in the left menu. Here you can get an overview of all existing prompts and manage them.
-- In the Prompt tab in the Playground. Here you can choose what prompt to use for your current playground setup.
+- In the *Prompts* section of Gen AI Studio in the left menu, where you can get an overview of all existing prompts and manage them.
+- In the *Prompt* tab in the Playground, where you can choose what prompt to use for your current playground setup.
 
 We will take a look at both here.
 
