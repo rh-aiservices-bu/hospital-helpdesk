@@ -3,7 +3,7 @@
 [role="_abstract"]
 // Guide to using RAG from code with MLflow tracing.
 
-Just like before, we can use the Playground View Code button to get a headstart, but this time we have prepared a notebook so that we don't need to go and copy paste from the Playground.
+Just like before, we could use the Playground's *View Code* button to get a head start, but this time we have prepared a notebook so you can dive straight in without copying and pasting from the Playground.
 
 === Prerequisites
 
@@ -12,26 +12,24 @@ Just like before, we can use the Playground View Code button to get a headstart,
 
 === Procedure
 
-. Start by navigating to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk).
+. Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk).
 
-. Inside the workbench, open up the notebook `2_rag.ipynb` and run through the content, after you are done come back here.
+. Inside the workbench, open the notebook `2_rag.ipynb` and run through it. Come back here when you are done.
 
 === Verification
 
-. In the end of the notebook you should get answer that look something like this:
+. At the end of the notebook you should see answers that look something like this:
 +
 image::5-rag/code-rag-answers.png[Code RAG Answers]
-+
-NOTE: You can also turn off chunks by setting `SHOW_TRACES = False`
 
-. However, we now also have MLflow traces you can inspect. Navigate to MLflow, through {productname-short} -> Develop & Train -> Experiments (MLflow), and look at the latest trace. You can now see that the model is doing tool calls to get the information we uploaded before.
+. We now also have MLflow traces to inspect. Navigate to MLflow through {productname-short} -> Develop & Train -> Experiments (MLflow) and open the latest trace. You can see that the model is making tool calls to retrieve the documents we uploaded earlier.
 +
 image::5-rag/mlflow-rag-trace.png[MLflow RAG Trace]
 
-. You can now also make use of the timeline to see how long each tool request took.
+. You can also use the timeline view to see how long each retrieval step took.
 +
 image::5-rag/rag-trace-span.png[RAG Trace Span]
 
 === Next step
 
-Now that you have built a RAG application, let's look at some other AI tools and how to use them in an agentic workflow in xref:6-tools-agents/index.adoc[6. Tools & Agents]
+Now that you have built a RAG application, let's look at tools and agentic workflows in xref:6-tools-agents/index.adoc[6. Tools & Agents]

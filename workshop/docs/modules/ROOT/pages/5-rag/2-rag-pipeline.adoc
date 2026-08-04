@@ -3,9 +3,9 @@
 [role="_abstract"]
 // Guide to building RAG ingestion pipelines.
 
-Now that you have used RAG from the Playground, we can move over to using code once again. +
-This time there are two parts to it, one part for ingesting the documents, and one for using the documents when querying the model. +
-We will start here with the ingestion part, which we will shape in the form of a pipeline so it's easy to trigger whenever needed.
+Now that you have used RAG from the Playground, we can move on to doing the same thing in code. +
+There are two parts to it: one for ingesting the documents, and one for querying the model using those documents. +
+We will start here with the ingestion part, which we will build as a pipeline so it is easy to trigger whenever new documents are added.
 
 === Prerequisites
 
@@ -14,35 +14,34 @@ We will start here with the ingestion part, which we will shape in the form of a
 
 === Procedure
 
-. Navigate to your workbench. If you don't have it open then you can find it through the {productname-short} Dashboard -> Projects -> your project (Hospital Helpdesk)
+. Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} Dashboard -> Projects -> your project (Hospital Helpdesk).
 
-. Inside the workbench you should see a file called `rag_pipeline.py`, this is a pipeline built with the Kubeflow Pipelines Python SDK. Open it to take a look at how the pipeline is set up. +
-This pipeline contains the step needed to chunk and injest a new document into our RAG database, specifically this document: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank] +
-The document has already been uploaded into an S3 bucket (rember the one you set up during xref:1-setup/2-data-connections.adoc[1.2. Data Connections]?) which the pipeline will download from.
+. Inside the workbench you should see a file called `rag_pipeline.py`, this is a pipeline built with the Kubeflow Pipelines Python SDK. Open it to take a look at how it is set up. +
+This pipeline contains the steps needed to chunk and ingest a new document into our RAG database, specifically this document: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank] +
+The document has already been uploaded into an S3 bucket (remember the one you set up during xref:1-setup/2-data-connections.adoc[1.2. Data Connections]?) which the pipeline will download from.
 
-. After you have looked through it, run the code to compile and execute the pipeline by pressing the little play button in the top menu.
-+ 
+. After you have looked through it, run the code to compile and execute the pipeline by pressing the play button in the top menu.
++
 image::5-rag/run-pipeline.png[Run Pipeline]
 
 === Verification
 
-. If everything went well you should have seen this output:
+. If everything went well you should see this output:
 +
 image::5-rag/console-output.png[Console Output]
 
-. You can now go and look at the pipeline to see how it runs. +
-Navigate to the {productname-short} dashboard and then select *Develop & train* -> *Pipelines* -> *Runs* in the left menu. Then click at the run that appears
+. You can now view the pipeline run in the {productname-short} dashboard. Select *Develop & train* -> *Pipelines* -> *Runs* from the left menu, then click on the run that appears.
 +
 image::5-rag/pipeline-run.png[Pipeline Run]
 
-. You can now track how the pipeline runs, after some minutes both steps should turn green. You can also click on the steps to get more information.
+. You can track the pipeline progress here. After a few minutes, both steps should turn green. You can also click on each step to see more details.
 +
 image::5-rag/running-pipeline.png[Running Pipeline]
 
-. If you didn't specify the vector store name (VECTOR_STORE_NAME) inside the pipeline before you ran it, and if you completed xref:5-rag/1-rag-in-playground.adoc[5.1. RAG in the Playground] you should also see your new file appear in the playground and you can ask questions about it, for example `I forgot my password and am locked out of my account. How do I reset it?`
+. If you completed xref:5-rag/1-rag-in-playground.adoc[5.1. RAG in the Playground] and did not specify a custom `VECTOR_STORE_NAME` in the pipeline, the new file will appear in the Playground automatically. Try asking: `I forgot my password and am locked out of my account. How do I reset it?`
 +
 image::5-rag/file-in-playground.png[File in Playground]
 
 === Next step
 
-Now that we have the data ingested, let's create RAG programmatically and add in tracing in xref:5-rag/3-rag-in-code.adoc[RAG in Code].
+Now that we have the data ingested, let's create RAG programmatically with tracing in xref:5-rag/3-rag-in-code.adoc[RAG in Code].
