@@ -3,12 +3,12 @@
 [role="_abstract"]
 // Guide to using LangGraph with OGX/Llama Stack and an MCP tool server.
 
-In the RAG chapter we let the **server** manage the agent loop via the Responses API. +
+In the RAG chapter we let the **OGX server** manage the agent loop via the Responses API. +
 Here we move the loop to the **client** using LangGraph, which gives us full control over state, tool execution, and human-in-the-loop decisions.
 
 === Prerequisites
 
-- The MCP ticketing server is deployed (see xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy the Ticketing MCP Server]).
+- The MCP ticketing server is deployed in xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy the Ticketing MCP Server].
 - You have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
 
 === Procedure
@@ -17,10 +17,15 @@ Here we move the loop to the **client** using LangGraph, which gives us full con
 
 === Verification
 
-. Each run should print the model's final answer. +
-Watch the intermediate output — you can see LangGraph printing the tool call (e.g. `get_ticket`) and the result before the final answer, because the loop now runs in your code, not on the server.
+. At the end of the notebook you should see outputs that look something like this. +
+You can also see the intermediate tool calls the agent makes and which tool it chooses. Do note again that it's a smaller model so it may not always choose or interprete the tools correctly.
++
+image::6-tools-agents/tool-response.png[Tool response]
 
-. Navigate to *Gen AI studio → Experiments (MLflow)* and check the trace. Because we added MLflow tracing to the agent node, you can see each `model` and `tool` step as separate spans.
+. Navigate to *Gen AI studio → Experiments (MLflow)* and look at the traces. +
+Thanks to mlflow autologging we get a bit more detail this time on exactly how the agent is running.
++
+image::6-tools-agents/mlflow-results.png[Tool response]
 
 === Next step
 

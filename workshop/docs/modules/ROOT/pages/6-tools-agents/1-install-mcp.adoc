@@ -5,10 +5,12 @@
 
 Before we can use tools in code, we need a tool to use. +
 In this section we deploy a small **MCP (Model Context Protocol) server** that simulates the IT ticketing system for Oak City General Hospital. +
-It exposes four tools the model can call: `create_ticket`, `get_ticket`, `list_tickets`, and `update_ticket`. +
+Using this, our agent will be able to read and file tickets for us!
+
+The MCP server exposes four tools the model can request to use: `create_ticket`, `get_ticket`, `list_tickets`, and `update_ticket`. +
 The server is already pre-seeded with a handful of open tickets we will be able to explore.
 
-After the server is running, a setup job automatically registers it as a connector in the Llama Stack Playground so the model can call its tools directly from the chat interface.
+After the server is running, a setup job automatically registers it as a connector in the OGX that underlies our Playground.
 
 === Procedure
 

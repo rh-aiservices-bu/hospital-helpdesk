@@ -29,6 +29,8 @@ image::5-rag/mlflow-rag-trace.png[MLflow RAG Trace]
 . You can also use the timeline view to see how long each retrieval step took.
 +
 image::5-rag/rag-trace-span.png[RAG Trace Span]
++
+NOTE: You can see here how we are making requests to a tool. We are actually not doing traditional RAG here but instead agentic RAG, calling a tool to get the document chunks we need for context (and in the case of this AI model, it calls the tool 3 times for some reason, likely because it's a smaller model).
 
 === Next step
 
