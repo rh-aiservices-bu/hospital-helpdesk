@@ -5,7 +5,7 @@
 
 
 We are now able to talk with our model, see how it responds depending on what we ask, and tracably improve our system! +
-However, the model currently only answers based on what it has been trained, and in a hospital we have a lot of questions we need to answer based on our own internal processes. +
+However, the model currently only answers based on what it has been trained, and in a hospital we have a lot of questions we need to answer based on our own internal documents. +
 To that end, we want to provide our own documents and give them to the LLM so it answers based on those instead. This is where RAG (Retrieval Augmented Generation) comes in.
 
 Let's start by exploring how RAG works in the playground: xref:5-rag/1-rag-in-playground.adoc[5.1. RAG in the Playground]

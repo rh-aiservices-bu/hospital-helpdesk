@@ -21,6 +21,8 @@ Just like before, we can use the Playground View Code button to get a headstart,
 . In the end of the notebook you should get answer that look something like this:
 +
 image::5-rag/code-rag-answers.png[Code RAG Answers]
++
+NOTE: You can also turn off chunks by setting `SHOW_TRACES = False`
 
 . However, we now also have MLflow traces you can inspect. Navigate to MLflow, through {productname-short} -> Develop & Train -> Experiments (MLflow), and look at the latest trace. You can now see that the model is doing tool calls to get the information we uploaded before.
 +
@@ -32,4 +34,4 @@ image::5-rag/rag-trace-span.png[RAG Trace Span]
 
 === Next step
 
-Now that you have built a RAG application, let's look at some more generic tools and how to use them in an agentic workflow in xref:6-tools-agents/index.adoc[6. Tools & Agents]
+Now that you have built a RAG application, let's look at some other AI tools and how to use them in an agentic workflow in xref:6-tools-agents/index.adoc[6. Tools & Agents]

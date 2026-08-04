@@ -3,8 +3,8 @@
 [role="_abstract"]
 // Guide to using Retrieval-Augmented Generation in the playground.
 
-RAG (Retrieval Augmented Generation) is the technique of slicing large documents into small parts, and then giving the LLM some of those small slices together with the normal prompt so it can use the information from those slices when it gives an answer. +
-Which small slices are used is chosen semantically, typically the texts that are semantically closest to our question to the LLM. +
+RAG (Retrieval Augmented Generation) is a technique where you feed information relevant to the current conversation into the prompt, so that the LLM has more context when it generates an answer. +
+The playground we have been using is built on top of something called OGX (Open GenAI Stack) which we also can use for RAG, specifically splitting large documents into smaller chunks, injesting them into the vector database, and retreiving them. +
 This will let us use the LLM to answer specific questions like: +
 `An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
 
@@ -27,25 +27,41 @@ image::5-rag/enable-rag.png[Enable RAG]
 
 . Press **Upload** under Add files and select the oak_hospital_regulations.pdf you just downloaded.
 
-. Keep default values as is and press Upload.
+. Change the chunk length to 200 and overlap to 100 to get smaller chunks and then press Upload.
 +
 image::5-rag/upload-settings.png[Upload Settings]
-
-=== Verification
 
 . You will likely see it go to 50% and then you have to wait for a couple of minutes while it processes the file, after it's done it should look something like this. 
 +
 image::5-rag/pdf.uploaded.png[PDF Uploaded]
 
-. Before testing RAG, first toggle off RAG so we can see how it behaves without it. Ask this question with RAG both off and on: +
+=== Verification
+
+. Start by making sure that your prompt is loaded again.
+
+. Before testing with RAG, first toggle off RAG so we can see how it behaves without it. Ask this question: +
 `An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
 
-. Did you see a difference? With RAG toggled on you should see an answer similar to this: +
-`For an immediate replacement unit, contact the Central Supply department at extension 4450. They will dispatch a ready-for-use unit to your floor. Do NOT contact Biomedical Engineering for an immediate replacement; their role is repair, not immediate dispatch.`
+. Now create a new chat (the *+ New Chat* option in the top right), turn on RAG, and ask the same question.
 
-. Feel free to ask a few more questions, like what our hospital is called. When you are done testing the RAG you can move on to the next section.
+. Did you see a difference? With RAG toggled on, you should see an answer similar to this:
++
+.Example RAG response
+====
+The replacement procedure for a ClearFlow infusion pump with error code 525 is as follows:
 
-Since the Playground is not yet connected to MLflow, we won't see traces from here, but in the next section where we implement this in code we will be able to see it.
+. Remove the device from service and tag it as faulty.
+. File a Level 3 ticket in MedTrack under "Medical Devices > Infusion Pump General Failure."
+. Clean the unit and send it to Biomedical Engineering via the designated utility room bin.
+
+For an immediate replacement unit, contact the Central Supply department at extension 4450. They will dispatch a ready-for-use unit to your floor. Do not contact Biomedical Engineering for an immediate replacement; their role is repair, not immediate dispatch.
+
+After filing the ticket and securing a replacement, the faulty ClearFlow pump should be cleaned according to standard sanitation procedures and sent to the Biomedical Engineering department. Place the tagged unit in the designated "Biomedical Outgoing" bin, typically located in the floor's main utility room next to the clean supply closet.
+====
+
+. Feel free to ask a few more questions, like where the Biomedical Engineering department is located. When you are done testing the RAG you can move on to the next section.
+
+Since the Playground is not yet connected to MLflow, we won't see traces from here, but in the next section where we implement RAG in code we will be able to see it.
 
 === Next step
 

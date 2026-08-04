@@ -5,7 +5,7 @@
 
 Now that you have used RAG from the Playground, we can move over to using code once again. +
 This time there are two parts to it, one part for ingesting the documents, and one for using the documents when querying the model. +
-We will start here with the ingestion part, which we will shape in the form of a pipeline.
+We will start here with the ingestion part, which we will shape in the form of a pipeline so it's easy to trigger whenever needed.
 
 === Prerequisites
 
@@ -14,13 +14,11 @@ We will start here with the ingestion part, which we will shape in the form of a
 
 === Procedure
 
-. First, we need to set up a pipeline server that we can schedule our pipelines with. 
+. Navigate to your workbench. If you don't have it open then you can find it through the {productname-short} Dashboard -> Projects -> your project (Hospital Helpdesk)
 
-. Navigate to your workbench. If you don't have it open then you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk)
-
-. Inside the workbench you should see a file called `rag_pipeline.py`, this is a pipeline built with the Kubeflow Pipelines Python SDK. +
-Open it to take a look at how the pipeline is set up. +
-This pipeline contains the step needed to chunk and injest a new document into our RAG database, specifically this document: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank]
+. Inside the workbench you should see a file called `rag_pipeline.py`, this is a pipeline built with the Kubeflow Pipelines Python SDK. Open it to take a look at how the pipeline is set up. +
+This pipeline contains the step needed to chunk and injest a new document into our RAG database, specifically this document: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank] +
+The document has already been uploaded into an S3 bucket (rember the one you set up during xref:1-setup/2-data-connections.adoc[1.2. Data Connections]?) which the pipeline will download from.
 
 . After you have looked through it, run the code to compile and execute the pipeline by pressing the little play button in the top menu.
 + 
