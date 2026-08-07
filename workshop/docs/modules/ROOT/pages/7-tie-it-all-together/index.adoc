@@ -1,4 +1,4 @@
-= Tie it all togehter
+= Tie it all together
 
 [role="_abstract"]
 // Introduction to an AI application
