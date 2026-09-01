@@ -15,5 +15,5 @@ NOTE: You can also use storage buckets for storing artifacts such as models, tak
 
 Choose one of the following options:
 
-* *I want to use the provided script to create the S3 buckets and Data Connections (recommended):* Follow the steps in xref:1-setup/3-scripted-storage.adoc[Running a script to install local object storage buckets and create connections].
-* *I want to use my own S3-compatible object storage:* Follow the steps in xref:1-setup/4-manual-storage.adoc[Creating connections to your own S3-compatible object storage].
+* *Use the provided script (recommended):* Runs a script that installs a local S3-compatible storage service and creates the data connections automatically. xref:1-setup/3-scripted-storage.adoc[Follow these steps].
+* *Use your own S3-compatible object storage:* If you already have S3 buckets you want to use, you can create the connections manually. xref:1-setup/4-manual-storage.adoc[Follow these steps].
