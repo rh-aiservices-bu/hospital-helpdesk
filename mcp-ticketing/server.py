@@ -138,10 +138,9 @@ def create_ticket(
     if priority not in VALID_PRIORITIES:
         return {"error": f"Invalid priority '{priority}'. Must be one of: {', '.join(sorted(VALID_PRIORITIES))}."}
 
-    ticket_id = f"TKT-{str(uuid.uuid4())[:4].upper()}"
-    # Avoid collisions with pre-seeded numeric IDs
+    ticket_id = f"TKT-{uuid.uuid4().hex.upper()}"
     while ticket_id in TICKETS:
-        ticket_id = f"TKT-{str(uuid.uuid4())[:4].upper()}"
+        ticket_id = f"TKT-{uuid.uuid4().hex.upper()}"
 
     ticket = {
         "id": ticket_id,
