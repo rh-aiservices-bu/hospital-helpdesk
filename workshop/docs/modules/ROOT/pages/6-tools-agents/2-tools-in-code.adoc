@@ -26,7 +26,3 @@ image::6-tools-agents/tool-response.png[Tool response]
 Thanks to mlflow autologging we get a bit more detail this time on exactly how the agent is running.
 +
 image::6-tools-agents/mlflow-results.png[Tool response]
-
-=== Next step
-
-xref:7-tie-it-all-together/index.adoc[7. Tie it all together]
