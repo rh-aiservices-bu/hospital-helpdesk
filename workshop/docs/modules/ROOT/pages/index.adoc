@@ -1,5 +1,4 @@
 = GenAI {deliverable} with {productname-long}
-:!sectids:
 
 [id='introduction']
 [.text-center.strong]

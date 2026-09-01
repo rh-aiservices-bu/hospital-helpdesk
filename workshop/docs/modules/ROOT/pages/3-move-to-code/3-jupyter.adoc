@@ -28,7 +28,7 @@ This file-browser window shows the files and folders that are saved inside your 
 +
 image::3-move-to-code/jupyter-git-icon.png[Git Clone icon, 200]
 
-.. Enter the following {deliverable} Git *https* URL:
+.. Enter the following Git *https* URL:
 +
 [.lines_space]
 [.console-input]
