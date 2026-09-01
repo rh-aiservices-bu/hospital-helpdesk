@@ -57,14 +57,6 @@ If your cluster uses self-signed certificates, your {productname-short} administ
 
 === Next steps
 
-* Decide whether you want to complete the pipelines section of this {deliverable}. With OpenShift AI pipelines, you can automate the execution of your notebooks and Python code. You can run long training jobs or retrain your models on a schedule without having to manually run them in a notebook.
-+
-If you want to complete the pipelines section of this {deliverable}, go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
+If you want to complete the pipelines section of this {deliverable} (including part of the RAG section), go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
 
-* Decide whether you want to complete the _Distributing training jobs with the Training Operator_ section of this {deliverable}. In that section, you implement a distributed training job by using Kueue for managing job resources.
-//+
-//NOTE: The _Distributing training jobs with the Training Operator_ section of this {deliverable} is not supported if you are using the {org-name} Developer Sandbox.
-+
-
-
-* Otherwise, skip to xref:3-move-to-code/2-workbench.adoc[Creating a workbench].
+Otherwise, skip to xref:2-just-a-model/index.adoc[Deploying and using a model].
