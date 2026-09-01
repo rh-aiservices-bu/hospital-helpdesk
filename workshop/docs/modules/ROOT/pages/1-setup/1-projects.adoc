@@ -15,8 +15,6 @@ You can use projects to collaborate with your teammates, and you can create reso
 . From the left navigation menu, select *Projects*. This page lists any existing projects that you have access to. You can select an existing project (if any) or create a new one.
 
 . Click *Create project*.
-+
-NOTE: You can start a Jupyter notebook by clicking the *Start basic workbench* button. However, in that case, it is a one-off Jupyter notebook run in isolation.
 
 . In the *Create project* modal, enter a name and description. Call it *Hospital Helpdesk*.
 +
@@ -46,4 +44,4 @@ image::1-setup/project-new.png[New project]
 
 === Next step
 
-xref:2-just-a-model/1-model-catalog.adoc[Deploy from Model Catalog]
+Now that your project is set up, let's go and set up some connections to where our data will live: xref:1-setup/2-data-connections[Data Connections]
