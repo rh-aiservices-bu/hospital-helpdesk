@@ -4,4 +4,4 @@
 // Introduction to working with a model directly.
 
 First thing we need for our Hospital Helpdesk assistant is a model. +
-In this section we will deploy our own model (it's also common to use external ones, but deploying our own on-prem gives us more control), and then interact with that model without any additional bells and whistles.
+In this section we will deploy our own model and then interact with that model without any additional bells and whistles.
