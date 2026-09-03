@@ -24,6 +24,11 @@ image::2-just-a-model/model-tile.png[Model Tile for Llama 3.2 3B Instruct]
 +
 We specifically use a small quantized model so it will be compatible with more hardware options.
 +
+NOTE: If you don't see the model and have admin access, you can add it by going to *Settings* -> *Model resources and operations* -> *Model catalog settings* and adding a new source with the organization *RedHatAI*. Note that this may take a while to load as it syncs a large number of models. +
+You can also choose a similar model that's available.
++
+image::2-just-a-model/model-catalog-settings.png[Model catalog settings showing RedHatAI organization]
++
 After you have clicked on the tile, you can see the **Model Card** for the Llama model. This contains information such as how it's built, what license it has, and how to use it.
 
 . In the top right of the page you can see a button called **Deploy model**, click that to start the deployment process of our model. It will take you through 3 different pages in the deployment wizard, fill in information accordingly.
