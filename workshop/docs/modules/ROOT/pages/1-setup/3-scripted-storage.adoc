@@ -128,7 +128,6 @@ If your cluster uses self-signed certificates, your {productname-short} administ
 
 === Next steps
 
-If you want to complete the RAG section of this {deliverable} with OpenShift AI pipelines, you can automate the execution of your notebooks and Python code. You can automatically injest data or run long training jobs on a schedule without having to manually run them in a notebook. +
-If you want to complete the pipelines section of this {deliverable}, go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
+If you want to complete the pipelines section of this {deliverable} (including part of the RAG section), go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
 
-Otherwise, skip to xref:3-move-to-code/2-workbench.adoc[Creating a workbench].
+Otherwise, skip to xref:2-just-a-model/index.adoc[Deploying and using a model].

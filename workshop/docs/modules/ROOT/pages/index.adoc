@@ -7,6 +7,12 @@
 [.text-center.strong]
 === Welcome to the Hospital Helpdesk GenAI tutorial!
 
-In this tutorial, you are creating an AI assistant for a Hospital Helpdesk in Oak City General Hospital. +
-It will assist the helpdesk in finding processes faster, filing tickets, and answering regular questions. +
-As you go through the tutorial, you will get examples of how to interact with the AI model, enable different GenAI workflows, and set up observability, in {productname-long}.
+Oak City General Hospital is a large hospital serving thousands of patients and staff. Its IT helpdesk handles hundreds of requests a week — from nurses locked out of workstations mid-shift, to ward printers jamming during prescription runs, to clinical equipment displaying cryptic error codes that need fast triage.
+
+Currently, a helpdesk staff member juggles three things at once: a caller on the line, a browser tab with the IT policy document, and a separate ticketing system they have to switch to in order to log the issue. Procedures are buried in documents, ticket fields have to be filled in manually, and institutional knowledge lives in people's heads.
+
+The goal is to build an AI assistant that changes that workflow. One that can look up hospital IT policies and equipment procedures in seconds, raise and update support tickets through a live ticketing system, and answer common questions.
+
+This assistant is for IT helpdesk staff, not patients or clinical staff directly. But because it makes the helpdesk faster and more accurate, the benefits ripple through the whole hospital.
+
+In this {deliverable}, you will build this assistant step by step by using {productname-long}. You will start from a simple conversation with the model, move into code, add observability so you can see what it is doing, give it access to hospital policy documents so it can answer questions accurately, and finally connect it to a live ticketing system so it can take real actions on behalf of helpdesk staff.

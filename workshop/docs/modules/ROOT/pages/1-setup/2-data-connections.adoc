@@ -6,15 +6,14 @@
 [role="_abstract"]
 A Data Connection is a resource that has the configuration parameters needed to connect to a data source or data sink, such as an AWS S3 object storage bucket. You can connect them to workbenches or pipelines for easier access to the data source.
 
-For this {deliverable}, you run a provided script that creates the following local S4 storage buckets for you:
+For this {deliverable}, you will have two data connections that point to two different S3 buckets:
 
 * *Pipelines Artifacts* - Use this bucket as storage for your pipeline artifacts. When you create a pipeline server, you need a pipeline artifacts bucket.
-* *Data* - This bucket contains the pdf document(s) which will be consumed by the pipeline in the RAG section.
+* *Data* - This bucket contains the PDF documents which will be consumed by the pipeline in the RAG section.
 
 NOTE: You can also use storage buckets for storing artifacts such as models, take a look at the link:https://rh-aiservices-bu.github.io/fraud-detection/fraud-detection-workshop/index.html[Fraud Detection^] {deliverable} for such an example.
 
-The provided script also creates a connection to the storage bucket.
+Choose one of the following options:
 
-To run the script that installs local S4 storage bucket and creates a connection to it, follow the steps in xref:1-setup/3-scripted-storage.adoc[Running a script to install local object storage buckets and create connections].
-
-NOTE: If you want to use your own S3-compatible object storage bucket (instead of using the provided script), follow the steps in xref:1-setup/4-manual-storage.adoc[Creating connections to your own S3-compatible object storage].
+* *Use the provided script (recommended):* Runs a script that installs a local S3-compatible storage service and creates the data connections automatically. xref:1-setup/3-scripted-storage.adoc[Follow these steps].
+* *Use your own S3-compatible object storage:* If you already have S3 buckets you want to use, you can create the connections manually. xref:1-setup/4-manual-storage.adoc[Follow these steps].
