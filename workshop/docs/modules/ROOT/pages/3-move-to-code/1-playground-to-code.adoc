@@ -4,6 +4,8 @@
 
 Before moving away from the playground, let's make sure to extract the code so we can use it later.
 
+NOTE: If you have no good way to save the code locally, skip this step, you will see instructions for how to do this again later when you actually use the code.
+
 === Prerequisites
 
 - The Playground is set up and tested, as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground]
