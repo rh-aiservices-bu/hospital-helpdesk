@@ -72,7 +72,7 @@ image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 // `--max-model-len=2000` +
 `--enable-auto-tool-choice` +
 `--tool-call-parser=llama3_json` +
-.. **(If using CPU deployment)** Checkmark **Add custom runtime environment variables** under Configuration parameters, click **Add variable**, and enter `VLLM_CPU_KVCACHE_SPACE` in the left field and `8` in the right field
+.. Checkmark **Add custom runtime environment variables** under Configuration parameters, click **Add variable**, and enter `VLLM_CPU_KVCACHE_SPACE` in the left field and `8` in the right field
 .. Leave the rest as is.
 +
 image::2-just-a-model/advanced-settings-form.png[Advanced Settings Form]
