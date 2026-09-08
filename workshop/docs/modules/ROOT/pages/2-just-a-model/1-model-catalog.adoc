@@ -31,7 +31,7 @@ After you have clicked on the tile, you can see the **Model Card** for the Llama
 
 . In the top right of the page you can see a button called **Deploy model**, click that to start the deployment process of our model. It will take you through 3 different pages in the deployment wizard, fill in information accordingly.
 
-. In **Model details**, leave everything as is and checkmark **Use legacy deployment method**.
+. In **Model details**, checkmark **Use legacy deployment method** if you have the option, otherwleave everything as is.
 +
 image::2-just-a-model/model-details-form.png[Model Details Form]
 
