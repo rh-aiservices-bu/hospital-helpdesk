@@ -5,8 +5,6 @@
 
 Now that you have a project, let's go ahead and deploy a model into it.  
 
-We will deploy a TinyLlama-1.1B model, it's small enough so it can run on CPU, making it great for testing and prototyping (or for demos like this).
-
 === Procedure
 
 . Navigate to **AI hub** -> **Models** in the left sidebar.
