@@ -98,7 +98,8 @@ image::2-just-a-model/review-form.png[Review Form]
 
 == Verification
 
-After deploying the model you will automatically be navigated to the model deployments page. The model should get deployed after a few minutes and you will see that it's Ready in the Status column. +
+After deploying the model you will automatically be navigated to the model deployments page. The model should get deployed after a few minutes and you will see that it's Ready in the Status column. 
+
 During this process the model will download to disk, load into active memory (RAM or vRAM), and start running based on the runtime (vLLM in our case). Once it's running, it's served in a similar fashion to a webserver, and ready to receive requests to reply to.
 
 image::2-just-a-model/model-ready.png[Model is Ready]

@@ -66,7 +66,7 @@ image::3-move-to-code/notebook-output.png[Notebook Output]
 After the cell has finished running you should see an answer similar to that you got in the Playground. +
 From here on, you could start modifying the code and integrate it into an AI application.
 
-Make sure to also save your notebook, press Ctrl+S and give it a good name like `request-model` when prompted in the modal.
+Make sure to also save your notebook, press Ctrl+S and call it `request-model` when prompted in the modal.
 
 image::3-move-to-code/rename-and-save.png[Save the notebook]
 
