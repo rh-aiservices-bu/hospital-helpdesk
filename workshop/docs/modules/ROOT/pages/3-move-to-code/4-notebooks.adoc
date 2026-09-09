@@ -34,12 +34,12 @@ When you save a notebook, the code and the results are saved. You can reopen the
 
 Notebooks are so named because they are like a physical _notebook_: you can take notes about your experiments, along with the code itself, including any parameters that you set. You can see the output of the experiment inline (this is the result after a cell runs), along with all the notes that you want to take. To take notes, from the menu switch the cell type from `Code` to `Markdown`.
 
-=== Prerequisites
+== Prerequisites
 
 * You have imported the {deliverable} files into your JupyterLab environment as described in
 xref:3-move-to-code/3-jupyter.adoc[3.3 Jupyter].
 
-=== Procedure
+== Procedure
 
 . In your JupyterLab environment, locate the `0_sandbox.ipynb` file and double-click it to launch the notebook. The notebook opens in a new tab in the content section of the environment.
 +
@@ -55,10 +55,10 @@ image::3-move-to-code/new_notebook.png[New notebook, 100]
 +
 You can use different kernels, with different languages or versions, to run in your notebook.
 
-=== Additional resources
+== Additional resources
 
 * link:https://jupyter.org/[the Jupyter site]
 
-=== Next step
+== Next step
 
 xref:3-move-to-code/5-run-playground-code.adoc[Playground to Code]

@@ -1,5 +1,5 @@
 * xref:index.adoc[Introduction]
-* xref:1-setup/index.adoc[1. Setup]
+* xref:1-setup/index.adoc[1. Setting up my project]
 ** xref:1-setup/1-projects.adoc[1.1. Create a Project]
 ** xref:1-setup/2-data-connections.adoc[1.2. Data Connections]
 *** xref:1-setup/3-scripted-storage.adoc[Scripted]

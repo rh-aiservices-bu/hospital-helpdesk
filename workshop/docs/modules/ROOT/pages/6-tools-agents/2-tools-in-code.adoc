@@ -6,16 +6,16 @@
 In the RAG chapter we let the **OGX server** manage the agent loop via the Responses API. +
 Here we move the loop to the **client** using LangGraph, which gives us full control over state, tool execution, and human-in-the-loop decisions.
 
-=== Prerequisites
+== Prerequisites
 
 - The MCP ticketing server is deployed in xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy the Ticketing MCP Server].
 - You have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
 
-=== Procedure
+== Procedure
 
 . Open the notebook `3_tools.ipynb` in your workbench and go through it, come back here after you are done.
 
-=== Verification
+== Verification
 
 . At the end of the notebook you should see outputs that look something like this. +
 You can also see the intermediate tool calls the agent makes and which tool it chooses. Do note again that it's a smaller model so it may not always choose or interprete the tools correctly.

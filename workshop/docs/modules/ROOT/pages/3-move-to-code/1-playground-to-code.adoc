@@ -4,11 +4,13 @@
 
 Before moving away from the playground, let's make sure to extract the code so we can use it later.
 
-=== Prerequisites
+NOTE: If you have no good way to save the code locally, skip this step, you will see instructions for how to do this again later when you actually use the code.
+
+== Prerequisites
 
 - The Playground is set up and tested, as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground]
 
-=== Procedure
+== Procedure
 
 . There is a button in the top right called *View code*, click that. +
 If the button is grayed out, you need to send a message to the chat. You can just send this if so: +
@@ -22,6 +24,6 @@ image::3-move-to-code/copy-code.png[Copy code]
 
 . Save the code somewhere, you will need it in xref:3-move-to-code/5-run-playground-code.adoc[3.5. Run the Playground Code] where we run it.
 
-=== Next step
+== Next step
 
 Create a Workbench (a coding environment) in xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench] so you have somewhere to run the code you just saved.

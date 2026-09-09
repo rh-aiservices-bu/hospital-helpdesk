@@ -13,11 +13,11 @@ There are two places where you can modify the prompt, either:
 
 We will take a look at both here.
 
-=== Prerequisites
+== Prerequisites
 
 - The Playground is set up and tested, as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground]
 
-=== Procedure
+== Procedure
 
 . Inside the Playground, choose the tab called Prompt. Here you have the option to:
 - Load an existing prompt
@@ -52,7 +52,7 @@ image::2-just-a-model/save-prompt.png[Save a new prompt]
 
 . Feel free to add a nice commit message, like "First prompt", and then press Create.
 
-=== Verification
+== Verification
 
 (Optional) Let's first verify that the prompt was saved in our Prompts registry.
 
@@ -85,6 +85,6 @@ image::2-just-a-model/new-chat.png[Create a new chat]
 `A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?` +
 (it's a small model, so bear with it if the response is not the highest quality)
 
-=== Next step
+== Next step
 
 xref:3-move-to-code/index.adoc[Run the same requests, but through code]

@@ -8,11 +8,11 @@
 [role="_abstract"]
 The JupyterLab environment is web-based, but all operations run on {productname-long} and are backed by the OpenShift cluster. This configuration allows you to run notebooks without installing local tools or consuming local CPU, GPU, or memory resources.
 
-=== Prerequisites
+== Prerequisites
 
 - You created a workbench, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
 
-=== Procedure
+== Procedure
 
 . In the *Workbenches* tab for your project, click the link for your workbench. If prompted, log in and allow JupyterLab to authorize your user.
 +
@@ -46,14 +46,14 @@ image::3-move-to-code/jupyter-git-modal.png[Git Modal, 200]
 image::3-move-to-code/jupyter-file-browser.png[Jupyter file browser, 300]
 
 
-=== Verification
+== Verification
 
 . You should be able to see all files related to the {deliverable}.
 +
 image::3-move-to-code/jupyter-file-browser-2.png[Jupyter file browser]
 
 
-=== Next step
+== Next step
 
 xref:3-move-to-code/4-notebooks.adoc[Basic notebook introduction]
 

@@ -7,12 +7,12 @@ Now that you have used RAG from the Playground, we can move on to doing the same
 There are two parts to it: one for ingesting the documents, and one for querying the model using those documents. +
 We will start here with the ingestion part, which we will build as a pipeline so it is easy to trigger whenever new documents are added.
 
-=== Prerequisites
+== Prerequisites
 
 - Have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench]
 - Set up the playground as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground]
 
-=== Procedure
+== Procedure
 
 . Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} Dashboard -> Projects -> your project (Hospital Helpdesk).
 
@@ -24,7 +24,7 @@ The document has already been uploaded into an S3 bucket (remember the one you s
 +
 image::5-rag/run-pipeline.png[Run Pipeline]
 
-=== Verification
+== Verification
 
 . If everything went well you should see this output:
 +
@@ -42,6 +42,6 @@ image::5-rag/running-pipeline.png[Running Pipeline]
 +
 image::5-rag/file-in-playground.png[File in Playground]
 
-=== Next step
+== Next step
 
 Now that we have the data ingested, let's create RAG programmatically with tracing in xref:5-rag/3-rag-in-code.adoc[RAG in Code].
