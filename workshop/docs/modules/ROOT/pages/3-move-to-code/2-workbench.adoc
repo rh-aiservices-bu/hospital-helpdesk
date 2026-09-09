@@ -6,7 +6,7 @@
 [role="_abstract"]
 A workbench is an instance of your development and experimentation environment. When you create a workbench, you select a workbench image that has the tools and libraries that you need for developing models.
 
-=== Procedure
+== Procedure
 
 . Navigate to the project detail page for the project that you created in xref:1-setup/1-projects.adoc[Create a Project].
 
@@ -34,7 +34,7 @@ image::3-move-to-code/add-data-connection.png[Add Data Connection]
 
 . Leave the rest as is and click *Create workbench*.
 
-=== Verification
+== Verification
 
 In the *Workbenches* tab for the project, the status of the workbench changes from `Starting` to `Running`.
 
@@ -45,6 +45,6 @@ NOTE: If you made a mistake, you can edit the workbench to make changes.
 image::3-move-to-code/ds-project-workbench-list-edit.png[Workbench list edit, 350]
 
 
-=== Next step
+== Next step
 
 xref:3-move-to-code/3-jupyter.adoc[Importing the {deliverable} files into the JupyterLab environment]

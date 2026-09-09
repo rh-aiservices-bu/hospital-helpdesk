@@ -6,11 +6,11 @@
 An AI project is what contains many of the tools you will use inside of {productname-short}. +
 You can use projects to collaborate with your teammates, and you can create resources such as workbenches (IDEs), pipelines, model deployments, etc. from within your project.
 
-=== Prerequisites
+== Prerequisites
 
 * You have logged in to *{productname-long}*.
 
-=== Procedure
+== Procedure
 
 . From the left navigation menu, select *Projects*. This page lists any existing projects that you have access to. You can select an existing project (if any) or create a new one.
 
@@ -22,7 +22,7 @@ image::1-setup/new-project-form.png[New project form, 600]
 
 . Click *Create*.
 
-=== Verification
+== Verification
 
 Your project opens in the dashboard.
 
@@ -42,6 +42,6 @@ image::1-setup/project-new.png[New project]
 
 * *Permissions* define which users and groups can access the project.
 
-=== Next step
+== Next step
 
 Now that your project is set up, let's go and set up some connections to where our data will live: xref:1-setup/2-data-connections[Data Connections]

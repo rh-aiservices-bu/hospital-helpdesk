@@ -4,12 +4,12 @@
 
 Now that the Workbench is set up, we can finally move our Playground functionality to code.
 
-=== Prerequisites
+== Prerequisites
 
 - The Playground code has been exported as described in xref:3-move-to-code/1-playground-to-code.adoc[3.1. Playground to Code].
 - A Workbench is set up, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
 
-=== Procedure
+== Procedure
 
 .Lost the code from step 3.1 Playground to Code? Click here to see how to get it again
 [%collapsible]
@@ -61,7 +61,7 @@ image::3-move-to-code/set-llama-stack-url.png[Notebook Output]
 image::3-move-to-code/notebook-output.png[Notebook Output]
 
 
-=== Verification
+== Verification
 
 After the cell has finished running you should see an answer similar to that you got in the Playground. +
 From here on, you could start modifying the code and integrate it into an AI application.
@@ -70,6 +70,6 @@ Make sure to also save your notebook, press Ctrl+S and give it a good name like 
 
 image::3-move-to-code/rename-and-save.png[Save the notebook]
 
-=== Next step
+== Next step
 
 With a code environment set up and working connection to our model, we can look at how the system behaves using xref:4-observability-tracing/index.adoc[Observability & Tracing]

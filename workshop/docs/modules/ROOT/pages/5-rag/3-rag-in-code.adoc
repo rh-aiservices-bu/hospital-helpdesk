@@ -5,18 +5,18 @@
 
 Just like before, we could use the Playground's *View Code* button to get a head start, but this time we have prepared a notebook so you can dive straight in without copying and pasting from the Playground.
 
-=== Prerequisites
+== Prerequisites
 
 - Have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench]
 - Ingested RAG data through either xref:5-rag/2-rag-pipeline.adoc[5.2. RAG Ingestion Pipelines] or xref:5-rag/1-rag-in-playground.adoc[5.1. RAG in the Playground]
 
-=== Procedure
+== Procedure
 
 . Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk).
 
 . Inside the workbench, open the notebook `2_rag.ipynb` and run through it. Come back here when you are done.
 
-=== Verification
+== Verification
 
 . At the end of the notebook you should see answers that look something like this:
 +
@@ -32,6 +32,6 @@ image::5-rag/rag-trace-span.png[RAG Trace Span]
 +
 NOTE: You can see here how we are making requests to a tool. We are actually not doing traditional RAG here but instead agentic RAG, calling a tool to get the document chunks we need for context (and in the case of this AI model, it calls the tool 3 times for some reason, likely because it's a smaller model).
 
-=== Next step
+== Next step
 
 Now that you have built a RAG application, let's look at tools and agentic workflows in xref:6-tools-agents/index.adoc[6. Tools & Agents]

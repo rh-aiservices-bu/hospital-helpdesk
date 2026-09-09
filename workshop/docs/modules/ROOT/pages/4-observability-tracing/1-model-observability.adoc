@@ -5,11 +5,11 @@
 {productname-short} comes with an observability dashboard out-of-the-box which we can use to see some model metrics. +
 Many more metrics are also scraped and exposed through Prometheus, and can be used to create custom OpenShift dashboards.
 
-=== Prerequisites
+== Prerequisites
 
 - A model has been deployed as described in xref:2-just-a-model/1-model-catalog.adoc[2.1. Deploy from Model Catalog]
 
-=== Procedure
+== Procedure
 
 . Navigate to the {productname-short} dashboard and go to AI hub -> Models
 
@@ -28,6 +28,6 @@ image::4-observability-tracing/model-metrics.png[Request per 5 minutes metric]
 
 . If you want to see more requests or don't see any within this time-period, you can go back to the Playground as described in xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground], and send a few more messages.
 
-=== Next step
+== Next step
 
 xref:4-observability-tracing/2-mlflow-tracing.adoc[MLflow Tracing]

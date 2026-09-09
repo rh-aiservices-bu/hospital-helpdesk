@@ -12,7 +12,7 @@ The server is already pre-seeded with a handful of open tickets we will be able 
 
 After the server is running, a setup job automatically registers it as a connector in the OGX that underlies our Playground.
 
-=== Procedure
+== Procedure
 
 [NOTE]
 ====
@@ -88,7 +88,7 @@ spec:
 
 . Click *Create*.
 
-=== Verification
+== Verification
 
 . In the OpenShift console there should be a "Resources successfully created" message listing:
 +
@@ -101,6 +101,6 @@ spec:
 If you already completed the storage setup in xref:1-setup/3-scripted-storage.adoc[1.2.1. Data Connections], `demo-setup` and `demo-setup-edit` may already exist and you may see an error for those resources. This is fine, the `deploy-mcp-ticketing` Job will still run correctly.
 ====
 
-=== Next step
+== Next step
 
 Now that the server is running and registered, let's use it from code in xref:6-tools-agents/2-tools-in-code.adoc[6.2. Agentic Workflow].

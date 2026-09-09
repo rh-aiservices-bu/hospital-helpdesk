@@ -11,11 +11,11 @@ This will let us use the LLM to answer specific questions like: +
 Before we move into building our own RAG behaviour, we can try out RAG with our model inside the Playground. +
 This makes it easy to upload documents and see what kind of replies we get with our system prompt.
 
-=== Prerequisites
+== Prerequisites
 
 - The playground has been created according to xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground] 
 
-=== Procedure
+== Procedure
 
 . Download the following file, it contains information about our hospital's standard operating procedures: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/oak_hospital_regulations.pdf[oak_hospital_regulations.pdf,window=_blank]
 
@@ -35,7 +35,7 @@ image::5-rag/upload-settings.png[Upload Settings]
 +
 image::5-rag/pdf.uploaded.png[PDF Uploaded]
 
-=== Verification
+== Verification
 
 . Start by making sure that your system prompt is loaded.
 
@@ -63,6 +63,6 @@ After filing the ticket and securing a replacement, the faulty ClearFlow pump sh
 
 Since the Playground is not connected to MLflow, we won't see traces from here — but in the next section where we implement RAG in code, we will.
 
-=== Next step
+== Next step
 
 Now that we have tested RAG, let's implement it programmatically, starting with xref:5-rag/2-rag-pipeline.adoc[RAG Ingestion Pipelines]

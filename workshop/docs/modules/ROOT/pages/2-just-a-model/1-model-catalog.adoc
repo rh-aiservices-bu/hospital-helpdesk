@@ -5,17 +5,28 @@
 
 Now that you have a project, let's go ahead and deploy a model into it.  
 
-=== Procedure
+== Procedure
 
 . Navigate to **AI hub** -> **Models** in the left sidebar.
 
-. Search for the following model in the searchbar and click on the tile that appears: +
+. Here you have a choice between with or without accelerator. +
+Search for the following model in the searchbar and click on the tile that appears. +
+**With Accelerator:**
 +
 [.lines_space]
 [.console-input]
 [source,text]
 ----
 Llama-3.2-3B-Instruct-quantized.w8a8
+----
++
+**Without Accelerator:**
++
+[.lines_space]
+[.console-input]
+[source,text]
+----
+Qwen2.5-1.5B-quantized.w8a8
 ----
 +
 image::2-just-a-model/model-tile.png[Model Tile for Llama 3.2 3B Instruct]
@@ -62,7 +73,7 @@ However, beware that a smaller model may not be viable for the later chapters li
 . Click on **Customize resource request and limits** and make sure you have at least 10 Cores CPU and 16GiB Memory.
 . Under **Deployment resource**, select **Manual selection** and the runtime **vLLM CPU (x86) ServingRuntime for KServe** from the dropdown.
 +
-image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
+image::2-just-a-model/model-deployment-form-cpu.png[Model Deployment Form CPU]
 --
 ====
 . In **Advanced settings**:
@@ -76,7 +87,7 @@ image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 --enable-auto-tool-choice
 --tool-call-parser=llama3_json
 ----
-.. Checkmark **Add custom runtime environment variables** under Configuration parameters, click **Add variable**, and enter `VLLM_CPU_KVCACHE_SPACE` in the left field and `8` in the right field
+.. (If using CPU deployment) Checkmark **Add custom runtime environment variables** under Configuration parameters, click **Add variable**, and enter `VLLM_CPU_KVCACHE_SPACE` in the left field and `8` in the right field
 .. Leave the rest as is.
 +
 image::2-just-a-model/advanced-settings-form.png[Advanced Settings Form]
@@ -85,13 +96,13 @@ image::2-just-a-model/advanced-settings-form.png[Advanced Settings Form]
 +
 image::2-just-a-model/review-form.png[Review Form]
 
-=== Verification
+== Verification
 
 After deploying the model you will automatically be navigated to the model deployments page. The model should get deployed after a few minutes and you will see that it's Ready in the Status column. +
 During this process the model will download to disk, load into active memory (RAM or vRAM), and start running based on the runtime (vLLM in our case). Once it's running, it's served in a similar fashion to a webserver, and ready to receive requests to reply to.
 
 image::2-just-a-model/model-ready.png[Model is Ready]
 
-=== Next step
+== Next step
 
 xref:2-just-a-model/2-playground.adoc[Using the Playground]
