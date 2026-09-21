@@ -18,6 +18,16 @@ Use for any platform tutorial (RHOAI, Kubernetes, cloud console, SaaS). You are 
 2. **Derive the module list from the tutorial's own navigation** (TOC, index, sidebar) at runtime. No pre-baked module map. Nav defects are findings: module missing from nav, dangling next/prev link, orphaned page, numbering that skips.
 3. **Record what the tutorial promises up front**: listed prerequisites, assumed platform state, time estimates. "No duration given anywhere" is itself a finding.
 
+## Tooling
+- Drive the platform UI with a browser-automation tool — Playwright (headless is fine; pin the browser revision and pass `executable_path` when the install is managed) or an equivalent harness (browser tab helpers, aria snapshots, screenshots). Every verification is from the UI point of view.
+- `oc`/`kubectl` are frowned upon for regular RHOAI users — not part of the learner's toolchain. Run them only when the tutorial itself instructs a CLI step, and record that dependency in the findings.
+
+## Run in sub-agents (keep the orchestrating context clean)
+- Do the walkthrough in background sub-agents, not inline: the main session only orchestrates. One sub-agent per module (or a small range of modules), run in order — later modules depend on earlier state.
+- Each sub-agent's brief: its module range, this skill (point it at the skill file so it reads the full rules), and the shared inputs (tutorial location, UI URL, creds path, review folder). Sub-agents start blank — everything they need must be in the brief.
+- Sub-agents write straight to the review folder: findings appended to `findings.md`, screenshots to `screens/`, logs and HTML dumps to files. They return only a short summary: modules completed/failed, findings count, screenshot paths, open questions for the admin.
+- Never paste full page HTML, aria snapshots, or long CLI output back into the orchestrating conversation — those are files in the run folder, referenced by path.
+
 ## Work through every module in order, as a learner would
 - Alternatives (scripted vs manual, UI vs CLI, optional vs required): take the primary path first, note the alternative exists.
 - Optional step: ask whether later modules depend on it — skip once, note downstream breakage, go back and complete if needed. "The docs don't say what this optional step feeds" is a finding either way.
@@ -59,6 +69,7 @@ Overall verdict afterwards:
 - No outside sources unless a step is truly impossible — then note it, try the most likely alternative, report what you had to do.
 - Screenshot everything you'd show a colleague when explaining a problem.
 - Be specific: exact button labels, exact error text, exact screenshots.
+- Verify everything from the UI point of view with a browser-automation tool (see Tooling above). `oc`/`kubectl` are frowned upon for regular RHOAI users — use them only when the tutorial itself instructs it, and flag it as a finding.
 
 ## Review folder hygiene
 - One unique, git-ignored run folder per review execution, under a shared `review/` root: `review/<YYYY-MM-DD>-<slug>/` (append `-2` or `-HHMM` if it already exists). Everything the run generates goes inside it: findings `.md` file(s), `screens/`, logs, transcripts. Create it and ensure the `review/` gitignore entry exists before the first capture.
