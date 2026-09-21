@@ -1,0 +1,4 @@
+.creds
+workshop/node_modules/*
+helper-scripts/*
+workshop/review-screens/*
