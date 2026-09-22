@@ -1,7 +1,7 @@
 {
   "name": "hospital-helpdesk-workshop",
   "description": "Hospital Helpdesk - GenAI Tutorial",
-  "homepage": "https://rh-aiservices-bu.github.io/caicu",
+  "homepage": "https://rh-aiservices-bu.github.io/hospital-helpdesk",
   "dependencies": {
     "@antora/cli": "^3.1.4",
     "@antora/site-generator-default": "^3.1.4",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rh-aiservices-bu/caicu.git"
+    "url": "git+https://github.com/rh-aiservices-bu/hospital-helpdesk.git"
   },
   "license": "Apache-2.0",
   "babel": {

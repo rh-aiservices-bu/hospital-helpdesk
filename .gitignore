@@ -4,3 +4,4 @@ review-*/
 workshop/node_modules/*
 helper-scripts/*
 .creds
+dev.stamp
