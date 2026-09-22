@@ -178,7 +178,7 @@ EOF
 Without it, the Playground page hangs on "Loading" (the `/gen-ai/api/v1/aaa/mcps` call 404s and the UI never recovers).
 The `"[]"` placeholder unblocks the UI. To register REAL servers, the docs format is: one key per server (case-sensitive, unique), value = JSON `{"url": ..., "description": ...}`.
 
-**MCP module 6 prerequisite (verified failure on 6d7fk):** the tutorial's `patch-llama-stack-mcp` job patches `configmap llama-stack-config` in the USER project (e.g. `hospital-helpdesk`). On a fresh install that ConfigMap does NOT exist there — the job fails with "configmaps llama-stack-config not found", the MCP server runs but is NEVER registered in OGX, and `/gen-ai/api/v1/aaa/mcps` returns `servers: []`. Before handoff, either pre-create/verify `llama-stack-config` in the user project (copy the shape from `redhat-ods-applications` if OGX ships one), or apply `setup/mcp-ticketing.yaml`'s patch-llama-stack-mcp step after confirming the CM exists, then roll `lsd-genai-playground`.
+**MCP module 6 registration (corrected for 3.5.1, verified 2026-09-21):** with `llamastackoperator: Removed` the cluster has NO llamastack CRDs — no `lsd-genai-playground`, no `llama-stack-config` anywhere. The tutorial's `patch-llama-stack-mcp` job (patches `configmap llama-stack-config` in the user project, rolls `lsd-genai-playground`) is from a different generation and fails with "configmaps llama-stack-config not found"; do NOT pre-create that CM to force it through — the job would still die at the missing deployment. The working registration path is the `gen-ai-aa-mcp-servers` ConfigMap (step 9): one key per server, value JSON `{"url": ..., "description": ...}` pointing at `http://mcp-ticketing.<user-project>.svc.cluster.local:8080/mcp`, then `oc rollout restart deploy/rhods-dashboard -n redhat-ods-applications` (the backend reads the CM at boot). Clean up failed attempts: `oc delete jobs -n <user-project> -l job-name=patch-llama-stack-mcp`.
 
 ## 10. Keycloak dashboard access (if the cluster uses Keycloak SSO)
 
@@ -201,7 +201,7 @@ Confirm the user exists in the Keycloak realm backing the RHOAI dashboard (works
 | 11 | `curl /api/config` to verify flags | redirects to SSO login page (oauth-proxy) | verify via `oc get odhdashboardconfig -o jsonpath=...` |
 | 12 | `add-cluster-role-to-user admin` from a project dir | creates a namespaced RoleBinding, not cluster-wide | run from a non-project dir or use explicit RoleBinding; prefer minimal RBAC |
 | 13 | Workbench pip index lacks `llama-stack-client` | `!pip install llama-stack-client` fails in 2_rag.ipynb / rag_pipeline.py | install with `--index-url https://pypi.org/simple/` (step 7) |
-| 14 | `llama-stack-config` ConfigMap missing in the USER project | `patch-llama-stack-mcp` job fails; MCP server runs but OGX never registers it (`mcps` → `[]`) | pre-create/verify `llama-stack-config` in the user project before running the job; roll `lsd-genai-playground` (step 9) |
+| 14 | `patch-llama-stack-mcp` job on 3.5.x | job fails "configmaps llama-stack-config not found"; no llamastack CRDs/`lsd-genai-playground` exist with `llamastackoperator: Removed` | register the server in `gen-ai-aa-mcp-servers` CM + restart the dashboard (step 9); delete the failed jobs |
 | 15 | `mlflowoperator: Removed` | prompts (2.3) unsaveable; *Experiments (MLflow)* menu absent for ALL users (4.2/5.3/6.2) | set `mlflowoperator: Managed` in the DSC (step 2) |
 | 16 | `promptManagement` flag default false | Prompt tab can't save/load `ai-hospital-helpdesk` (module 2.3) | add `promptManagement: true` to the dashboard patch + restart (step 4) |
 | 17 | `datasciencepipelines` key on 3.5 | pipelines component not installed; module 1.3/5.2 pipelines unavailable | 3.x key is `aipipelines` (step 2) |
@@ -241,13 +241,13 @@ oc delete ns redhat-ods-applications redhat-ods-monitoring rhods-notebooks --ign
 - [ ] S3/URI model location ready with `model.gguf` + `config.json`
 - [ ] `mlflowoperator` Managed; *Experiments (MLflow)* menu visible to the regular user (modules 4.2/5.3/6.2)
 - [ ] `gen-ai-aa-mcp-servers` ConfigMap exists
-- [ ] `llama-stack-config` ConfigMap exists in the USER project (or MCP registered in OGX — `mcps` list non-empty)
+- [ ] MCP registered in `gen-ai-aa-mcp-servers` CM (keys non-`[]`) AND dashboard restarted after the last CM edit
 - [ ] RedHatAI catalog source status Connected (if added)
 - [ ] Service Mesh 3.x + cert-manager installed
 - [ ] User has access to their own project + Playground
 - [ ] User's exact privilege level recorded (role/RoleBinding granted, namespace scope)
 - [ ] User informed of the pip fix: `--index-url https://pypi.org/simple/` for `llama-stack-client` (gotcha 13)
-- [ ] MCP ticketing server reachable AND registered in OGX (module 6 of the tutorial)
+- [ ] MCP ticketing server reachable AND registered in `gen-ai-aa-mcp-servers` (module 6 of the tutorial)
 - [ ] Dashboard URL given is the 3.4 EA1+ format `https://rh-ai.apps.<cluster-domain>` (legacy rhods-dashboard URLs redirect)
 
 Hand the user only the expected-state checklist — see the companion skill `platform-tutorial-user-review` for the regular-user side.

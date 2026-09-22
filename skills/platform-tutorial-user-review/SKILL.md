@@ -20,6 +20,7 @@ Use for any platform tutorial (RHOAI, Kubernetes, cloud console, SaaS). You are 
 
 ## Tooling
 - Drive the platform UI with a browser-automation tool — Playwright (headless is fine; pin the browser revision and pass `executable_path` when the install is managed) or an equivalent harness (browser tab helpers, aria snapshots, screenshots). Every verification is from the UI point of view.
+- Screenshot plumbing gotcha: the harness may save captures to a temp dir (webp) instead of the requested path. Locate the newest temp captures, visually verify each file's content before mapping it to a step name (never trust capture order alone), convert to PNG into the run folder's `screens/`, and reference those paths in findings.
 - `oc`/`kubectl` are frowned upon for regular RHOAI users — not part of the learner's toolchain. Run them only when the tutorial itself instructs a CLI step, and record that dependency in the findings.
 
 ## Run in sub-agents (keep the orchestrating context clean)
@@ -27,6 +28,9 @@ Use for any platform tutorial (RHOAI, Kubernetes, cloud console, SaaS). You are 
 - Each sub-agent's brief: its module range, this skill (point it at the skill file so it reads the full rules), and the shared inputs (tutorial location, UI URL, creds path, review folder). Sub-agents start blank — everything they need must be in the brief.
 - Sub-agents write straight to the review folder: findings appended to `findings.md`, screenshots to `screens/`, logs and HTML dumps to files. They return only a short summary: modules completed/failed, findings count, screenshot paths, open questions for the admin.
 - Never paste full page HTML, aria snapshots, or long CLI output back into the orchestrating conversation — those are files in the run folder, referenced by path.
+- Orchestrator platform health: verify the platform UI is reachable before dispatching each module (and after long waits). An outage silently poisons sub-agent findings — verify the cause (e.g. kubelet events), recover if trivial, and log the outage window + cause in the findings header as **platform state**, not tutorial findings.
+- Orchestrator/admin interventions during the run (creating a hardware profile, deleting a crash-looping resource, enabling a flag) go in the findings header as logged admin actions — never reported as sub-agent successes.
+- Tooling churn cap: if a sub-agent rewrites its automation driver more than ~3 times for one step, steer it to stop, record a tooling-bounded finding (see Capture per step), append its module section, and return. A completed module with an honest "not verified" note beats another hour of driver churn.
 
 ## Work through every module in order, as a learner would
 - Alternatives (scripted vs manual, UI vs CLI, optional vs required): take the primary path first, note the alternative exists.
@@ -34,7 +38,7 @@ Use for any platform tutorial (RHOAI, Kubernetes, cloud console, SaaS). You are 
 
 ## Capture per step
 1. **Instruction vs UI**: where the doc's words differ from what you see (button labels, menus, step order, missing elements). Screenshot every mismatch: `<review-run>/screens/<module>-<step>-<short-name>.png`.
-2. **Does it work?** Success/failure per step; on failure capture exact error text (screenshot + copy).
+2. **Does it work?** Success/failure per step; on failure capture exact error text (screenshot + copy). Classify it: doc-vs-UI mismatch → a finding; missing platform prerequisite the learner cannot fix (model never Ready, service absent, per-project feature not enabled) → an **untestable platform gap** (one line referencing the header's platform-state bullet — not a doc failure); automation limits (a step could not be executed/verified) → a **tooling-bounded** note stating exactly what was and was not executed.
 3. **Does it make sense?** Jargon before explanation, assumed knowledge not yet taught, ambiguity ("select Projects" — which dashboard?), references to screens that don't exist.
 4. **Complexity**: steps much longer than implied, too many manual fields, beginner-would-give-up spots.
 5. **Unanswered questions**: every "how do I...?" the tutorial didn't answer; every missing link, definition, or "why am I doing this?".
@@ -59,9 +63,12 @@ Overall verdict afterwards:
 - Time-to-complete estimate vs what the tutorial implies (no stated duration → say so)
 - Top 3 things to fix in the docs, ranked by learner blockage
 - Top 3 platform prerequisites missing from the docs' prerequisites section — cross-check against the "Before you start" step 3 list so claimed-but-unverified and missing both surface.
+- Make the "could a first-time user complete this alone?" answer explicit about the cluster state it holds for (hardware profiles, catalog generation, feature operators, per-project enablement) so docs authors can separate doc defects from platform provisioning.
+- Group repeated blockers by root cause: when one missing prerequisite (e.g. a hardcoded service URL) fails steps across several modules, rank it once at the top instead of restating it per module.
 
 ## Expected state (from the admin)
 `<paste the admin's handoff checklist here>`. A step failing in a way this list says was pre-configured → mismatch between handoff note and reality, not your error.
+The findings header also carries **platform state**: orchestrator-verified outage causes + recovery, and admin interventions performed during the run. Sub-agent findings reference this header; a step failing the way this state predicts → platform gap, not a doc or user error.
 
 ## Rules
 - Follow the tutorial **in order**; no skipping ahead. A step that only works via something the tutorial didn't say is a finding, not a success.
