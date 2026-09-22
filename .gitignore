@@ -1,0 +1,6 @@
+# Review run artifacts (findings, screenshots, logs) — git-ignored per review-folder convention
+review/
+review-*/
+workshop/node_modules/*
+helper-scripts/*
+.creds
