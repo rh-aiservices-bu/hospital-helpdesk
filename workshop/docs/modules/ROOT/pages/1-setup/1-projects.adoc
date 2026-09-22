@@ -9,6 +9,10 @@ You can use projects to collaborate with your teammates, and you can create reso
 == Prerequisites
 
 * You have logged in to *{productname-long}*.
++
+NOTE: Not sure if you're logged in? Check the top of the page: if you see "{productname-long}" and a *Home* link like in the screenshot below, you're in. If not, log in first.
++
+image::1-setup/rhoai-logged-in-verification.png[Confirming you are logged in to Red Hat OpenShift AI]
 
 == Procedure
 
