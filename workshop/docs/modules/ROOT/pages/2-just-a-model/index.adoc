@@ -1,4 +1,4 @@
-= Just a Model
+= Get Your First Model Running
 
 [role="_abstract"]
 // Introduction to working with a model directly.
