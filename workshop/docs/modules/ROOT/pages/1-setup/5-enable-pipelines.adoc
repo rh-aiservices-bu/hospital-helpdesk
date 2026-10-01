@@ -36,12 +36,15 @@ image::1-setup/ds-project-create-pipeline-server-form.png[Selecting the Pipeline
 ====
 You must wait until the pipeline configuration is complete before you continue and create your workbench. If you create your workbench before the pipeline server is ready, your workbench cannot submit pipelines to it.
 ====
++
+[NOTE]
+====
+Taking a while, or stuck? You can click *View progress and event logs* to see what's happening.
 
-.. You can click *View progress and event logs*.
-+
 If you have waited more than 5 minutes and the pipeline server configuration does not complete, you can click *Cancel pipeline server setup* and create it again.
-+
+
 You can also ask your {productname-short} administrator to verify that they applied self-signed certificates on your cluster as described in link:https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/latest/html/installing_and_uninstalling_openshift_ai_self-managed/working-with-certificates_certs[Working with certificates] (Self-Managed).
+====
 
 == Verification
 

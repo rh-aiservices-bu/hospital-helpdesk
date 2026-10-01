@@ -30,6 +30,8 @@ image::1-setup/new-project-form.png[New project form, 600]
 
 Your project opens in the dashboard.
 
+[NOTE]
+====
 You can click the tabs to view more information about the project components and project access permissions:
 
 image::1-setup/project-new.png[New project]
@@ -45,6 +47,7 @@ image::1-setup/project-new.png[New project]
 * *Connections* points to a data location which you can use for purposes such as configuration parameters and storing models, data, or artifacts.
 
 * *Permissions* define which users and groups can access the project.
+====
 
 == Next step
 

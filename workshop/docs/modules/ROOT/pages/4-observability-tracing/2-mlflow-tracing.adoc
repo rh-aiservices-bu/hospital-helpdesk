@@ -42,11 +42,14 @@ You also have a *Details & Timeline* tab at the top to get a detailed view of ea
 +
 image::4-observability-tracing/trace-info.png[Trace info]
 
-. If you click on *Show Assessment* you can also add *Feedback* and *Expectations* to the trace. +
-You can then add this trace to a dataset by clicking *Add to dataset* and use the dataset to evaluate other models or system prompts to see if it behaves according to your *Expectations*. +
-This makes for an easy way to dynamically build up an eval dataset from your traces.
-+
+[NOTE]
+====
+Optional: if you click on *Show Assessment* you can also add *Feedback* and *Expectations* to the trace.
+
+You can then add this trace to a dataset by clicking *Add to dataset* and use the dataset to evaluate other models or system prompts to see if it behaves according to your *Expectations*. This makes for an easy way to dynamically build up an eval dataset from your traces.
+
 image::4-observability-tracing/show-assessment.png[Show Assessment]
+====
 
 == Next step
 
