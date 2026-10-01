@@ -9,7 +9,7 @@ Now that you have a project, let's go ahead and deploy a model into it.
 
 . Navigate to **AI hub** -> **Models** in the left sidebar.
 
-. Here you have a choice between with or without accelerator. +
+. Here you have a choice between with or without accelerator (aka GPU). +
 Search for the following model in the searchbar and click on the tile that appears. +
 **With Accelerator:**
 +
@@ -33,8 +33,10 @@ image::2-just-a-model/model-tile.png[Model Tile for Llama 3.2 3B Instruct]
 +
 We specifically use a small quantized model so it will be compatible with more hardware options.
 +
-NOTE: If you don't see the model and have admin access, you can add it by going to *Settings* -> *Model resources and operations* -> *Model catalog settings* and adding a new source with the organization *RedHatAI*. Note that this may take a while to load as it syncs a large number of models. +
-You can also choose a similar model that's available.
+NOTE: If you don't see the model, you may need admin access to add it. +
+Not sure if you have admin access?  +
+Check the left navigation menu: if you see a *Settings* item, you're an {productname-short} admin and can add it yourself. If you don't see *Settings*, ask your cluster administrator to add it, or just choose a similar model that's already available. +
+To add it yourself: go to *Settings* -> *Model resources and operations* -> *Model catalog settings* and add a new source with the organization *RedHatAI*. Note that this may take a while to load as it syncs a large number of models.
 +
 image::2-just-a-model/model-catalog-settings.png[Model catalog settings showing RedHatAI organization]
 +
