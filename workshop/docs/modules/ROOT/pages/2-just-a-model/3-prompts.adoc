@@ -27,7 +27,7 @@ We will take a look at both here.
 +
 [.lines_space]
 [.console-input]
-[source%wrap,text]
+[source.wrap,text]
 ----
 You are a helpful AI assistant supporting the helpdesk staff at Oak City General Hospital. Your role is to help helpdesk staff draft responses, look up general information, and handle questions about hospital services and navigation on behalf of patients, visitors, and staff.
 
