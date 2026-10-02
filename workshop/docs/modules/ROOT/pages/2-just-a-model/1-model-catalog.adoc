@@ -56,7 +56,7 @@ We recommend with accelerator if possible for a smooth experience in this worksh
 With Accelerator::  
 +
 --
-. Select your Project (Hospital Helpdesk).
+. Select your Project.
 . In the **Hardware profile**, select a profile that lets you deploy on an accelerator, such as a GPU.
 . Click on **Customize resource request and limits** and make sure you have 1 Accelerator requests and limits, and at least 2 Cores CPU and 8 GiB Memory.
 . Under **Deployment resource**, select **Manual selection** and the runtime **vLLM NVIDIA GPU ServingRuntime for KServe** (for Nvidia GPUs, or related for other accelerators) from the dropdown.
@@ -71,7 +71,7 @@ NOTE: If you don't have an accelerator, your performance will depend heavily on 
 In some cases the response time will be too slow to be usable, in which case consider choosing a smaller model such as **Qwen2.5-1.5B-quantized.w8a8**. +
 However, beware that a smaller model may not be viable for the later chapters like xref:5-rag/1-rag-in-playground.adoc[5.1 RAG in the Playground] or the entire xref:6-tools-agents/index.adoc[6. Tools & Agents] section.
 
-. Select your Project (Hospital Helpdesk).
+. Select your Project.
 . Click on **Customize resource request and limits** and make sure you have at least 10 Cores CPU and 16GiB Memory.
 . Under **Deployment resource**, select **Manual selection** and the runtime **vLLM CPU (x86) ServingRuntime for KServe** from the dropdown.
 +

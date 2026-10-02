@@ -34,7 +34,7 @@ image::6-tools-agents/ds-project-ocp-link.png[OpenShift Console Link, 600]
 +
 image::6-tools-agents/ocp-console-add-icon.png[Add resources Icon]
 
-. Click the down arrow next to the project name and select *hospital-helpdesk* from the list.
+. Click the down arrow next to the project name and select *your project* from the list.
 +
 image::6-tools-agents/ocp-console-select-project.png[Select a project, 200]
 

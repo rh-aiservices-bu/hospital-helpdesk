@@ -24,14 +24,17 @@ import os
 from kfp import dsl, compiler
 from kfp.client import Client
 
+with open("/var/run/secrets/kubernetes.io/serviceaccount/namespace") as _f:
+    _NAMESPACE = _f.read().strip()
+
 # ─────────────────────────────────────────────────────────────────
 # CONFIGURATION — update these to match your environment
 # ─────────────────────────────────────────────────────────────────
-LLAMA_STACK_URL = os.getenv("LLAMA_STACK_URL", "http://lsd-genai-playground-service.hospital-helpdesk.svc.cluster.local:8321")
+LLAMA_STACK_URL = os.getenv("LLAMA_STACK_URL", f"http://lsd-genai-playground-service.{_NAMESPACE}.svc.cluster.local:8321")
 
 # S3 — read from the data connection environment variables (set automatically when
 # the 'data-connection-data' Secret is attached to the workbench)
-S3_ENDPOINT   = os.getenv("AWS_S3_ENDPOINT", "http://s4.hospital-helpdesk.svc.cluster.local:7480")
+S3_ENDPOINT   = os.getenv("AWS_S3_ENDPOINT", f"http://s4.{_NAMESPACE}.svc.cluster.local:7480")
 S3_BUCKET     = os.getenv("AWS_S3_BUCKET", "data")
 S3_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY_ID", "")
 S3_SECRET_KEY = os.getenv("AWS_SECRET_ACCESS_KEY", "")
@@ -189,13 +192,8 @@ if __name__ == "__main__":
     compiler.Compiler().compile(rag_ingestion_pipeline, pipeline_yaml)
     print(f"Pipeline compiled → {pipeline_yaml}")
 
-    namespace_file_path =\
-        '/var/run/secrets/kubernetes.io/serviceaccount/namespace'
-    with open(namespace_file_path, 'r') as namespace_file:
-        namespace = namespace_file.read()
-
     kubeflow_endpoint =\
-        f'https://ds-pipeline-dspa.{namespace}.svc:8443'
+        f'https://ds-pipeline-dspa.{_NAMESPACE}.svc:8443'
 
     sa_token_file_path = '/var/run/secrets/kubernetes.io/serviceaccount/token'
     with open(sa_token_file_path, 'r') as token_file:

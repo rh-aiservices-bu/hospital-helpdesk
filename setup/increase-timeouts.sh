@@ -9,7 +9,7 @@
 
 set -e
 
-NAMESPACE="hospital-helpdesk"
+NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
 
 echo "==> Increasing InferenceService predictor timeout to 700s..."
 IS_NAME=$(oc get inferenceservice -n "$NAMESPACE" -o jsonpath='{.items[0].metadata.name}')

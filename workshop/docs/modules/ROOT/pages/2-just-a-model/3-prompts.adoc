@@ -56,7 +56,7 @@ image::2-just-a-model/save-prompt.png[Save a new prompt]
 
 (Optional) Let's first verify that the prompt was saved in our Prompts registry.
 
-. Go to Gen AI studio -> Prompts in the left menu. Make sure to also select your Project (Hospital Helpdesk) in the top.
+. Go to Gen AI studio -> Prompts in the left menu. Make sure to also select your Project in the top.
 
 . You should see *ai-hospital-helpdesk* there, and if you click on it you will get more information, as well as options to:
 - Create a new version (this you can do from within the Playground as well by just saving a new version)
@@ -69,7 +69,7 @@ image::2-just-a-model/prompts.png[Prompts dashboard]
 
 Let's test our new prompt.
 
-. Go back to the Playground, make sure that you are in your project (Hospital Helpdesk), and select the prompt again from **Load Prompt** in the Prompt tab.
+. Go back to the Playground, make sure that you are in your project, and select the prompt again from **Load Prompt** in the Prompt tab.
 +
 image::2-just-a-model/load-prompt.png[Load prompt]
 

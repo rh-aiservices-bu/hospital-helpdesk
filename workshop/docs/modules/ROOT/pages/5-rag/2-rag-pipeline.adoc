@@ -14,7 +14,7 @@ We will start here with the ingestion part, which we will build as a pipeline so
 
 == Procedure
 
-. Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} Dashboard -> Projects -> your project (Hospital Helpdesk).
+. Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} Dashboard -> Projects -> your project.
 
 . Inside the workbench you should see a file called `rag_pipeline.py`, this is a pipeline built with the Kubeflow Pipelines Python SDK. Open it to take a look at how it is set up. +
 This pipeline contains the steps needed to chunk and ingest a new document into our RAG database, specifically this document: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank] +

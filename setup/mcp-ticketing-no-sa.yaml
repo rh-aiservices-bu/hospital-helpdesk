@@ -87,6 +87,8 @@ spec:
             - /bin/bash
             - -ec
             - |
+              NAMESPACE=$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)
+
               # Idempotency check
               if oc get configmap llama-stack-config -o jsonpath='{.data.config\.yaml}' \
                    2>/dev/null | grep -q 'mcp::ticketing'; then
@@ -107,11 +109,11 @@ spec:
 
               # Insert the connectors block before server: if missing
               if ! grep -q '^connectors:' /tmp/config.yaml; then
-                awk '/^server:/{
+                awk -v ns="$NAMESPACE" '/^server:/{
                   print "connectors:"
                   print "- connector_id: mcp::ticketing"
                   print "  connector_type: mcp"
-                  print "  url: http://mcp-ticketing.hospital-helpdesk.svc.cluster.local:8080/mcp"
+                  print "  url: http://mcp-ticketing." ns ".svc.cluster.local:8080/mcp"
                   print "  server_label: Hospital IT Ticketing"
                 }1' /tmp/config.yaml > /tmp/config_new.yaml
                 mv /tmp/config_new.yaml /tmp/config.yaml

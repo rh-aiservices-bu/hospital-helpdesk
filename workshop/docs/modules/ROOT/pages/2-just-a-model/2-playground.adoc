@@ -10,7 +10,7 @@ This is great for not only making sure that the model works, but to see how it r
 
 == Procedure
 
-. Navigate to *Gen AI Studio → Playground* in {productname-short}. Make sure to select your project (Hospital Helpdesk).
+. Navigate to *Gen AI Studio → Playground* in {productname-short}. Make sure to select your project.
 
 . Click *Create Playground*, select our deployed model, leave *Max Tokens* empty, and then press Create
 +
@@ -33,12 +33,12 @@ Responses can take longer than the default 30-second timeout allows. There are t
 
 [source,bash]
 ----
-oc apply -n hospital-helpdesk -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/increase-timeouts-job.yaml
+oc apply -n <your-project-name> -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/increase-timeouts-job.yaml
 ----
 
 *Option 2 — OpenShift console (Import YAML):*
 
-In the OpenShift console, click *+* in the top navigation bar, select the *hospital-helpdesk* project, and paste the following:
+In the OpenShift console, click *+* in the top navigation bar, select *your project*, and paste the following:
 
 [.lines_space]
 [.console-input]

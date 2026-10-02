@@ -16,7 +16,7 @@ Now that the Workbench is set up, we can finally move our Playground functionali
 ====
 . Go to the Playground by navigating to the {productname-short} dashboard and then Gen AI studio -> Playground in the left menu.
 
-. Make sure to select the correct project (Hospital Helpdesk) in the top.
+. Make sure to select your project in the top.
 
 . Click the Prompt tab and then *Load prompt*.
 +
@@ -45,13 +45,18 @@ image::3-move-to-code/new-notebook.png[Create a new notebook]
 . In the top cell, enter the following command and run: +
 `!pip install llama-stack-client`
 
-. Create a second cell and paste the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Adjust this variable to be: 
+. Create a second cell and paste the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Replace that line with:
 +
 [.console-input]
 [source,python]
 ----
-LLAMA_STACK_URL = "http://lsd-genai-playground-service.hospital-helpdesk.svc.cluster.local:8321"
+with open("/var/run/secrets/kubernetes.io/serviceaccount/namespace") as f:
+    _namespace = f.read().strip()
+
+LLAMA_STACK_URL = f"http://lsd-genai-playground-service.{_namespace}.svc.cluster.local:8321"
 ----
++
+NOTE: This reads your project name automatically from the cluster, so it works no matter what you called your project.
 +
 image::3-move-to-code/set-llama-stack-url.png[Notebook Output]
 

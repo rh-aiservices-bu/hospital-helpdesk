@@ -12,7 +12,7 @@ Just like before, we could use the Playground's *View Code* button to get a head
 
 == Procedure
 
-. Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} dashboard -> Projects -> your project (Hospital Helpdesk).
+. Navigate to your workbench. If you don't have it open, you can find it through the {productname-short} dashboard -> Projects -> your project.
 
 . Inside the workbench, open the notebook `2_rag.ipynb` and run through it. Come back here when you are done.
 
