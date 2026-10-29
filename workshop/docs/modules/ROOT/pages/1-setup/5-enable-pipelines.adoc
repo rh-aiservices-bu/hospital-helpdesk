@@ -1,16 +1,16 @@
 :_module-type: PROCEDURE
 
 [id='enabling-ai-pipelines']
-= (Optional) Enable Pipelines
+= (Optional) Enable AI pipelines
 
 [role="_abstract"]
-This section is optional. If you do not intend to use Kubeflow Pipelines, you can skip ahead to xref:2-just-a-model/index.adoc[2. Get Your First Model Running].
+AI pipelines are optional. If you do not intend to use Kubeflow Pipelines, you can skip ahead to xref:2-just-a-model/index.adoc[2. Get your first model running].
 
-AI Pipelines let you schedule and automate the execution of notebooks and Python code without having to manually run them in a workbench. In this {deliverable}, you will use a pipeline to ingest documents into a vector store for RAG.
+With AI pipelines, you can schedule and automate the execution of notebooks and Python code without having to manually run them in a workbench. In this {deliverable}, you will use a pipeline to ingest documents into a vector store for RAG.
 
 == Prerequisites
 
-* You have set up a Data Connection with a *Pipeline Artifacts* bucket, as described in xref:1-setup/2-data-connections.adoc[1.2. Data Connections].
+* You have set up a data connection with a *Pipeline Artifacts* bucket, as described in xref:1-setup/2-data-connections.adoc[1.2. Connect to your data].
 
 == Procedure
 
@@ -39,7 +39,7 @@ You must wait until the pipeline configuration is complete before you continue a
 +
 [NOTE]
 ====
-Taking a while, or stuck? You can click *View progress and event logs* to see what's happening.
+If the configuration takes a while or appears stuck, click *View progress and event logs* to see the current status.
 
 If you have waited more than 5 minutes and the pipeline server configuration does not complete, you can click *Cancel pipeline server setup* and create it again.
 
@@ -57,4 +57,4 @@ An information box opens and displays the object storage connection information 
 
 == Next step
 
-Now that we are all set up, we can continue to deploying and using our GenAI model in xref:2-just-a-model/index.adoc[2. Get Your First Model Running].
+You can continue to deploying and using your GenAI model in xref:2-just-a-model/index.adoc[2. Get your first model running].

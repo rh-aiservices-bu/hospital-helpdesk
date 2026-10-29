@@ -8,7 +8,7 @@ A workbench is an instance of your development and experimentation environment. 
 
 == Procedure
 
-. Navigate to the project detail page for the project that you created in xref:1-setup/1-projects.adoc[Create a Project].
+. Navigate to the project detail page for the project that you created in xref:1-setup/1-projects.adoc[Create a project].
 
 . Click the *Workbenches* tab, and then click the *Create workbench* button.
 +
@@ -28,11 +28,11 @@ image::3-move-to-code/create-workbench-form-name-desc.png[Workbench name and des
 +
 image::3-move-to-code/create-workbench-form-image.png[Workbench image, 600]
 
-. If you are going to create a RAG injestion pipeline, also attach the "Data" *Data Connection* by clicking *Attach existing connections* and select *Data* in the dropdown.
+. If you are going to create a RAG ingestion pipeline, also attach the *Data* *Data Connection*. Click *Attach existing connections* and select *Data* in the dropdown.
 +
 image::3-move-to-code/add-data-connection.png[Add Data Connection]
 
-. Leave the rest as is and click *Create workbench*.
+. Leave the rest as-is and click *Create workbench*.
 
 == Verification
 
@@ -40,11 +40,11 @@ In the *Workbenches* tab for the project, the status of the workbench changes fr
 
 image::3-move-to-code/ds-project-workbench-list.png[Workbench list]
 
-NOTE: If you made a mistake, you can edit the workbench to make changes.
+NOTE: To change any of the workbench settings, you can edit the workbench.
 
 image::3-move-to-code/ds-project-workbench-list-edit.png[Workbench list edit, 350]
 
 
 == Next step
 
-xref:3-move-to-code/3-jupyter.adoc[Importing the {deliverable} files into the JupyterLab environment]
+xref:3-move-to-code/3-jupyter.adoc[Import the {deliverable} files into the JupyterLab environment]

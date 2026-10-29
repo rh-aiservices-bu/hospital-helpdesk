@@ -1,14 +1,14 @@
-= Tools & Agents
+= Tools and agents
 
 [role="_abstract"]
-// Guide to using tools and agentic frameworks with GenAI models.
+You have already used a tool in this {deliverable}. In the RAG section, the model called the `file_search` tool on its own. That autonomous tool use is what makes it agentic RAG rather than traditional RAG.
 
-You have already used tools in this workshop. In the RAG section, the model called the `file_search` tool autonomously. That autonomous tool use is what makes it *agentic* RAG as opposed to traditional RAG. +
-When we used the `file_search` tool in RAG we used it through OGX's toolcalling. This is a transparent agentic loop that replicates what OpenAI exposes out of the box, which is perfect for simpler agents. +
-In this chapter we introduce a second tool (an IT ticketing system) and show how to integrate it using **LangGraph**, a client-side orchestration framework.
+In RAG, the model called that tool through OGX, which handles the tool-calling loop for you and works well for simpler agents.
 
-If you want to read up more on how OGX works with tools and when to use what framework, you can look here: link:https://developers.redhat.com/articles/2025/08/20/your-agent-your-rules-deep-dive-responses-api-llama-stack[Your agent, your rules: A deep dive into the Responses API with Llama Stack,window=_blank].
+In this chapter, you add a second tool — an IT ticketing system — and connect it using *LangGraph*, a framework that runs the tool-calling loop in your own code.
 
-NOTE: OGX was previously called Llama Stack which is why you may see the names used interchangably.
+For more on how OGX works with tools and when to use each framework, see link:https://developers.redhat.com/articles/2025/08/20/your-agent-your-rules-deep-dive-responses-api-llama-stack[Your agent, your rules: A deep dive into the Responses API with Llama Stack,window=_blank].
 
-Let's start by deploying a small MCP server that contains our ticketing tools: xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy an MCP Server]
+NOTE: OGX was previously called Llama Stack, so you might see the names used interchangeably.
+
+To start, deploy a small MCP server that contains your ticketing tools: xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy an MCP server].

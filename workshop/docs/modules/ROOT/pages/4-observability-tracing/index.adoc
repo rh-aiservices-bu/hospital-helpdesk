@@ -1,9 +1,8 @@
-= Observability & Tracing
+= Observability and tracing
 
 [role="_abstract"]
-// Introduction to observability and tracing for AI applications.
+Generative AI (GenAI) models are nondeterministic, so insight into how they respond in different scenarios is valuable.
 
-GenAI models are undeterministic systems, making any insight into how they behave in different scenarios all the more valuable. +
-To that end, we will here look into Observability & Tracing, using RHOAI out-of-the-box model dashboards and MLflow tracing to see how the model behaves.
+This chapter uses {productname-short} built-in model dashboards and MLflow tracing to show how the model responds.
 
-Start with looking at RHOAI model dashboards: xref:4-observability-tracing/1-model-observability.adoc[4.1. Model Observability]
+First, monitor your model with the built-in {productname-short} dashboards. See xref:4-observability-tracing/1-model-observability.adoc[4.1. Monitor your model with metrics].

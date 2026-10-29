@@ -1,44 +1,48 @@
-= Deploy an MCP Server
+= Deploy an MCP server
 
 [role="_abstract"]
-// Guide to deploying the hospital ticketing MCP server on OpenShift.
+Before you can use tools in code, you need a tool to call. In this section, you deploy a small *MCP (Model Context Protocol) server* that simulates the IT ticketing system for Oak City General Hospital. Your agent uses this server to read and file tickets.
 
-Before we can use tools in code, we need a tool to use. +
-In this section we deploy a small **MCP (Model Context Protocol) server** that simulates the IT ticketing system for Oak City General Hospital. +
-Using this, our agent will be able to read and file tickets for us!
+The MCP server exposes four tools the model can request to use:
 
-The MCP server exposes four tools the model can request to use: `create_ticket`, `get_ticket`, `list_tickets`, and `update_ticket`. +
-The server is already pre-seeded with a handful of open tickets we will be able to explore.
+- `create_ticket`
+- `get_ticket`
+- `list_tickets`
+- `update_ticket`
 
-After the server is running, a setup job automatically registers it as a connector in the OGX that underlies our Playground.
+The server is pre-seeded with several open tickets you can explore.
+
+After the server is running, a setup job automatically registers it as a connector in OGX so the Playground and your agent can use it.
 
 == Procedure
 
-[NOTE]
-====
-If you are comfortable with the OpenShift CLI, you can deploy the MCP server with a single command instead of following the steps below:
+Deploy the MCP server in one of the following ways:
 
-[source,bash]
+* *Using the OpenShift CLI*
++
+Run the following command:
++
+[source,terminal]
 ----
 oc apply -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/mcp-ticketing.yaml
 ----
 
-Otherwise, follow the steps below.
-====
-
-. In the {productname-short} dashboard, click the application launcher icon and then select the *OpenShift Console* option.
+* *Using the OpenShift console*
++
+--
+. In the {productname-short} dashboard, click the application launcher and then select the *OpenShift Console* option.
 +
 image::6-tools-agents/ds-project-ocp-link.png[OpenShift Console Link, 600]
 
-. In the OpenShift console, click *+* in the top navigation bar, and then click *Import YAML*.
+. In the OpenShift console, click *+* in the navigation bar, and then click *Import YAML*.
 +
 image::6-tools-agents/ocp-console-add-icon.png[Add resources Icon]
 
-. Click the down arrow next to the project name and select *your project* from the list.
+. Click the arrow next to the project name and select your project from the list.
 +
 image::6-tools-agents/ocp-console-select-project.png[Select a project, 200]
 
-. Copy the following code and paste it into the *Import YAML* editor:
+. Copy and paste the following code into the *Import YAML* editor:
 +
 [.lines_space]
 [.console-input]
@@ -87,10 +91,11 @@ spec:
 ----
 
 . Click *Create*.
+--
 
 == Verification
 
-. In the OpenShift console there should be a "Resources successfully created" message listing:
+. In the OpenShift console, the `Resources successfully created` message appears, listing:
 +
 * `demo-setup` (ServiceAccount)
 * `demo-setup-edit` (RoleBinding)
@@ -98,9 +103,9 @@ spec:
 +
 [NOTE]
 ====
-If you already completed the storage setup in xref:1-setup/3-scripted-storage.adoc[1.2.1. Data Connections], `demo-setup` and `demo-setup-edit` may already exist and you may see an error for those resources. This is fine, the `deploy-mcp-ticketing` Job will still run correctly.
+If you already completed the storage setup in xref:1-setup/3-scripted-storage.adoc[1.2.1. Install local object storage with a script], `demo-setup` and `demo-setup-edit` might already exist, and you might see an error for those resources. This is expected. The `deploy-mcp-ticketing` Job still runs correctly.
 ====
 
 == Next step
 
-Now that the server is running and registered, let's use it from code in xref:6-tools-agents/2-tools-in-code.adoc[6.2. Agentic Workflow].
+Now that the server is running and registered, use it from code in xref:6-tools-agents/2-tools-in-code.adoc[6.2. Build an agentic workflow].

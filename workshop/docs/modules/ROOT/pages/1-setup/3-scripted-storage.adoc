@@ -1,38 +1,36 @@
 :_module-type: PROCEDURE
 
 [id='running-a-script-to-install-storage']
-= Running a script to install local object storage buckets and create connections
+= Install local object storage with a script
 
 [role="_abstract"]
-If you do not have your own S3-compatible storage or if you want to use a disposable local "Super Simple Storage Service" (S4) instance instead, run a script (provided in the following procedure) that automatically completes these tasks:
+If you do not have your own S3-compatible storage or if you want to use a disposable local "Super Simple Storage Service" (S4) instance instead, run the script provided in the following procedure, which automatically completes these tasks:
 
 * Creates an S4 instance in your project.
 * Creates two storage buckets in that S4 instance.
-* Generates a random user id and password for your S4 instance.
+* Generates a random user ID and password for your S4 instance.
 * Creates two connections in your project, one for each bucket and both using the same credentials.
 * Installs required network policies for service mesh functionality.
 
 IMPORTANT: The S4-based Object Storage that the script creates is *not* meant for production usage.
 
-NOTE: If you want to connect to your own storage, see xref:1-setup/4-manual-storage.adoc[Creating connections to your own S3-compatible object storage].
+NOTE: To connect to your own storage, see xref:1-setup/4-manual-storage.adoc[Create connections to your own S3-compatible object storage].
 
 == Prerequisites
 
-* You must know the OpenShift resource name for your project so that you run the provided script in the correct project. To get the project's resource name:
+* You have the OpenShift resource name for your project so you can run the script in the correct project. To find the resource name:
 +
 In the {productname-short} dashboard, select *Projects* and then click the *?* icon next to the project name. A text box opens with information about the project, including its resource name:
 +
 image::1-setup/ds-project-list-resource-hover.png[Project list resource name, 400]
 
 
-[NOTE]
-====
-The following procedure describes how to run the script from the OpenShift console. If you are knowledgeable in OpenShift and can access the cluster from the command line, instead of following the steps in this procedure, you can use the following command to run the script:
+The following procedure describes how to run the script from the OpenShift console. If you are familiar with OpenShift and can access the cluster from the command line, you can run the script with the following command instead of completing the procedure:
 
+[source,terminal]
 ----
 oc apply -n <your-project-name> -f https://github.com/rh-aiservices-bu/hospital-helpdesk/raw/main/setup/setup-s3-job.yaml
 ----
-====
 
 == Procedure
 
@@ -58,7 +56,7 @@ NOTE: This code is the contents of the `setup-s3-job.yaml` file. It applies the 
 +
 [.lines_space]
 [.console-input]
-[source, yaml]
+[source,yaml]
 ----
 ---
 apiVersion: v1
@@ -106,7 +104,7 @@ spec:
 
 == Verification
 
-. In the OpenShift console, there is a "Resources successfully created" message and a list of the following resources:
+. In the OpenShift console, the `Resources successfully created` message appears, with a list of the following resources:
 +
 * `demo-setup`
 * `demo-setup-edit`
@@ -128,6 +126,6 @@ If your cluster uses self-signed certificates, your {productname-short} administ
 
 == Next steps
 
-If you want to complete the pipelines section of this {deliverable} (including part of the RAG section), go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
+If you want to complete the pipelines section of this {deliverable}, which includes part of the RAG section, go to xref:1-setup/5-enable-pipelines.adoc[Enable AI pipelines].
 
-Otherwise, skip to xref:2-just-a-model/index.adoc[Deploying and using a model].
+Otherwise, skip to xref:2-just-a-model/index.adoc[Get your first model running].

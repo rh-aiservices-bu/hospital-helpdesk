@@ -1,20 +1,20 @@
 :_module-type: PROCEDURE
 
 [id='importing-files-into-jupyter']
-= Importing the {deliverable} files into the JupyterLab environment
+= Import the {deliverable} files into the JupyterLab environment
 
 :git-version: main
 
 [role="_abstract"]
-The JupyterLab environment is web-based, but all operations run on {productname-long} and are backed by the OpenShift cluster. This configuration allows you to run notebooks without installing local tools or consuming local CPU, GPU, or memory resources.
+The JupyterLab environment is web-based, but all operations run on {productname-long} and are backed by the OpenShift cluster. With this configuration, you can run notebooks without installing local tools or consuming local CPU, GPU, or memory resources.
 
 == Prerequisites
 
-- You created a workbench, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
+- You have created a workbench, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a workbench].
 
 == Procedure
 
-. In the *Workbenches* tab for your project, click the link for your workbench. If prompted, log in and allow JupyterLab to authorize your user.
+. In the *Workbenches* tab for your project, click the link for your workbench. If prompted, log in and grant JupyterLab access to your account.
 +
 image::3-move-to-code/workbench-open.png[Open workbench, 400]
 +
@@ -22,7 +22,7 @@ Your JupyterLab environment window opens.
 +
 This file-browser window shows the files and folders that are saved inside your own personal space in {productname-short}.
 
-. Bring the content of this {deliverable} inside your JupyterLab environment:
+. Bring the content of this {deliverable} into your JupyterLab environment:
 
 .. On the toolbar, click the *Git Clone* icon:
 +
@@ -41,22 +41,21 @@ image::3-move-to-code/jupyter-git-modal.png[Git Modal, 200]
 
 .. Select the *Include submodules* option, and then click *Clone*.
 
-.. In the file browser, double-click the newly-created *hospital-helpdesk* folder to expand its contents.
+.. In the file browser, double-click the newly created *hospital-helpdesk* folder to expand its contents.
 +
 image::3-move-to-code/jupyter-file-browser.png[Jupyter file browser, 300]
 
 
 == Verification
 
-. You should be able to see all files related to the {deliverable}.
+. All files related to the {deliverable} are visible.
 +
 image::3-move-to-code/jupyter-file-browser-2.png[Jupyter file browser]
 
 
 == Next step
 
-xref:3-move-to-code/4-notebooks.adoc[Basic notebook introduction]
+Choose how to continue:
 
-or
-
-xref:3-move-to-code/5-run-playground-code.adoc[Moving from the Playground into code]
+- If you are new to Jupyter notebooks, start with xref:3-move-to-code/4-notebooks.adoc[Run code in a notebook].
+- If you are familiar with Jupyter and want to run the code you exported from the Playground, go to xref:3-move-to-code/5-run-playground-code.adoc[Run the playground code].

@@ -1,28 +1,25 @@
-= Agentic Workflow
+= Build an agentic workflow
 
 [role="_abstract"]
-// Guide to using LangGraph with OGX/Llama Stack and an MCP tool server.
-
-In the RAG chapter we let the **OGX server** manage the agent loop via the Responses API. +
-Here we move the loop to the **client** using LangGraph, which gives us full control over state, tool execution, and human-in-the-loop decisions.
+Earlier, the OGX server ran the agent loop for you. In this section, you run the loop yourself in code with LangGraph, which gives you more control over how the agent tracks state, calls tools, and pauses for human input.
 
 == Prerequisites
 
-- The MCP ticketing server is deployed in xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy the Ticketing MCP Server].
-- You have a workbench set up according to xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
+- You have deployed the MCP ticketing server as described in xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy an MCP server].
+- You have set up a workbench as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a workbench].
 
 == Procedure
 
-. Open the notebook `3_tools.ipynb` in your workbench and go through it, come back here after you are done.
+. Open the notebook `3_tools.ipynb` in your workbench and complete it. Then, continue this tutorial.
 
 == Verification
 
-. At the end of the notebook you should see outputs that look something like this. +
-You can also see the intermediate tool calls the agent makes and which tool it chooses. Do note again that it's a smaller model so it may not always choose or interprete the tools correctly.
+. At the end of the notebook, you see outputs similar to this.
+You can also see the intermediate tool calls the agent makes and which tool it chooses. This is a smaller model, so it might not always choose or interpret the tools correctly.
 +
 image::6-tools-agents/tool-response.png[Tool response]
 
-. Navigate to *Gen AI studio → Experiments (MLflow)* and look at the traces. +
-Thanks to mlflow autologging we get a bit more detail this time on exactly how the agent is running.
+. Navigate to *Gen AI studio* > *Experiments (MLflow)* and look at the traces.
+With MLflow autologging, you get more detail this time on exactly how the agent runs.
 +
 image::6-tools-agents/mlflow-results.png[Tool response]

@@ -1,7 +1,6 @@
-= Setup
+= Set up your project
 
 [role="_abstract"]
+Before you start building your Hospital Helpdesk assistant, you need to get set up in {productname-short}.
+In this section you will create a project that will serve as the home for all the resources you build throughout this workshop.
 // Instructions for initial setup in Red Hat OpenShift AI.
-
-Before we start building our Hospital Helpdesk assistant, we need to get set up in {productname-short}. +
-In this section you will create a project that will serve as the home for all the resources we build throughout this workshop.

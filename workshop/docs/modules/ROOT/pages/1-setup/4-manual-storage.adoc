@@ -1,9 +1,9 @@
 :_module-type: PROCEDURE
 
 [id='creating-connections-to-storage']
-= (Optional) Creating connections to your own S3-compatible object storage
+= (Optional) Create connections to your own S3-compatible object storage
 
-NOTE: Skip this procedure if you completed the steps in xref:1-setup/3-scripted-storage.adoc[Running a script to install local object storage buckets and create connections].
+NOTE: Skip this procedure if you completed the steps in xref:1-setup/3-scripted-storage.adoc[Install local object storage with a script].
 
 If you have existing S3-compatible storage buckets that you want to use for this {deliverable}, you must create a connection to one storage bucket for saving your data and models. If you want to complete the pipelines section of this {deliverable}, create another connection to a different storage bucket for saving pipeline artifacts.
 
@@ -57,6 +57,6 @@ If your cluster uses self-signed certificates, your {productname-short} administ
 
 == Next steps
 
-If you want to complete the pipelines section of this {deliverable} (including part of the RAG section), go to xref:1-setup/5-enable-pipelines.adoc[Enabling AI pipelines].
+If you want to complete the pipelines section of this {deliverable}, which includes part of the RAG section, go to xref:1-setup/5-enable-pipelines.adoc[Enable AI pipelines].
 
 Otherwise, skip to xref:2-just-a-model/index.adoc[Deploying and using a model].

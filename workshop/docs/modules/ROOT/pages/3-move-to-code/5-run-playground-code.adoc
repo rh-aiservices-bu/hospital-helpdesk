@@ -1,51 +1,30 @@
-= Run the Playground Code
+= Run the playground code
 
 [role="_abstract"]
-
-Now that the Workbench is set up, we can finally move our Playground functionality to code.
+Now that the workbench is set up, you can move your Playground functionality to code.
 
 == Prerequisites
 
-- The Playground code has been exported as described in xref:3-move-to-code/1-playground-to-code.adoc[3.1. Playground to Code].
-- A Workbench is set up, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a Workbench].
+- The Playground code has been exported as described in xref:3-move-to-code/1-playground-to-code.adoc[3.1. Export your playground code].
+- A workbench is set up, as described in xref:3-move-to-code/2-workbench.adoc[3.2. Create a workbench].
 
 == Procedure
 
-.Lost the code from step 3.1 Playground to Code? Click here to see how to get it again
-[%collapsible]
-====
-. Go to the Playground by navigating to the {productname-short} dashboard and then Gen AI studio -> Playground in the left menu.
+NOTE: If you no longer have the code from step 3.1, re-export it by following xref:3-move-to-code/1-playground-to-code.adoc[Export your playground code].
 
-. Make sure to select your project in the top.
-
-. Click the Prompt tab and then *Load prompt*.
-+
-image::3-move-to-code/load-prompt.png[Load prompt button]
-
-. Select *ai-hospital-helpdesk* by clicking on it and then click *Load in Playground*.
-+
-image::3-move-to-code/load-prompt-modal.png[Load prompt modal]
-
-. There is a button in the top right called *View code* that we want to press, but we need to enter a message first, so let's use the same as we used before. Send this message in the chat: +
-`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
-
-. We can now click the *View code button*.
-+
-image::3-move-to-code/view-code.png[View code]
-
-. Then copy the full code, you can use the copy button in the top left of the modal.
-+
-image::3-move-to-code/copy-code.png[Copy code]
-====
-
-. Go to your workbench and create a new notebook by right clicking in the file browser and clicking *New Notebook*. If a modal shows up asking you to select kernel, just press *Select*.
+. Go to your workbench and create a new notebook. Right-click in the file browser and click *New Notebook*. If a modal asks you to select a kernel, click *Select*.
 +
 image::3-move-to-code/new-notebook.png[Create a new notebook]
 
-. In the top cell, enter the following command and run: +
-`!pip install llama-stack-client`
+. In the first cell, enter the following command and run it:
++
+[.console-input]
+[source,terminal]
+----
+!pip install llama-stack-client
+----
 
-. Create a second cell and paste the code from the Playground into it. Before we run it we need to make a small modification where we point out the LLAMA_STACK_URL. Replace that line with:
+. Create a second cell and paste the code from the Playground into it. Before you run it, modify the line that sets LLAMA_STACK_URL. Replace that line with:
 +
 [.console-input]
 [source,python]
@@ -56,25 +35,26 @@ with open("/var/run/secrets/kubernetes.io/serviceaccount/namespace") as f:
 LLAMA_STACK_URL = f"http://lsd-genai-playground-service.{_namespace}.svc.cluster.local:8321"
 ----
 +
-NOTE: This reads your project name automatically from the cluster, so it works no matter what you called your project.
+NOTE: This automatically detects your project name from the cluster, so you do not need to edit it.
 +
 image::3-move-to-code/set-llama-stack-url.png[Notebook Output]
 
-. Now you can run the cell and see what output you get. +
-*Note:* this code does not stream so the response may take a few minutes if you are running on CPU.
+. Run the cell and observe the output.
++
+NOTE: This code does not stream, so the response might take a few minutes if you are running on CPU.
 +
 image::3-move-to-code/notebook-output.png[Notebook Output]
+
+. Save your notebook by pressing *Ctrl+S*, and name it `request-model` when prompted in the modal.
++
+image::3-move-to-code/rename-and-save.png[Save the notebook]
 
 
 == Verification
 
-After the cell has finished running you should see an answer similar to that you got in the Playground. +
-From here on, you could start modifying the code and integrate it into an AI application.
-
-Make sure to also save your notebook, press Ctrl+S and call it `request-model` when prompted in the modal.
-
-image::3-move-to-code/rename-and-save.png[Save the notebook]
+* After the cell finishes running, you see an answer similar to the answer you got in the Playground.
+* From here, you can start modifying the code and integrate it into an AI application.
 
 == Next step
 
-With a code environment set up and working connection to our model, we can look at how the system behaves using xref:4-observability-tracing/index.adoc[Observability & Tracing]
+With a code environment set up and a working connection to your model, you can look at how the system behaves. See xref:4-observability-tracing/index.adoc[Observability and tracing].

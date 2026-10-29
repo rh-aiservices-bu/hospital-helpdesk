@@ -1,7 +1,6 @@
-= Get Your First Model Running
+= Get your first model running
 
 [role="_abstract"]
+The first thing your Hospital Helpdesk assistant needs is a model.
+In this section, you deploy your own model and then interact with that model directly.
 // Introduction to working with a model directly.
-
-First thing we need for our Hospital Helpdesk assistant is a model. +
-In this section we will deploy our own model and then interact with that model without any additional bells and whistles.

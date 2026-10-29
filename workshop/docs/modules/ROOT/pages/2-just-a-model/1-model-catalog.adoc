@@ -1,17 +1,15 @@
-= Deploy from Model Catalog
+= Deploy a model from the model catalog
 
 [role="_abstract"]
-// Instructions for deploying a model from the model catalog.
-
-Now that you have a project, let's go ahead and deploy a model into it.  
+Now that you have a project, deploy a model into it.
 
 == Procedure
 
-. Navigate to **AI hub** -> **Models** in the left sidebar.
+. Navigate to *AI hub* -> *Models* in the left sidebar.
 
-. Here you have a choice between with or without accelerator (aka GPU). +
-Search for the following model in the searchbar and click on the tile that appears. +
-**With Accelerator:**
+. You can deploy with or without an accelerator, also known as a GPU.
+Search for the following model in the search field and click the tile that appears.
+*With accelerator:*
 +
 [.lines_space]
 [.console-input]
@@ -20,7 +18,7 @@ Search for the following model in the searchbar and click on the tile that appea
 Llama-3.2-3B-Instruct-quantized.w8a8
 ----
 +
-**Without Accelerator:**
+*Without accelerator:*
 +
 [.lines_space]
 [.console-input]
@@ -31,25 +29,24 @@ Qwen2.5-1.5B-quantized.w8a8
 +
 image::2-just-a-model/model-tile.png[Model Tile for Llama 3.2 3B Instruct]
 +
-We specifically use a small quantized model so it will be compatible with more hardware options.
+This tutorial uses a small quantized model so it is compatible with more hardware options.
 +
-NOTE: If you don't see the model, you may need admin access to add it. +
-Not sure if you have admin access?  +
-Check the left navigation menu: if you see a *Settings* item, you're an {productname-short} admin and can add it yourself. If you don't see *Settings*, ask your cluster administrator to add it, or just choose a similar model that's already available. +
-To add it yourself: go to *Settings* -> *Model resources and operations* -> *Model catalog settings* and add a new source with the organization *RedHatAI*. Note that this may take a while to load as it syncs a large number of models.
+NOTE: If you do not see the model, you might need admin access to add it.
+To check whether you have admin access, look at the navigation menu. If you see a *Settings* item, you are an {productname-short} admin and can add the model yourself. If you do not see *Settings*, ask your cluster administrator to add it, or choose a similar model that is already available.
+To add the model, go to *Settings* -> *Model resources and operations* -> *Model catalog settings* and add a new source with the organization *RedHatAI*. This might take a while to load as it syncs a large number of models.
 +
 image::2-just-a-model/model-catalog-settings.png[Model catalog settings showing RedHatAI organization]
 +
-After you have clicked on the tile, you can see the **Model Card** for the Llama model. This contains information such as how it's built, what license it has, and how to use it.
+After you click the tile, you can see the *Model Card* for the Llama model. This contains information such as how it's built, what license it has, and how to use it.
 
-. In the top right of the page you can see a button called **Deploy model**, click that to start the deployment process of our model. It will take you through 3 different pages in the deployment wizard, fill in information accordingly.
+. Click the *Deploy model* button to start the deployment process for your model, and then complete the deployment wizard.
 
-. In **Model details**, checkmark **Use legacy deployment method** if you have the option, otherwleave everything as is.
+. In *Model details*, select *Use legacy deployment method* if you have the option, otherwise leave everything as-is.
 +
 image::2-just-a-model/model-details-form.png[Model Details Form]
 
-. In **Model deployment** you have two options, either with or without accelerator. +
-We recommend with accelerator if possible for a smooth experience in this workshop.
+. In *Model deployment* you have two options, either with or without an accelerator.
+For a smoother experience in this workshop, deploy with an accelerator if one is available.
 +  
 [tabs]                                             
 ====
@@ -57,9 +54,9 @@ With Accelerator::
 +
 --
 . Select your Project.
-. In the **Hardware profile**, select a profile that lets you deploy on an accelerator, such as a GPU.
-. Click on **Customize resource request and limits** and make sure you have 1 Accelerator requests and limits, and at least 2 Cores CPU and 8 GiB Memory.
-. Under **Deployment resource**, select **Manual selection** and the runtime **vLLM NVIDIA GPU ServingRuntime for KServe** (for Nvidia GPUs, or related for other accelerators) from the dropdown.
+. In the *Hardware profile*, select a profile that you can use to deploy on an accelerator, such as a GPU.
+. Click *Customize resource request and limits*. Set the accelerator request and limit to 1, and set CPU to at least 2 cores and memory to at least 8 GiB.
+. Under *Deployment resource*, select *Manual selection* and then, from the dropdown, select the runtime *vLLM NVIDIA GPU ServingRuntime for KServe* for Nvidia GPUs, or the related runtime for other accelerators.
 +
 image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 --                                         
@@ -67,20 +64,20 @@ image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 Without Accelerator::
 +
 --
-NOTE: If you don't have an accelerator, your performance will depend heavily on the type of CPU you have and how much resources you can give the model. +
-In some cases the response time will be too slow to be usable, in which case consider choosing a smaller model such as **Qwen2.5-1.5B-quantized.w8a8**. +
-However, beware that a smaller model may not be viable for the later chapters like xref:5-rag/1-rag-in-playground.adoc[5.1 RAG in the Playground] or the entire xref:6-tools-agents/index.adoc[6. Tools & Agents] section.
+NOTE: If you don't have an accelerator, your performance will depend heavily on the type of CPU you have and how much resources you can give the model.
+In some cases the response time will be too slow to be usable, in which case consider choosing a smaller model such as *Qwen2.5-1.5B-quantized.w8a8*.
+However, a smaller model might not be viable for xref:5-rag/1-rag-in-playground.adoc[5.1. Try RAG in the playground] or the entire xref:6-tools-agents/index.adoc[6. Tools and agents] section.
 
 . Select your Project.
-. Click on **Customize resource request and limits** and make sure you have at least 10 Cores CPU and 16GiB Memory.
-. Under **Deployment resource**, select **Manual selection** and the runtime **vLLM CPU (x86) ServingRuntime for KServe** from the dropdown.
+. Click *Customize resource request and limits* and set CPU to at least 10 cores and memory to at least 16 GiB.
+. Under *Deployment resource*, select *Manual selection* and the runtime *vLLM CPU (x86) ServingRuntime for KServe* from the dropdown.
 +
 image::2-just-a-model/model-deployment-form-cpu.png[Model Deployment Form CPU]
 --
 ====
-. In **Advanced settings**:
-.. Checkmark the **Publish as AI asset endpoint** option (and optionally enter a Use case).
-.. Checkmark **Add custom runtime arguments** under Configuration parameters and enter the following arguments, one per line:
+. In *Advanced settings*:
+.. Select the *Publish as AI asset endpoint* option. Optionally, enter a use case.
+.. Select *Add custom runtime arguments* under Configuration parameters and enter the following arguments, one per line:
 +
 [.lines_space]
 [.console-input]
@@ -89,23 +86,23 @@ image::2-just-a-model/model-deployment-form-cpu.png[Model Deployment Form CPU]
 --enable-auto-tool-choice
 --tool-call-parser=llama3_json
 ----
-.. (If using CPU deployment) Checkmark **Add custom runtime environment variables** under Configuration parameters, click **Add variable**, and enter `VLLM_CPU_KVCACHE_SPACE` in the left field and `8` in the right field
-.. Leave the rest as is.
+.. If you are using a CPU deployment, select *Add custom runtime environment variables* under Configuration parameters, click *Add variable*, and enter `VLLM_CPU_KVCACHE_SPACE` in the name field and `8` in the value field.
+.. Leave the rest as-is.
 +
 image::2-just-a-model/advanced-settings-form.png[Advanced Settings Form]
 
-. Finally, review all the information and make sure it looks accurate. If all looks good, then go ahead and click **Deploy model**.
+. Review all the information, and then click *Deploy model*.
 +
 image::2-just-a-model/review-form.png[Review Form]
 
 == Verification
 
-After deploying the model you will automatically be navigated to the model deployments page. The model should get deployed after a few minutes and you will see that it's Ready in the Status column. 
+After you deploy the model, the *Model deployments* page opens. After a few minutes, the model deploys and its status shows as *Ready* in the *Status* column.
 
-During this process the model will download to disk, load into active memory (RAM or vRAM), and start running based on the runtime (vLLM in our case). Once it's running, it's served in a similar fashion to a webserver, and ready to receive requests to reply to.
+During this process the model will download to disk, load into active memory such as RAM or vRAM, and start running based on the runtime, which is vLLM in this case. Once it's running, it's served in a similar fashion to a webserver, and ready to receive requests to reply to.
 
 image::2-just-a-model/model-ready.png[Model is Ready]
 
 == Next step
 
-xref:2-just-a-model/2-playground.adoc[Using the Playground]
+xref:2-just-a-model/2-playground.adoc[Chat with your model in the playground]

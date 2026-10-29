@@ -1,45 +1,43 @@
-= RAG in the Playground
+= Try RAG in the playground
 
 [role="_abstract"]
-// Guide to using Retrieval-Augmented Generation in the playground.
-
-RAG (Retrieval Augmented Generation) is a technique where you feed information relevant to the current conversation into the prompt, so that the LLM has more context when it generates an answer. +
-The playground we have been using is built on top of something called OGX (Open GenAI Stack) which we also can use for RAG, specifically splitting large documents into smaller chunks, ingesting them into a vector database, and retrieving them. +
-This will let us use the LLM to answer specific questions like: +
+RAG (Retrieval Augmented Generation) is a technique where you feed information relevant to the current conversation into the prompt, so that the LLM has more context when it generates an answer.
+The playground you have been using is built on top of something called OGX (Open GenAI Stack) which you can also use for RAG, specifically splitting large documents into smaller chunks, ingesting them into a vector database, and retrieving them.
+You can use the LLM to answer specific questions, such as:
 `An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
 
-Before we move into building our own RAG behaviour, we can try out RAG with our model inside the Playground. +
-This makes it easy to upload documents and see what kind of replies we get with our system prompt.
+Before you build your own RAG behavior, you can try out RAG with your model inside the Playground.
+You can upload documents and see the replies you get with your system prompt.
 
 == Prerequisites
 
-- The playground has been created according to xref:2-just-a-model/2-playground.adoc[2.2. Using the Playground] 
+- You have created the playground as described in xref:2-just-a-model/2-playground.adoc[2.2. Chat with your model in the playground].
 
 == Procedure
 
-. Download the following file, it contains information about our hospital's standard operating procedures: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/oak_hospital_regulations.pdf[oak_hospital_regulations.pdf,window=_blank]
+. Download the following file, which contains information about your hospital's standard operating procedures: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/oak_hospital_regulations.pdf[oak_hospital_regulations.pdf,window=_blank]
 
-. Navigate to the Playground by going through GenAIStudio -> Playground, and make sure you select your project.
+. Navigate to the Playground by selecting *Gen AI studio* > *Playground*, and ensure that you select your project.
 
-. Click on the **Knowledge** tab and turn it on by pressing the RAG toggle.
+. Click the *Knowledge* tab and turn on the *RAG* toggle.
 +
 image::5-rag/enable-rag.png[Enable RAG]
 
-. Press **Upload** under Add files and select the oak_hospital_regulations.pdf you just downloaded.
+. Click *Upload* under *Add files* and select the `oak_hospital_regulations.pdf` file you just downloaded.
 
-. Change the chunk length to 200 and overlap to 100 to get smaller chunks, then press Upload.
+. Change the chunk length to 200 and the overlap to 100 to get smaller chunks, and then click *Upload*.
 +
 image::5-rag/upload-settings.png[Upload Settings]
 
-. The upload will likely pause at 50% for a couple of minutes while the file is processed. Once complete, it should look something like this.
+. The upload might take a few minutes while the file is processed. The result appears as follows:
 +
 image::5-rag/pdf.uploaded.png[PDF Uploaded]
 
 == Verification
 
-. Start by making sure that your system prompt is loaded.
+. Verify that your system prompt is loaded.
 
-. Before testing with RAG, first toggle off RAG so we can see how the model behaves without it. Ask this question:
+. To get a baseline response, turn off RAG and see how the model behaves without it. Ask this question:
 +
 [.lines_space]
 [.console-input]
@@ -49,9 +47,9 @@ An infusion pump is showing error code 525.
 Who do I contact for a replacement and where do I send the faulty unit?
 ----
 
-. Now create a new chat (the *+ New Chat* option in the top right), turn on RAG, and ask the same question.
+. Create a new chat by clicking *New chat*. Turn on RAG, and then ask the same question.
 
-. Did you see a difference? With RAG toggled on, you should see an answer similar to this:
+. With RAG turned on, you see an answer similar to this:
 +
 .Example RAG response
 ====
@@ -66,10 +64,10 @@ For an immediate replacement unit, contact the Central Supply department at exte
 After filing the ticket and securing a replacement, the faulty ClearFlow pump should be cleaned according to standard sanitation procedures and sent to the Biomedical Engineering department. Place the tagged unit in the designated "Biomedical Outgoing" bin, typically located in the floor's main utility room next to the clean supply closet.
 ====
 
-. Feel free to ask a few more questions, like where the Biomedical Engineering department is located. When you are done testing RAG you can move on to the next section.
+. You can ask more questions, such as where the Biomedical Engineering department is located.
 
-Since the Playground is not connected to MLflow, we won't see traces from here — but in the next section where we implement RAG in code, we will.
+The Playground is not connected to MLflow, so you do not see traces here. You view traces later, when you run RAG in code.
 
 == Next step
 
-Now that we have tested RAG, let's implement it programmatically, starting with xref:5-rag/2-rag-pipeline.adoc[RAG Ingestion Pipelines]
+Now that you have tested RAG, implement it programmatically, starting with xref:5-rag/2-rag-pipeline.adoc[Ingest documents with a pipeline].

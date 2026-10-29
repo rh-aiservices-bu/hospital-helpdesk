@@ -5,9 +5,9 @@
 == Introduction
 
 [.text-center.strong]
-=== Welcome to the Hospital Helpdesk GenAI tutorial!
+=== Welcome to the Hospital Helpdesk GenAI tutorial
 
-Oak City General Hospital is a large hospital serving thousands of patients and staff. Its IT helpdesk handles hundreds of requests a week — from nurses locked out of workstations mid-shift, to ward printers jamming during prescription runs, to clinical equipment displaying cryptic error codes that need fast triage.
+Oak City General Hospital is a large hospital serving thousands of patients and staff. Its IT helpdesk handles hundreds of requests a week. Nurses get locked out of workstations mid-shift. Ward printers jam during prescription runs. Clinical equipment displays cryptic error codes that need fast triage.
 
 Currently, a helpdesk staff member juggles three things at once: a caller on the line, a browser tab with the IT policy document, and a separate ticketing system they have to switch to in order to log the issue. Procedures are buried in documents, ticket fields have to be filled in manually, and institutional knowledge lives in people's heads.
 

@@ -1,22 +1,20 @@
-= Create a Project
+= Create a project
 
 [role="_abstract"]
 // Instructions for creating a data science project.
 
-An AI project is what contains many of the tools you will use inside of {productname-short}. +
-You can use projects to collaborate with your teammates, and you can create resources such as workbenches (IDEs), pipelines, model deployments, etc. from within your project.
+An AI project is what contains many of the tools you will use inside of {productname-short}.
+You can use projects to collaborate with your teammates, and you can create resources such as workbenches (IDEs), pipelines, and model deployments from within your project.
 
 == Prerequisites
 
-* You have logged in to *{productname-long}*.
-+
-NOTE: Not sure if you're logged in? Check the top of the page: if you see "{productname-long}" and a *Home* link like in the screenshot below, you're in. If not, log in first.
+* You are logged in to *{productname-long}*. After you log in, the dashboard shows the *Home* page.
 +
 image::1-setup/rhoai-logged-in-verification.png[Confirming you are logged in to Red Hat OpenShift AI]
 
 == Procedure
 
-. From the left navigation menu, select *Projects*. This page lists any existing projects that you have access to. You can select an existing project (if any) or create a new one.
+. From the navigation menu, select *Projects*. This page lists the existing projects that you have access to. You can select an existing project or create a new one.
 
 . Click *Create project*.
 
@@ -30,8 +28,6 @@ image::1-setup/new-project-form.png[New project form, 600]
 
 Your project opens in the dashboard.
 
-[NOTE]
-====
 You can click the tabs to view more information about the project components and project access permissions:
 
 image::1-setup/project-new.png[New project]
@@ -40,15 +36,14 @@ image::1-setup/project-new.png[New project]
 
 * *Pipelines* are a structured series of processes that collect, process, analyze, and visualize data. With AI pipelines, you can automate the execution of notebooks and Python code. By using pipelines, you can automatically ingest data or fine-tune your models on a schedule without having to manually run them in a workbench.
 
-* *Deployments* for serving a model. It exposes APIs to receive data, run the data through your model, and delivers a result (for example, a poem you asked for).
+* *Deployments* serve a model. A deployment exposes APIs to receive data, run the data through your model, and deliver a result, such as a poem you asked for.
 
 * *Cluster storage* is a persistent volume that retains the files and data you're working on within a workbench.
 
-* *Connections* points to a data location which you can use for purposes such as configuration parameters and storing models, data, or artifacts.
+* *Connections* point to a data location that you can use for purposes such as configuration parameters and storing models, data, or artifacts.
 
 * *Permissions* define which users and groups can access the project.
-====
 
 == Next step
 
-Now that your project is set up, let's go and set up some connections to where our data will live: xref:1-setup/2-data-connections[Data Connections]
+Now that your project is set up, set up some connections to where your data will live: xref:1-setup/2-data-connections[Data connections]
