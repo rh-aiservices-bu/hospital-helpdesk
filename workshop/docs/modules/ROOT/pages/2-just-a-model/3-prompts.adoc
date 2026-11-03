@@ -49,7 +49,7 @@ image::2-just-a-model/add-to-prompt-registry.png[Add to prompt registry]
 +
 image::2-just-a-model/save-prompt.png[Save a new prompt]
 
-. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it: A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?
+. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it: `A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
 
 == Verification
 

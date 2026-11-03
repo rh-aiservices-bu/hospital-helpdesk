@@ -60,11 +60,10 @@ For a smoother experience in this workshop, deploy with an accelerator if one is
 With Accelerator::  
 +
 --
-. Set the *Deployment method* to be *LLM inference service*.
+. Set the *Deployment method* to be *Inference service*.
 . In the *Hardware profile*, select a profile that you can use to deploy on an accelerator, such as a GPU.
 . Click *Customize resource request and limits*. Set the accelerator request and limit to 1, and set CPU to at least 2 cores and memory to at least 8 GiB.
-. Under *Deployment resource*, select *Manual selection* and then, from the dropdown, select the runtime *vLLM NVIDIA GPU ServingRuntime for KServe* for Nvidia GPUs, or the related runtime for other accelerators.
-. For *Accelerator configuration* make sure to select *vLLM NVIDIA CUDA GPU LLMInferenceServiceConfig Single Node*.
+. Under *Serving runtime template*, make sure the runtime is *vLLM NVIDIA GPU ServingRuntime for KServe* for Nvidia GPUs, or the related runtime for other accelerators.
 +
 image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 --                                         
@@ -78,15 +77,13 @@ However, a smaller model might not be viable for xref:5-rag/1-rag-in-playground.
 
 . Set the *Deployment method* to be *LLM inference service*.
 . Click *Customize resource request and limits* and set CPU to at least 10 cores and memory to at least 16 GiB.
-. Under *Accelerator configuration*, make sure *vLLM CPU LLMInferenceServiceConfig* is selected.
+. Under *Serving runtime template*, make sure *vLLM CPU (x86) ServingRuntime for KServe* is selected.
 +
 image::2-just-a-model/model-deployment-form-cpu.png[Model Deployment Form CPU]
 --
 ====
 . In *Advanced settings*:
 .. *Gen AI studio* should be checkmarked so the model shows up as an AI asset.
-.. Let *Gateway selection* be empty.
-.. Uncheckmark *Require token authentication* to keep the requests to the model simpler.
 .. In *Additional runtime arguments* enter the following arguments. Here it depends on which model you deployed.
 +
 --
