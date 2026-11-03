@@ -41,11 +41,15 @@ Important limitations:
 When you respond, be clear, helpful, and natural. If you cannot provide exact information, say so politely and suggest a useful next step the staff member can take.
 ----
 
-. Click *Save*, and then enter the following name: `ai-hospital-helpdesk`. You reuse this name later.
+. Click `Add to prompt registry`
++
+image::2-just-a-model/add-to-prompt-registry.png[Add to prompt registry]
+
+. Enter the following name: `ai-hospital-helpdesk`. You reuse this name later so it needs to be exact. Also feel free to give it a nice commit message. When you are done, click Create.
 +
 image::2-just-a-model/save-prompt.png[Save a new prompt]
 
-. Add a commit message, such as `First prompt`, and then click *Create*.
+. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it: A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?
 
 == Verification
 
@@ -61,24 +65,6 @@ Optionally, verify that the prompt was saved in your Prompts registry.
 - See related traces.
 
 image::2-just-a-model/prompts.png[Prompts dashboard]
-
-To test the new prompt, complete the following steps:
-
-. Return to the Playground, verify that you are in your project, and select the prompt again from *Load Prompt* in the *Prompt* tab.
-+
-image::2-just-a-model/load-prompt.png[Load prompt]
-
-. Click *ai-hospital-helpdesk*, and then click *Load in Playground*.
-+
-image::2-just-a-model/load-prompt-modal.png[Load prompt modal]
-
-. Click *New chat* in the Playground and then *Start a new chat session* when prompted.
-+
-image::2-just-a-model/new-chat.png[Create a new chat]
-
-. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it:
-`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?` +
-Just beware, because this is a small model response quality can vary.
 
 == Next step
 
