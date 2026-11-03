@@ -11,10 +11,12 @@ NOTE: This step is optional. You can extract the code again later when you are r
 
 == Procedure
 
-. Click *View code*.
-If the button is not active, send a message to the chat. You can send this message:
+. If you navigated away from the playground before, make sure to load your prompt again by going Prompt -> Load Prompt inside the Playground. +
+You also need to send a message to be able to get the code, you can send this one if you have a blank chat:
 +
 `A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
+
+. Click *View code*.
 +
 image::3-move-to-code/view-code.png[View code]
 

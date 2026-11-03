@@ -14,7 +14,6 @@ Use it to confirm the model works and to see how it responds to different messag
 . Create the playground:
 .. Click *Create Playground*.
 .. Select your deployed model.
-.. Leave *Max Tokens* empty.
 .. Click *Create*.
 +
 image::2-just-a-model/create-playground.png[Create Playground]
