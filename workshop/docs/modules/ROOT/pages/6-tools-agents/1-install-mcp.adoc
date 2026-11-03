@@ -12,7 +12,7 @@ The MCP server exposes four tools the model can request to use:
 
 The server is pre-seeded with several open tickets you can explore.
 
-After the server is running, a setup job automatically registers it as a connector in OGX so the Playground and your agent can use it.
+The MCP lifecycle operator runs the server for you and verifies that it responds correctly.
 
 == Procedure
 
@@ -24,7 +24,7 @@ Run the following command:
 +
 [source,terminal]
 ----
-oc apply -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/mcp-ticketing.yaml
+oc apply -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/mcp-ticketing-mcpserver.yaml
 ----
 
 * *Using the OpenShift console*
@@ -49,45 +49,51 @@ image::6-tools-agents/ocp-console-select-project.png[Select a project, 200]
 [source,yaml]
 ----
 ---
-apiVersion: v1
-kind: ServiceAccount
+apiVersion: mcp.x-k8s.io/v1beta1
+kind: MCPServer
 metadata:
-  name: demo-setup
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: demo-setup-edit
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: edit
-subjects:
-  - kind: ServiceAccount
-    name: demo-setup
----
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: deploy-mcp-ticketing
+  name: mcp-ticketing
+  annotations:
+    mcp.opendatahub.io/catalog-server: mcp-ticketing
+    mcp.opendatahub.io/display-name: Hospital IT Ticketing
 spec:
-  selector: {}
-  template:
-    spec:
-      containers:
-        - args:
-            - -ec
-            - |-
-              echo -n 'Deploying MCP ticketing server'
-              oc apply -f https://github.com/rh-aiservices-bu/hospital-helpdesk/raw/main/setup/mcp-ticketing-no-sa.yaml
-          command:
-            - /bin/bash
-          image: image-registry.openshift-image-registry.svc:5000/openshift/tools:latest
-          imagePullPolicy: IfNotPresent
-          name: deploy-mcp-ticketing
-      restartPolicy: Never
-      serviceAccount: demo-setup
-      serviceAccountName: demo-setup
+  source:
+    type: ContainerImage
+    containerImage:
+      ref: quay.io/rlundber/hospital-helpdesk-mcp-ticketing:0.3
+  config:
+    port: 8080
+    path: /mcp
+    env:
+      - name: HOST
+        value: 0.0.0.0
+      - name: PORT
+        value: "8080"
+  network:
+    ingressFrom:
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: redhat-ods-applications
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: mcp-lifecycle-operator
+            control-plane: controller-manager
+      - podSelector: {}
+  runtime:
+    replicas: 1
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+    health:
+      readinessProbe:
+        tcpSocket:
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10
 ----
 
 . Click *Create*.
@@ -95,16 +101,11 @@ spec:
 
 == Verification
 
-. In the OpenShift console, the `Resources successfully created` message appears, listing:
-+
-* `demo-setup` (ServiceAccount)
-* `demo-setup-edit` (RoleBinding)
-* `deploy-mcp-ticketing` (Job)
-+
-[NOTE]
-====
-If you already completed the storage setup in xref:1-setup/3-scripted-storage.adoc[1.2.1. Install local object storage with a script], `demo-setup` and `demo-setup-edit` might already exist, and you might see an error for those resources. This is expected. The `deploy-mcp-ticketing` Job still runs correctly.
-====
+. In the OpenShift console, the `Resources successfully created` message appears, listing `mcp-ticketing`.
+
+. In the {productname-short} dashboard, select *AI hub* -> *MCP servers* and then click *Deployments*. The `Hospital IT Ticketing` server is listed as ready.
+
+image::6-tools-agents/mcp-running.png[MCP Running]
 
 == Next step
 

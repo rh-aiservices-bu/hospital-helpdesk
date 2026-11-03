@@ -18,9 +18,9 @@ Start with ingesting documents. You build the ingestion pipeline so you can run 
 
 . Navigate to your workbench. If you don't have it open, find it through the {productname-short} dashboard > Projects > your project.
 
-. In the workbench, open and review the file called `rag_pipeline.py`. This is a pipeline built with the Kubeflow Pipelines Python SDK.
-This pipeline contains the steps needed to chunk and ingest a new document into your RAG database: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank]
-This document was uploaded previously into the S3 bucket you created in xref:1-setup/2-data-connections.adoc[1.2. Connect to your data].
+. In the workbench, open and review the file called `rag_pipeline.py`. This is a pipeline built with the Kubeflow Pipelines Python SDK. +
+This pipeline contains the steps needed to chunk and ingest a new document into your RAG database: link:https://github.com/rh-aiservices-bu/hospital-helpdesk/blob/main/it_facilities_guide.pdf[it_facilities_guide.pdf,window=_blank] +
+This document was uploaded previously into the S3 bucket you connected to in xref:1-setup/2-data-connections.adoc[1.2. Connect to your data].
 
 . To compile and run the pipeline, click the play button in the top menu.
 +

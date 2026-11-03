@@ -1,0 +1,70 @@
+:_module-type: PROCEDURE
+
+[id='giving-project-permissions']
+= Give project permissions
+
+[role="_abstract"]
+Later in this {deliverable}, your workbench sends requests to the OGX service (for the AI Playground) in your project.
+OGX authenticates every request with the service account that runs your workbench, so that service account needs permission to view the project.
+You only have to do this once per project.
+
+== Prerequisites
+
+* You have created a project, as described in xref:1-setup/1-projects.adoc[1.1. Create a project].
+
+The following procedure describes how to add the permission from the OpenShift console.
+If you are familiar with OpenShift and can access the cluster from the command line, you can add it with the following command instead of completing the procedure:
+
+[source,terminal]
+----
+oc apply -n <your-project-name> -f https://github.com/rh-aiservices-bu/hospital-helpdesk/raw/main/setup/ogx-permissions.yaml
+----
+
+== Procedure
+
+. In the {productname-short} dashboard, click the application launcher icon and then select the *OpenShift Console* option.
++
+image::1-setup/ds-project-ocp-link.png[OpenShift Console Link, 600]
+
+. In the OpenShift console, click *+* in the top navigation bar, and then click *Import YAML*.
++
+image::1-setup/ocp-console-add-icon.png[Add resources Icon]
+
+. Click the down arrow next to the project name, and then select your project from the list of projects. If needed, type the name of your project in the *Select project* search field.
++
+image::1-setup/ocp-console-select-project.png[Select a project, 200]
+
+. Verify that you selected the correct project.
++
+image::1-setup/ocp-console-project-selected.png[Selected project, 200]
+
+. Copy the following code and paste it into the *Import YAML* editor.
++
+[.lines_space]
+[.console-input]
+[source,yaml]
+----
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ogx-access
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+subjects:
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: system:serviceaccounts
+----
+
+. Click *Create*.
+
+== Verification
+
+In the OpenShift console, the `Resources successfully created` message appears, with `ogx-access` listed.
+
+== Next step
+
+You can continue to deploying and using your GenAI model in xref:2-just-a-model/index.adoc[2. Get your first model running].

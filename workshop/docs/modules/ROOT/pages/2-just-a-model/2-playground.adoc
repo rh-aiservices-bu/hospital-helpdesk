@@ -27,6 +27,9 @@ Send a message to the model, such as Hi, and see how it responds. If the playgro
 
 image::2-just-a-model/playground-response.png[Playground Response]
 
+
+If it's taking too long to answer and is timing out, you can look inside this section to see how to increase the timeout limits:
+
 .Increase the timeout limits when running on CPU
 [%collapsible]
 ====

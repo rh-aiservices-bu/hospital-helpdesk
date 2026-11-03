@@ -1,4 +1,5 @@
-apiVersion: mcp.x-k8s.io/v1alpha1
+---
+apiVersion: mcp.x-k8s.io/v1beta1
 kind: MCPServer
 metadata:
   name: mcp-ticketing
@@ -6,10 +7,45 @@ metadata:
     mcp.opendatahub.io/catalog-server: mcp-ticketing
     mcp.opendatahub.io/display-name: Hospital IT Ticketing
 spec:
-  config:
-    path: /mcp
-    port: 8080
   source:
+    type: ContainerImage
     containerImage:
       ref: quay.io/rlundber/hospital-helpdesk-mcp-ticketing:0.3
-    type: ContainerImage
+  config:
+    port: 8080
+    path: /mcp
+    env:
+      - name: HOST
+        value: 0.0.0.0
+      - name: PORT
+        value: "8080"
+  network:
+    # Setting ingressFrom REPLACES the operator's default rule, so the operator's own
+    # controller has to be listed here too or its MCP handshake fails and the server
+    # shows as "Not ready".
+    ingressFrom:
+      # the MCP lifecycle operator (handshake and discovery probes)
+      - namespaceSelector:
+          matchLabels:
+            kubernetes.io/metadata.name: redhat-ods-applications
+        podSelector:
+          matchLabels:
+            app.kubernetes.io/name: mcp-lifecycle-operator
+            control-plane: controller-manager
+      # pods in this project (workbench, OGX playground)
+      - podSelector: {}
+  runtime:
+    replicas: 1
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+    health:
+      readinessProbe:
+        tcpSocket:
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 10

@@ -64,7 +64,9 @@ For an immediate replacement unit, contact the Central Supply department at exte
 After filing the ticket and securing a replacement, the faulty ClearFlow pump should be cleaned according to standard sanitation procedures and sent to the Biomedical Engineering department. Place the tagged unit in the designated "Biomedical Outgoing" bin, typically located in the floor's main utility room next to the clean supply closet.
 ====
 
-. You can ask more questions, such as where the Biomedical Engineering department is located.
+. You can ask more questions, such as "Where is the Biomedical Engineering department located?".
+
+NOTE: If you are using a small model, such as the `Qwen2.5-1.5B-Instruct-quantized.w8a8` it may choose not to look at the documents and your anwer might not be grounded. This is simply a limitation of the smaller models with this RAG approach.
 
 The Playground is not connected to MLflow, so you do not see traces here. You view traces later, when you run RAG in code.
 

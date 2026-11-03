@@ -5,6 +5,7 @@
 *** xref:1-setup/3-scripted-storage.adoc[Scripted]
 *** xref:1-setup/4-manual-storage.adoc[Manual]
 ** xref:1-setup/5-enable-pipelines.adoc[1.3. Enable AI pipelines]
+** xref:1-setup/6-permissions.adoc[1.4. Give project permissions]
 * xref:2-just-a-model/index.adoc[2. Get your first model running]
 ** xref:2-just-a-model/1-model-catalog.adoc[2.1. Deploy a model from the model catalog]
 ** xref:2-just-a-model/2-playground.adoc[2.2. Chat with your model in the playground]

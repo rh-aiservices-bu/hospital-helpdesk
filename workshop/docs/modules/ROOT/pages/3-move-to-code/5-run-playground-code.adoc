@@ -21,23 +21,23 @@ image::3-move-to-code/new-notebook.png[Create a new notebook]
 [.console-input]
 [source,terminal]
 ----
-!pip install llama-stack-client
+!pip install ogx
 ----
 
-. Create a second cell and paste the code from the Playground into it. Before you run it, modify the line that sets LLAMA_STACK_URL. Replace that line with:
+. Create a second cell and paste the code from the Playground into it. Before you run it, modify the line that sets OGX_URL. Replace that line with:
 +
+--
 [.console-input]
 [source,python]
 ----
 with open("/var/run/secrets/kubernetes.io/serviceaccount/namespace") as f:
     _namespace = f.read().strip()
 
-LLAMA_STACK_URL = f"http://lsd-genai-playground-service.{_namespace}.svc.cluster.local:8321"
+OGX_URL = f"http://lsd-genai-playground-service.{_namespace}.svc.cluster.local:8321"
 ----
-+
-NOTE: This automatically detects your project name from the cluster, so you do not need to edit it.
-+
+
 image::3-move-to-code/set-llama-stack-url.png[Notebook Output]
+--
 
 . Run the cell and observe the output.
 +

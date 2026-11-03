@@ -57,4 +57,4 @@ An information box opens and displays the object storage connection information 
 
 == Next step
 
-You can continue to deploying and using your GenAI model in xref:2-just-a-model/index.adoc[2. Get your first model running].
+Before you deploy a model, give your project the permissions it needs in xref:1-setup/6-permissions.adoc[1.4. Give project permissions].
