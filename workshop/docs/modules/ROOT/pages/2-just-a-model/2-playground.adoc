@@ -28,7 +28,7 @@ Send a message to the model, such as Hi, and see how it responds. If the playgro
 image::2-just-a-model/playground-response.png[Playground Response]
 
 
-If it's taking too long to answer and is timing out, you can look inside this section to see how to increase the timeout limits:
+If the model takes too long to respond and the request times out, expand the following section to increase the timeout limits.
 
 .Increase the timeout limits when running on CPU
 [%collapsible]
@@ -42,9 +42,11 @@ Responses can take longer than the default 30-second timeout allows. There are t
 oc apply -n <your-project-name> -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/increase-timeouts-job.yaml
 ----
 
+NOTE: This command uses the `demo-setup` service account that the script in xref:1-setup/3-scripted-storage.adoc[Install local object storage with a script] creates. If you created your connections manually, use Option 2.
+
 *Option 2, OpenShift console (Import YAML):*
 
-In the OpenShift console, click *+* in the navigation bar, select *your project*, and paste the following:
+In the OpenShift console, click *+* in the navigation bar, click *Import YAML*, select your project, and paste the following code:
 
 [.lines_space]
 [.console-input]
@@ -80,7 +82,7 @@ spec:
         - args:
             - -ec
             - |-
-              echo -n 'Setting up S4 instance and connections'
+              echo -n 'Increasing timeouts'
               oc apply -f https://github.com/rh-aiservices-bu/hospital-helpdesk/raw/main/setup/increase-timeouts-job.yaml
           command:
             - /bin/bash

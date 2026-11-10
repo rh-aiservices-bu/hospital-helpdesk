@@ -67,13 +67,19 @@ image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 Without Accelerator::
 +
 --
-NOTE: If you don't have an accelerator, your performance will depend heavily on the type of CPU you have and how much resources you can give the model.
-In some cases the response time will be too slow to be usable, in which case consider choosing a smaller model such as *Qwen2.5-1.5B-Instruct-quantized.w8a8*.
-However, a smaller model might not be viable for xref:5-rag/1-rag-in-playground.adoc[5.1. Try RAG in the playground] or the entire xref:6-tools-agents/index.adoc[6. Tools and agents] section.
+NOTE: Without an accelerator, model performance depends on your CPU type and on the resources that you give the model. Responses can be slow.
+The smaller *Qwen2.5-1.5B-Instruct-quantized.w8a8* model might not give good results in xref:5-rag/1-rag-in-playground.adoc[5.1. Try RAG in the playground] or in xref:6-tools-agents/index.adoc[6. Tools and agents].
+
+[IMPORTANT]
+=====
+The vLLM CPU (x86) serving runtime is a Technology Preview feature only. Technology Preview features are not supported with {org-name} production service level agreements (SLAs) and might not be functionally complete. {org-name} does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
+
+For more information about the support scope of {org-name} Technology Preview features, see link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope^].
+=====
 
 . Select your Project.
 . Click *Customize resource request and limits* and set CPU to at least 10 cores and memory to at least 16 GiB.
-. Under *Deployment resource*, select *Manual selection* and the runtime *vLLM CPU (x86) ServingRuntime for KServe* from the dropdown.
+. Under *Deployment resource*, select *Manual selection* and the runtime *vLLM CPU (x86) ServingRuntime for KServe - Tech Preview* from the dropdown.
 +
 image::2-just-a-model/model-deployment-form-cpu.png[Model Deployment Form CPU]
 --

@@ -20,7 +20,7 @@ A prepared notebook lets you start immediately, without extracting or copying co
 +
 image::5-rag/code-rag-answers.png[Code RAG Answers]
 
-. You now also have MLflow traces to inspect. Navigate to MLflow through {productname-short} > *Develop & train* > *Experiments (MLflow)* and open the latest trace. The model makes tool calls to retrieve the documents you uploaded earlier.
+. You now also have MLflow traces to inspect. In the {productname-short} dashboard, select *Develop & train* > *Experiments*, and then open the latest trace. The model makes tool calls to retrieve the documents you uploaded earlier.
 +
 image::5-rag/mlflow-rag-trace.png[MLflow RAG Trace]
 

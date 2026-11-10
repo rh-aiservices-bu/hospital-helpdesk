@@ -14,6 +14,10 @@ The server is pre-seeded with several open tickets you can explore.
 
 The MCP lifecycle operator runs the server for you and verifies that it responds correctly.
 
+== Prerequisites
+
+* You have created a project, as described in xref:1-setup/1-projects.adoc[1.1. Create a project].
+
 == Procedure
 
 Deploy the MCP server in one of the following ways:
@@ -24,7 +28,7 @@ Run the following command:
 +
 [source,terminal]
 ----
-oc apply -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/mcp-ticketing-mcpserver.yaml
+oc apply -n <your-project-name> -f https://raw.githubusercontent.com/rh-aiservices-bu/hospital-helpdesk/main/setup/mcp-ticketing-mcpserver.yaml
 ----
 
 * *Using the OpenShift console*
@@ -109,4 +113,4 @@ image::6-tools-agents/mcp-running.png[MCP Running]
 
 == Next step
 
-Now that the server is running and registered, use it from code in xref:6-tools-agents/2-tools-in-code.adoc[6.2. Build an agentic workflow].
+Now that the server is running, use it from code in xref:6-tools-agents/2-tools-in-code.adoc[6.2. Build an agentic workflow].

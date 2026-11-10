@@ -7,7 +7,7 @@ To improve this, modify the system prompt that gets sent to the model together w
 There are two places where you can modify the prompt, either:
 
 - In the *Prompts* section of Gen AI studio in the left menu, where you can get an overview of all your existing prompts and manage them.
-- In the *Prompt* tab in the Playground, where you can choose what prompt to use for your current playground setup.
+- In the *Prompt* tab of the Playground *Settings* panel, where you can choose what prompt to use for your current playground setup.
 
 == Prerequisites
 
@@ -15,9 +15,9 @@ There are two places where you can modify the prompt, either:
 
 == Procedure
 
-. In the Playground, select the *Prompt* tab. From this tab, you can:
+. In the Playground, click *Settings*, and then click the *Prompt* tab. From this tab, you can:
 - Load an existing prompt
-- Modify and save the current prompt
+- Modify the current prompt and add it to the prompt registry
 
 . A default prompt is already entered, guiding your model. Overwrite the default prompt with something more specific to the Hospital Helpdesk work. Here is an example you can use:
 +
@@ -41,11 +41,11 @@ Important limitations:
 When you respond, be clear, helpful, and natural. If you cannot provide exact information, say so politely and suggest a useful next step the staff member can take.
 ----
 
-. Click *Save*, and then enter the following name: `ai-hospital-helpdesk`. You reuse this name later.
+. Click *Add to prompt registry*. In the *Save prompt* modal, enter the following name: `ai-hospital-helpdesk`. You reuse this name later.
 +
 image::2-just-a-model/save-prompt.png[Save a new prompt]
 
-. Add a commit message, such as `First prompt`, and then click *Create*.
+. In the *Commit message* field, enter a message such as `First prompt`, and then click *Create*.
 
 == Verification
 
@@ -64,7 +64,7 @@ image::2-just-a-model/prompts.png[Prompts dashboard]
 
 To test the new prompt, complete the following steps:
 
-. Return to the Playground, verify that you are in your project, and select the prompt again from *Load Prompt* in the *Prompt* tab.
+. Return to the Playground, verify that you are in your project, click *Settings*, and then click *Load Prompt* in the *Prompt* tab.
 +
 image::2-just-a-model/load-prompt.png[Load prompt]
 
@@ -76,9 +76,10 @@ image::2-just-a-model/load-prompt-modal.png[Load prompt modal]
 +
 image::2-just-a-model/new-chat.png[Create a new chat]
 
-. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it:
-`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?` +
-Just beware, because this is a small model response quality can vary.
+. Ask the chatbot some questions and compare its responses to the responses before you loaded the prompt. For example, ask:
+`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
++
+NOTE: This model is small, so the quality of its responses can vary.
 
 == Next step
 
