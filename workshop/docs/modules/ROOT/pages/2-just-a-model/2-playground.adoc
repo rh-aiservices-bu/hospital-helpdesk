@@ -9,7 +9,7 @@ Use it to confirm the model works and to see how it responds to different messag
 
 == Procedure
 
-. Navigate to *Gen AI studio → Playground* in {productname-short}. Ensure that you select your project.
+. Navigate to *Gen AI studio* > *Playground* in {productname-short}. Ensure that you select your project.
 
 . Create the playground:
 .. Click *Create Playground*.
@@ -28,7 +28,7 @@ Send a message to the model, such as Hi, and see how it responds. If the playgro
 image::2-just-a-model/playground-response.png[Playground Response]
 
 
-If the model takes too long to respond and the request times out, expand the following section to increase the timeout limits.
+If the model takes too long to respond and the request times out, expand the following section to increase the timeout limits:
 
 .Increase the timeout limits when running on CPU
 [%collapsible]

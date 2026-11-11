@@ -5,7 +5,7 @@ This script defines and runs a Kubeflow Pipeline that ingests documents
 into a Llama Stack vector store for Retrieval-Augmented Generation (RAG).
 
 The pipeline has two steps:
-  1. create_vector_store        — creates a new vector store, or reuses the existing one if VECTOR_STORE_NAME = ""
+  1. create_vector_store        — creates a new vector store in Milvus, or reuses the existing one if VECTOR_STORE_NAME = ""
   2. upload_and_index_documents — lists ALL files in the S3 bucket, downloads each one, uploads it
                                   to the Llama Stack file service, and adds it to the vector store
 
@@ -53,7 +53,7 @@ def create_vector_store(
     vector_store_name: str,
     use_existing: bool,
 ) -> str:
-    """Create a new vector store with the default OGX provider, or return the ID of an existing one by name."""
+    """Create a new Milvus-backed vector store, or return the ID of an existing one by name."""
     from llama_stack_client import LlamaStackClient
 
     client = LlamaStackClient(base_url=llama_stack_url)
@@ -68,9 +68,9 @@ def create_vector_store(
         vector_store_name = "hospital-helpdesk"
         print(f"No existing vector stores found. Creating '{vector_store_name}'...")
 
-    # No provider_id: OGX uses its default vector store provider (pgvector in OpenShift AI 3.6).
     vector_store = client.vector_stores.create(
         name=vector_store_name,
+        extra_body={"provider_id": "milvus"},
     )
     print(f"Created vector store '{vector_store_name}' with ID: {vector_store.id}")
     return vector_store.id

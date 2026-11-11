@@ -14,10 +14,6 @@ The server is pre-seeded with several open tickets you can explore.
 
 The MCP lifecycle operator runs the server for you and verifies that it responds correctly.
 
-== Prerequisites
-
-* You have created a project, as described in xref:1-setup/1-projects.adoc[1.1. Create a project].
-
 == Procedure
 
 Deploy the MCP server in one of the following ways:
@@ -107,7 +103,7 @@ spec:
 
 . In the OpenShift console, the `Resources successfully created` message appears, listing `mcp-ticketing`.
 
-. In the {productname-short} dashboard, select *AI hub* -> *MCP servers* and then click *Deployments*. The `Hospital IT Ticketing` server is listed as ready.
+. In the {productname-short} dashboard, select *AI hub* > *MCP servers* and then click *Deployments*. The `Hospital IT Ticketing` server is listed as ready.
 
 image::6-tools-agents/mcp-running.png[MCP Running]
 

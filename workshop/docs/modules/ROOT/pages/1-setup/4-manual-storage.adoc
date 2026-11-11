@@ -5,7 +5,7 @@
 
 NOTE: Skip this procedure if you completed the steps in xref:1-setup/3-scripted-storage.adoc[Install local object storage with a script].
 
-If you have existing S3-compatible storage buckets that you want to use for this {deliverable}, you must create a connection to one storage bucket for saving your data and models. If you want to complete the pipelines section of this {deliverable}, create another connection to a different storage bucket for saving pipeline artifacts.
+If you have existing S3-compatible storage buckets that you want to use for this {deliverable}, create connections to two different storage buckets: one for the documents that the RAG pipeline ingests, and one for pipeline artifacts. You need these connections only if you want to complete the pipelines section of this {deliverable}, including xref:5-rag/2-rag-pipeline.adoc[5.2. Ingest documents with a pipeline].
 
 When you create a connection to storage in a production-ready project, follow these security guidelines:
 
@@ -27,15 +27,17 @@ If you do not have this information, contact your storage administrator.
 
 == Procedure
 
-. Create a connection for saving your data and models:
+. Create a connection for the documents that the RAG pipeline ingests:
++
+NOTE: If you do not intend to complete the pipelines section of the {deliverable}, you can skip this step.
 
 .. In the {productname-short} dashboard, navigate to the page for your project.
 
 .. Click the *Connections* tab, and then click *Create connection*.
 
-.. In the *Add connection* modal, for the *Connection type* select *S3 compatible object storage - v1*.
+.. In the *Create connection* modal, for the *Connection type* select *S3 compatible object storage - v1*.
 
-.. Complete the *Add connection* form and name your connection *Data*. This connection is for the documents that the RAG pipeline ingests.
+.. Complete the form and name your connection *Data*.
 
 .. Click *Create*.
 
@@ -45,7 +47,9 @@ If you do not have this information, contact your storage administrator.
 +
 NOTE: If you do not intend to complete the pipelines section of the {deliverable}, you can skip this step.
 
-.. Click *Add connection*.
+.. Click *Create connection*.
+
+.. In the *Create connection* modal, for the *Connection type* select *S3 compatible object storage - v1*.
 
 .. Complete the form and name your connection *Pipeline Artifacts*.
 +

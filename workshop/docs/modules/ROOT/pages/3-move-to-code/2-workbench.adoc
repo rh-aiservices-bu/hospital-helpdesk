@@ -24,7 +24,7 @@ image::3-move-to-code/create-workbench-form-name-desc.png[Workbench name and des
 
 .. Select the image that includes *Jupyter | Data Science | CPU | Python 3.12*
 
-.. For the image version, leave it at *3.6*.
+.. For the image version, leave it at *3.4*.
 +
 image::3-move-to-code/create-workbench-form-image.png[Workbench image, 600]
 

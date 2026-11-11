@@ -3,9 +3,19 @@
 [role="_abstract"]
 Now that you have a project, deploy a model into it.
 
+== Prerequisites
+
+* The model catalog includes the model that you want to deploy: *Llama-3.2-3B-Instruct-quantized.w8a8* or *Qwen2.5-1.5B-Instruct-quantized.w8a8*.
++
+If the catalog does not include the model, an {productname-short} administrator must add it. In the navigation menu, select *Settings* > *Model resources and operations* > *Model catalog settings*, and then add a new source with the organization *RedHatAI*. The new source can take a long time to load, because it syncs a large number of models.
++
+image::2-just-a-model/model-catalog-settings.png[Model catalog settings showing RedHatAI organization]
++
+If you do not see *Settings* in the navigation menu, you are not an {productname-short} administrator. Ask your cluster administrator to add the model, or choose a similar model that is already available.
+
 == Procedure
 
-. Navigate to *AI hub* -> *Models* in the left sidebar.
+. Navigate to *AI hub* > *Models* in the left sidebar.
 
 . You can deploy with or without an accelerator, also known as a GPU.
 Search for the following model in the search field and click the tile that appears.
@@ -30,15 +40,6 @@ Qwen2.5-1.5B-Instruct-quantized.w8a8
 image::2-just-a-model/model-tile.png[Model Tile for Llama 3.2 3B Instruct]
 +
 This tutorial uses a small quantized model so it is compatible with more hardware options.
-+
-[NOTE]
-====
-If you do not see the model, you might need admin access to add it.
-To check whether you have admin access, look at the navigation menu. If you see a *Settings* item, you are an {productname-short} admin and can add the model yourself. If you do not see *Settings*, ask your cluster administrator to add it, or choose a similar model that is already available.
-To add the model, go to *Settings* -> *Model resources and operations* -> *Model catalog settings* and add a new source with the organization *RedHatAI*. This might take a while to load as it syncs a large number of models.
-
-image::2-just-a-model/model-catalog-settings.png[Model catalog settings showing RedHatAI organization]
-====
 +
 After you click the tile, you can see the *Model Card* for the model. This contains information such as how it's built, what license it has, and how to use it.
 
@@ -67,19 +68,13 @@ image::2-just-a-model/model-deployment-form.png[Model Deployment Form]
 Without Accelerator::
 +
 --
-NOTE: Without an accelerator, model performance depends on your CPU type and on the resources that you give the model. Responses can be slow.
-The smaller *Qwen2.5-1.5B-Instruct-quantized.w8a8* model might not give good results in xref:5-rag/1-rag-in-playground.adoc[5.1. Try RAG in the playground] or in xref:6-tools-agents/index.adoc[6. Tools and agents].
-
-[IMPORTANT]
-=====
-The vLLM CPU (x86) serving runtime is a Technology Preview feature only. Technology Preview features are not supported with {org-name} production service level agreements (SLAs) and might not be functionally complete. {org-name} does not recommend using them in production. These features provide early access to upcoming product features, enabling customers to test functionality and provide feedback during the development process.
-
-For more information about the support scope of {org-name} Technology Preview features, see link:https://access.redhat.com/support/offerings/techpreview/[Technology Preview Features Support Scope^].
-=====
+NOTE: Without an accelerator, model performance depends on your CPU type and on the resources that you give the model.
+If the responses are too slow to use, increase the CPU and memory limits, or deploy the model on an accelerator.
+Small models, such as *Qwen2.5-1.5B-Instruct-quantized.w8a8*, might not be viable for later sections of this {deliverable}, such as xref:5-rag/1-rag-in-playground.adoc[5.1. Try RAG in the playground] and xref:6-tools-agents/index.adoc[6. Tools and agents].
 
 . Select your Project.
 . Click *Customize resource request and limits* and set CPU to at least 10 cores and memory to at least 16 GiB.
-. Under *Deployment resource*, select *Manual selection* and the runtime *vLLM CPU (x86) ServingRuntime for KServe - Tech Preview* from the dropdown.
+. Under *Deployment resource*, select *Manual selection* and the runtime *vLLM CPU (x86) ServingRuntime for KServe* from the dropdown.
 +
 image::2-just-a-model/model-deployment-form-cpu.png[Model Deployment Form CPU]
 --
