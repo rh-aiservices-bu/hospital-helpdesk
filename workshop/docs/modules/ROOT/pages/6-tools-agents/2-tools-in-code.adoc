@@ -19,7 +19,7 @@ You can also see the intermediate tool calls the agent makes and which tool it c
 +
 image::6-tools-agents/tool-response.png[Tool response]
 
-. Navigate to *Gen AI studio* > *Experiments (MLflow)* and look at the traces.
+. In the {productname-short} dashboard, select *Develop & train* > *Experiments*, and then review the traces.
 With MLflow autologging, you get more detail this time on exactly how the agent runs.
 +
 image::6-tools-agents/mlflow-results.png[Tool response]

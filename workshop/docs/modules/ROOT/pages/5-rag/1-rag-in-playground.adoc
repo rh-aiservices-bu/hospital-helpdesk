@@ -19,7 +19,7 @@ You can upload documents and see the replies you get with your system prompt.
 
 . Navigate to the Playground by selecting *Gen AI studio* > *Playground*, and ensure that you select your project.
 
-. Click the *Knowledge* tab and turn on the *RAG* toggle.
+. Click *Settings*, click the *RAG* tab, and then turn on the *RAG* toggle.
 +
 image::5-rag/enable-rag.png[Enable RAG]
 
@@ -66,7 +66,7 @@ After filing the ticket and securing a replacement, the faulty ClearFlow pump sh
 
 . You can ask more questions, such as "Where is the Biomedical Engineering department located?".
 
-NOTE: If you are using a small model, such as the `Qwen2.5-1.5B-Instruct-quantized.w8a8` it may choose not to look at the documents and your anwer might not be grounded. This is simply a limitation of the smaller models with this RAG approach.
+NOTE: Small models, such as `Qwen2.5-1.5B-Instruct-quantized.w8a8`, might not base their answers on the documents that you provide for RAG. This is a limitation of small models with this RAG approach.
 
 The Playground is not connected to MLflow, so you do not see traces here. You view traces later, when you run RAG in code.
 
