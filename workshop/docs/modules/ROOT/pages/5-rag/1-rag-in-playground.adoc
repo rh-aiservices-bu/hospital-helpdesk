@@ -19,7 +19,7 @@ You can upload documents and see the replies you get with your system prompt.
 
 . Navigate to the Playground by selecting *Gen AI studio* > *Playground*, and ensure that you select your project.
 
-. Click *Settings*, click the *RAG* tab, and then turn on the *RAG* toggle.
+. If the *Settings* panel is not open, click *Settings*. Click the *RAG* tab, and then turn on the *RAG* toggle.
 +
 image::5-rag/enable-rag.png[Enable RAG]
 
@@ -51,20 +51,9 @@ Who do I contact for a replacement and where do I send the faulty unit?
 
 . With RAG turned on, you see an answer similar to this:
 +
-.Example RAG response
-====
-The replacement procedure for a ClearFlow infusion pump with error code 525 is as follows:
+image::5-rag/playground-rag-response.png[Playground RAG response]
 
-. Remove the device from service and tag it as faulty.
-. File a Level 3 ticket in MedTrack under "Medical Devices > Infusion Pump General Failure."
-. Clean the unit and send it to Biomedical Engineering via the designated utility room bin.
-
-For an immediate replacement unit, contact the Central Supply department at extension 4450. They will dispatch a ready-for-use unit to your floor. Do not contact Biomedical Engineering for an immediate replacement; their role is repair, not immediate dispatch.
-
-After filing the ticket and securing a replacement, the faulty ClearFlow pump should be cleaned according to standard sanitation procedures and sent to the Biomedical Engineering department. Place the tagged unit in the designated "Biomedical Outgoing" bin, typically located in the floor's main utility room next to the clean supply closet.
-====
-
-. You can ask more questions, such as "Where is the Biomedical Engineering department located?".
+. You can ask more questions, such as `Where is the Biomedical Engineering department located?`
 
 NOTE: Small models, such as `Qwen2.5-1.5B-Instruct-quantized.w8a8`, might not base their answers on the documents that you provide for RAG. This is a limitation of small models with this RAG approach.
 

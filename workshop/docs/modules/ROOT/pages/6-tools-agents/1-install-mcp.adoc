@@ -60,7 +60,7 @@ spec:
   source:
     type: ContainerImage
     containerImage:
-      ref: quay.io/rlundber/hospital-helpdesk-mcp-ticketing:0.3
+      ref: quay.io/rh-aiservices-bu/hospital-helpdesk-mcp-ticketing:0.3
   config:
     port: 8080
     path: /mcp

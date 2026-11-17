@@ -15,7 +15,7 @@ You can modify the prompt in two places:
 
 == Procedure
 
-. In the Playground, click *Settings*, and then click the *Prompt* tab. From this tab, you can complete the following tasks:
+. In the Playground, if the *Settings* panel is not open, click *Settings*. Click the *Prompt* tab. From this tab, you can complete the following tasks:
 - Load an existing prompt
 - Modify the current prompt and add it to the prompt registry
 
@@ -41,11 +41,15 @@ Important limitations:
 When you respond, be clear, helpful, and natural. If you cannot provide exact information, say so politely and suggest a useful next step the staff member can take.
 ----
 
-. Click *Add to prompt registry*. In the *Save prompt* modal, enter the following name: `ai-hospital-helpdesk`. You reuse this name later.
+. Click *Add to prompt registry*.
++
+image::2-just-a-model/add-to-prompt-registry.png[Add to prompt registry]
+
+. In the *Save prompt* modal, enter the following name: `ai-hospital-helpdesk`. You reuse this name later, so it must be exact. Optionally, enter a commit message. Click *Create*.
 +
 image::2-just-a-model/save-prompt.png[Save a new prompt]
 
-. Add a commit message, such as `First prompt`, and then click *Create*.
+. Ask the chatbot a few things and see how it responds differently than before. You can for example ask it: `A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
 
 == Verification
 
@@ -61,25 +65,6 @@ Optionally, verify that the prompt was saved in your Prompts registry.
 - See related traces.
 
 image::2-just-a-model/prompts.png[Prompts dashboard]
-
-To test the new prompt, complete the following steps:
-
-. Return to the Playground, verify that you are in your project, click *Settings*, and then click *Load Prompt* in the *Prompt* tab.
-+
-image::2-just-a-model/load-prompt.png[Load prompt]
-
-. Click *ai-hospital-helpdesk*, and then click *Load in Playground*.
-+
-image::2-just-a-model/load-prompt-modal.png[Load prompt modal]
-
-. Click *New chat* in the Playground and then *Start a new chat session* when prompted.
-+
-image::2-just-a-model/new-chat.png[Create a new chat]
-
-. Ask the chatbot some questions and compare its responses to the responses before you loaded the prompt. For example, ask:
-`A patient just called asking how to get to the radiology department from the main entrance. Can you help me draft a response?`
-+
-NOTE: This model is small, so the quality of its responses can vary.
 
 == Next step
 
