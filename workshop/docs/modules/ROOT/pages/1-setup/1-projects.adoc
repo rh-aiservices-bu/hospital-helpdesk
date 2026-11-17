@@ -42,7 +42,11 @@ image::1-setup/project-new.png[New project]
 
 * *Connections* point to a data location that you can use for purposes such as configuration parameters and storing models, data, or artifacts.
 
-* *Permissions* define which users and groups can access the project.
+* *Roles* allow you to create and customize the roles and their access to this project.
+
+* *Permissions* define which users and groups can access the project, and what roles they have.
+
+* *Settings* allow you to set up bias monitoring and Nvidia NIM.
 
 == Next step
 

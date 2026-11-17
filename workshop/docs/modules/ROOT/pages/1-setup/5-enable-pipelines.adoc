@@ -4,7 +4,7 @@
 = (Optional) Enable AI pipelines
 
 [role="_abstract"]
-AI pipelines are optional. If you do not intend to use Kubeflow Pipelines, you can skip ahead to xref:2-just-a-model/index.adoc[2. Get your first model running].
+AI pipelines are optional. If you do not intend to use Kubeflow Pipelines, you can skip ahead to xref:1-setup/6-permissions.adoc[1.4 Give project permissions].
 
 With AI pipelines, you can schedule and automate the execution of notebooks and Python code without having to manually run them in a workbench. In this {deliverable}, you will use a pipeline to ingest documents into a vector store for RAG.
 

@@ -40,7 +40,8 @@ image::5-rag/pipeline-run.png[Pipeline Run]
 +
 image::5-rag/running-pipeline.png[Running Pipeline]
 
-. If you completed xref:5-rag/1-rag-in-playground.adoc[5.1. Try RAG in the playground] and did not specify a custom `VECTOR_STORE_NAME` in the pipeline, the new file will appear in the Playground automatically. Try asking: `I forgot my password and am locked out of my account. How do I reset it?`
+. If you completed xref:5-rag/1-rag-in-playground.adoc[5.1. Try RAG in the playground] and did not specify a custom `VECTOR_STORE_NAME` in the pipeline, the new file will appear in the Playground automatically. +
+Try enabling RAG and asking: `I forgot my password and am locked out of my account. How do I reset it?`
 +
 image::5-rag/file-in-playground.png[File in Playground]
 
