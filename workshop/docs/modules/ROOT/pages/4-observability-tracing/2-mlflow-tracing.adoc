@@ -35,12 +35,12 @@ image::4-observability-tracing/experiment-overview.png[Experiment overview]
 +
 image::4-observability-tracing/traces.png[Traces]
 
-. A trace provides information such as the system prompt, the input, the output, and any metadata.
+. A trace provides information such as the system prompt, the input, the output, and any metadata. +
 Click around a bit to see what you can see inside this trace.
 +
 image::4-observability-tracing/trace-info.png[Trace info]
 
-. Optionally, click *Assess* to add *Feedback* and *Expectations* to the trace.
+. Optionally, click *Assess* to add *Feedback* and *Expectations* to the trace. +
 You can then add this trace to a dataset by clicking the little dataset icon and use the dataset to evaluate other models or system prompts to see whether they behave according to your *Expectations*. This provides a way to build an evaluation dataset from your traces.
 +
 image::4-observability-tracing/show-assessment.png[Show Assessment]

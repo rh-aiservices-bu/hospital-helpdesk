@@ -1,12 +1,12 @@
 = Try RAG in the playground
 
 [role="_abstract"]
-RAG (Retrieval Augmented Generation) is a technique where you feed information relevant to the current conversation into the prompt, so that the LLM has more context when it generates an answer.
-The playground you have been using is built on top of something called OGX (Open GenAI Stack) which you can also use for RAG, specifically splitting large documents into smaller chunks, ingesting them into a vector database, and retrieving them.
-You can use the LLM to answer specific questions, such as:
+RAG (Retrieval Augmented Generation) is a technique where you feed information relevant to the current conversation into the prompt, so that the LLM has more context when it generates an answer. +
+The playground you have been using is built on top of something called OGX (Open GenAI Stack) which you can also use for RAG, specifically splitting large documents into smaller chunks, ingesting them into a vector database, and retrieving them. +
+You can use the LLM to answer specific questions, such as: +
 `An infusion pump is showing error code 525. Who do I contact for a replacement and where do I send the faulty unit?`
 
-Before you build your own RAG behavior, you can try out RAG with your model inside the Playground.
+Before you build your own RAG behavior, you can try out RAG with your model inside the Playground. +
 You can upload documents and see the replies you get with your system prompt.
 
 == Prerequisites
