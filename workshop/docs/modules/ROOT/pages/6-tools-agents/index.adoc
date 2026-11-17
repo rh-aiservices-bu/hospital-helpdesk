@@ -5,7 +5,7 @@ You have already used a tool in this {deliverable}. In the RAG section, the mode
 
 In RAG, the model called that tool through OGX, which handles the tool-calling loop for you and works well for simpler agents.
 
-In this chapter, you add a second tool — an IT ticketing system — and connect it using *LangGraph*, a framework that runs the tool-calling loop in your own code.
+In this chapter, you add a second tool — an IT ticketing system — and connect it by using *LangGraph*, a framework that runs the tool-calling loop in your own code.
 
 For more on how OGX works with tools and when to use each framework, see link:https://developers.redhat.com/articles/2025/08/20/your-agent-your-rules-deep-dive-responses-api-llama-stack[Your agent, your rules: A deep dive into the Responses API with Llama Stack,window=_blank].
 

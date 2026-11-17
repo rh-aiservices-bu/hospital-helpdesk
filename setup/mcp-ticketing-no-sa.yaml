@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mcp-ticketing
-          image: quay.io/rlundber/hospital-helpdesk-mcp-ticketing:0.3
+          image: quay.io/rh-aiservices-bu/hospital-helpdesk-mcp-ticketing:0.3
           ports:
             - containerPort: 8080
           env:

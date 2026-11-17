@@ -10,7 +10,7 @@ If you do not have your own S3-compatible storage or if you want to use a dispos
 * Creates two storage buckets in that S4 instance.
 * Generates a random user ID and password for your S4 instance.
 * Creates two connections in your project, one for each bucket and both using the same credentials.
-* Installs required network policies for service mesh functionality.
+* Uploads the `it_facilities_guide.pdf` file to the `data` bucket. The RAG pipeline in xref:5-rag/2-rag-pipeline.adoc[5.2. Ingest documents with a pipeline] uses this file.
 
 IMPORTANT: The S4-based Object Storage that the script creates is *not* meant for production usage.
 

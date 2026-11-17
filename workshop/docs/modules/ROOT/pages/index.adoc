@@ -15,4 +15,31 @@ The goal is to build an AI assistant that changes that workflow. One that can lo
 
 This assistant is for IT helpdesk staff, not patients or clinical staff directly. But because it makes the helpdesk faster and more accurate, the benefits ripple through the whole hospital.
 
-In this {deliverable}, you will build this assistant step by step by using {productname-long}. You will start from a simple conversation with the model, move into code, add observability so you can see what it is doing, give it access to hospital policy documents so it can answer questions accurately, and finally connect it to a live ticketing system so it can take real actions on behalf of helpdesk staff.
+In this {deliverable}, you build this assistant step by step by using {productname-long}. You complete the following tasks:
+
+* Start with a simple conversation with the model.
+* Move into code.
+* Add observability so that you can see what the model is doing.
+* Give the assistant access to hospital policy documents so that it can answer questions accurately.
+* Connect the assistant to a live ticketing system so that it can take real actions for helpdesk staff.
+
+== Before you begin
+
+Before you start the {deliverable}, make sure that your environment meets the following requirements:
+
+* You have access to an OpenShift cluster that has {productname-long} installed.
+* Your {productname-short} administrator has enabled the following components in the `DataScienceCluster` resource:
+** `workbenches`
+** `aipipelines`
+** `kserve`
+** `ogx`
+** `mlflowoperator`
+** `mcplifecycleoperator`
+* Optional: Your cluster has an accelerator, such as an NVIDIA GPU. An accelerator gives the best experience. You can deploy the model on CPU only, but responses are slower.
+
+[IMPORTANT]
+====
+If your cluster uses self-signed certificates, before you begin the {deliverable}, your {productname-short} administrator must add self-signed certificates for {productname-short} as described in link:https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/latest/html/installing_and_uninstalling_openshift_ai_self-managed/working-with-certificates_certs[Working with certificates^] (Self-Managed).
+====
+
+If you are ready, xref:1-setup/index.adoc[start the {deliverable}].

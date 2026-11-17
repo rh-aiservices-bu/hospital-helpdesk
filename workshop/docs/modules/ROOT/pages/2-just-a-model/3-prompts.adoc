@@ -4,20 +4,20 @@
 The model answers your messages, but not yet like a Hospital Helpdesk AI assistant.
 To improve this, modify the system prompt that gets sent to the model together with your message.
 
-There are two places where you can modify the prompt, either:
+You can modify the prompt in two places:
 
-- In the *Prompts* section of Gen AI studio in the left menu, where you can get an overview of all your existing prompts and manage them.
-- In the *Prompt* tab in the Playground, where you can choose what prompt to use for your current playground setup.
+- In the *Prompts* section of Gen AI studio in the left menu, where you can get an overview of all your existing prompts and manage them
+- In the *Prompt* tab of the Playground *Settings* panel, where you can choose what prompt to use for your current playground setup
 
 == Prerequisites
 
-- The Playground is set up and tested, as described in xref:2-just-a-model/2-playground.adoc[2.2. Chat with your model in the playground]
+- The Playground is set up and tested, as described in xref:2-just-a-model/2-playground.adoc[2.2. Chat with your model in the playground].
 
 == Procedure
 
-. In the Playground, select the *Prompt* tab. From this tab, you can:
+. In the Playground, if the *Settings* panel is not open, click *Settings*. Click the *Prompt* tab. From this tab, you can complete the following tasks:
 - Load an existing prompt
-- Modify and save the current prompt
+- Modify the current prompt and add it to the prompt registry
 
 . A default prompt is already entered, guiding your model. Overwrite the default prompt with something more specific to the Hospital Helpdesk work. Here is an example you can use:
 +
@@ -41,11 +41,11 @@ Important limitations:
 When you respond, be clear, helpful, and natural. If you cannot provide exact information, say so politely and suggest a useful next step the staff member can take.
 ----
 
-. Click `Add to prompt registry`
+. Click *Add to prompt registry*.
 +
 image::2-just-a-model/add-to-prompt-registry.png[Add to prompt registry]
 
-. Enter the following name: `ai-hospital-helpdesk`. You reuse this name later so it needs to be exact. Also feel free to give it a nice commit message. When you are done, click Create.
+. In the *Save prompt* modal, enter the following name: `ai-hospital-helpdesk`. You reuse this name later, so it must be exact. Optionally, enter a commit message. Click *Create*.
 +
 image::2-just-a-model/save-prompt.png[Save a new prompt]
 
@@ -55,7 +55,7 @@ image::2-just-a-model/save-prompt.png[Save a new prompt]
 
 Optionally, verify that the prompt was saved in your Prompts registry.
 
-. From the left menu, select *Gen AI studio* -> *Prompts*, and then select your project.
+. From the left menu, select *Gen AI studio* > *Prompts*, and then select your project.
 
 . The prompt you just created, `ai-hospital-helpdesk`, is listed. Click the prompt to view more information and options, including:
 - Create a new version of the prompt. You can also create a version from within the Playground by saving the prompt again.
