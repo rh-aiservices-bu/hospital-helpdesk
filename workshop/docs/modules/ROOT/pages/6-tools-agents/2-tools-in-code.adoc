@@ -10,7 +10,7 @@ Earlier, the OGX server ran the agent loop for you. In this section, you run the
 
 == Procedure
 
-. Open the notebook `3_tools.ipynb` in your workbench and complete it. Then, continue this tutorial.
+. Open the notebook `3_agent.ipynb` in your workbench and complete it. Then, continue this tutorial.
 
 == Verification
 
