@@ -28,3 +28,4 @@
 ** xref:6-tools-agents/1-install-mcp.adoc[6.1. Deploy an MCP server]
 ** xref:6-tools-agents/2-tools-in-code.adoc[6.2. Build an agentic workflow]
 // * xref:7-tie-it-all-together/index.adoc[7. Tie it all together]
+// * xref:8-whats-next/index.adoc[7. What's next]

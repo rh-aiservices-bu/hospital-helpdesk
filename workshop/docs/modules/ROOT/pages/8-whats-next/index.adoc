@@ -1,0 +1,35 @@
+= What's next
+
+[role="_abstract"]
+You have now gone through the following steps for building a GenAI applications: 
+
+* Served a model
+* Created a prompt you can version
+* Added and looked at tracing
+* Saw the effect of RAG over your own documents
+* and added an agent that calls tools
+
+This {deliverable} keeps things small so you can finish it in one sitting, which means a few shortcuts were taken along the way. +
+When moving to production, here are a few things you want to keep an eye on.
+
+== Towards production
+
+* *Use an accelerator.* The CPU deployment in this {deliverable} (if you used it) is only there so you can follow along on any cluster. An accelerator like a GPU gives you faster responses and lets you serve a larger, more capable model.
+
+* *Pick a bigger model, then measure.* Small models drop tool calls and ignore retrieved documents. Evaluate a few candidates against your own questions instead of choosing by size alone.
+
+* *Protect your endpoint.* The model in this {deliverable} is deployed without authentication. For anything real, require a token, and review who can reach the endpoint and the MCP server.
+
+* *Make your data durable.* Re-ingest your documents with a pipeline whenever they change, and keep the vector store and object storage outside the lifecycle of any single pod.
+
+* *Add guardrails.* Decide what the assistant must never do, and enforce it outside the prompt. Keep a human in the loop for actions that change data, such as creating or closing tickets.
+
+* *Sandbox your agent.* Set hard, deterministic, limits on what your agent is allowed to do so it can't go off and take actions it shouldn't.
+
+* *Keep evaluating and watching.* Metrics and traces tell you what happened; evaluation tells you whether it was any good. Run both continuously, not once.
+
+* *Automate the deployment.* Everything you clicked through here is a Kubernetes resource. Put it in Git so you can rebuild the whole project reproducibly.
+
+== References
+
+* 
